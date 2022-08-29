@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>3BLD Execution Trainer</title>
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="trainer.css">
+        <script defer src="alg.js"></script>
+        <script defer src="trainer-config.js"></script>
+        <script defer src="bld-exec-trainer.js"></script>
+    </head>
+    <body>
+        <div id="nav-bar">
+            <a class="nav-item" href="../index.html">Home</a>
+        </div>
+
+        <h1>3BLD Execution Trainer</h1>
+        <div id="trainer">
+            <canvas id="trainer-canvas" width="340" height="250"></canvas>
+            <div style="padding-top: 1em">
+                <div class="label">Scramble:</div>
+                <button id="next-scramble">Next</button>
+                <div id="scramble"></div>
+                <div class="label">Edge Memo:</div>
+                <div id="edge-memo"></div>
+                <div class="label">Corner Memo:</div>
+                <div id="corner-memo"></div>
+            </div>
+            <button id="open-config">Config</button>
+        </div>
+        <div id="trainer-config" style="display:none">
+            <h2>Settings</h2>
+            <button id="close-config">Save and close</button>
+            <h3>Method</h3>
+            <div class="column-container">
+                <div class="left-column">
+                    <label for="edge-method-select">Edge method:</label>
+                    <label for="edge-buffer">Edge buffer:</label>
+                    <label for="corner-method-select">Corner method:</label>
+                    <label for="corner-buffer">Corner buffer:</label>
+                </div>
+                <div class="right-column">
+                    <select name="edge-method-select" id="edge-method-select">
+                        <option value="3-style">3-Style</option>
+                        <option value="old-pochmann">Old Pochmann</option>
+                        <option value="m2">M2</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input id="edge-buffer" type="text" value="C">
+                    <select name="corner-method-select" id="corner-method-select">
+                        <option value="3-style">3-Style</option>
+                        <option value="old-pochmann">Old Pochmann</option>
+                        <option value="r2">R2</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input id="corner-buffer" type="text" value="C">
+                </div>
+            </div>
+            <h3>Letter Scheme</h3>
+            <div id="letter-scheme">
+                <div class="cube-face"></div>
+                <div class="cube-face">
+                    <input type="text" class="sticker u" value="A">
+                    <input type="text" class="sticker u" value="A">
+                    <input type="text" class="sticker u" value="B">
+                    <input type="text" class="sticker u" value="D">
+                    <div class="sticker u"></div>
+                    <input type="text" class="sticker u" value="B">
+                    <input type="text" class="sticker u" value="D">
+                    <input type="text" class="sticker u" value="C">
+                    <input type="text" class="sticker u" value="C">
+                </div>
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+                <div class="cube-face">
+                    <input type="text" class="sticker l" value="E">
+                    <input type="text" class="sticker l" value="E">
+                    <input type="text" class="sticker l" value="F">
+                    <input type="text" class="sticker l" value="H">
+                    <div class="sticker l"></div>
+                    <input type="text" class="sticker l" value="F">
+                    <input type="text" class="sticker l" value="H">
+                    <input type="text" class="sticker l" value="G">
+                    <input type="text" class="sticker l" value="G">
+                </div>
+                <div class="cube-face">
+                    <input type="text" class="sticker f" value="I">
+                    <input type="text" class="sticker f" value="I">
+                    <input type="text" class="sticker f" value="J">
+                    <input type="text" class="sticker f" value="L">
+                    <div class="sticker f"></div>
+                    <input type="text" class="sticker f" value="J">
+                    <input type="text" class="sticker f" value="L">
+                    <input type="text" class="sticker f" value="K">
+                    <input type="text" class="sticker f" value="K">
+                </div>
+                <div class="cube-face">
+                    <input type="text" class="sticker r" value="M">
+                    <input type="text" class="sticker r" value="M">
+                    <input type="text" class="sticker r" value="N">
+                    <input type="text" class="sticker r" value="P">
+                    <div class="sticker r"></div>
+                    <input type="text" class="sticker r" value="N">
+                    <input type="text" class="sticker r" value="P">
+                    <input type="text" class="sticker r" value="O">
+                    <input type="text" class="sticker r" value="O">
+                </div>
+                <div class="cube-face">
+                    <input type="text" class="sticker b" value="Q">
+                    <input type="text" class="sticker b" value="Q">
+                    <input type="text" class="sticker b" value="R">
+                    <input type="text" class="sticker b" value="T">
+                    <div class="sticker b"></div>
+                    <input type="text" class="sticker b" value="R">
+                    <input type="text" class="sticker b" value="T">
+                    <input type="text" class="sticker b" value="S">
+                    <input type="text" class="sticker b" value="S">
+                </div>
+                <div class="cube-face"></div>
+                <div class="cube-face">
+                    <input type="text" class="sticker d" value="U">
+                    <input type="text" class="sticker d" value="U">
+                    <input type="text" class="sticker d" value="V">
+                    <input type="text" class="sticker d" value="X">
+                    <div class="sticker d"></div>
+                    <input type="text" class="sticker d" value="V">
+                    <input type="text" class="sticker d" value="X">
+                    <input type="text" class="sticker d" value="W">
+                    <input type="text" class="sticker d" value="W">
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

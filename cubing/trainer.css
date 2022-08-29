@@ -1,0 +1,180 @@
+/* Variables */
+:root {
+    --sticker-size: 40px;
+    --face-margin: 5px;
+    --u-face-color: white;
+    --l-face-color: orange;
+    --f-face-color: green;
+    --r-face-color: red;
+    --b-face-color: blue;
+    --d-face-color: yellow;
+}
+
+/* Trainer */
+#trainer {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    padding: 2%;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#trainer-canvas {
+    float: right;
+}
+
+#scramble, #edge-memo, #corner-memo, .label {
+    font-size: 1.25em;
+    padding: 1em 2em;
+}
+.label {
+    padding: 0 1em;
+    display: inline;
+}
+#next-scramble {
+    color: black;
+}
+
+@media only screen and (max-width: 1000px) {
+    #trainer {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 650px) {
+    #trainer {
+        width: 350px;
+    }
+}
+
+/* Trainer config */
+#trainer-config {
+    position: fixed;
+    width: 75vw;
+    height: 75vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    background-color: #222;
+    overflow: scroll;
+    padding-bottom: 100px;
+
+    animation-name: configOpen;
+    animation-timing-function: linear;
+    animation-duration: 0.2s;
+}
+#trainer-config input[type="text"], #trainer-config select {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(118, 118, 118);
+}
+#trainer-config h2 {
+    text-align: center;
+    font-size: 3em;
+}
+#trainer-config h3 {
+    text-align: center;
+    font-size: 1.5em;
+}
+@keyframes configOpen {
+    from {
+        top: 100%;
+        width: 0vw;
+        height: 0vh;
+    }
+    to {
+        top: 50%;
+        width: 75vw;
+        height: 75vh;
+    }
+}
+#close-config, #open-config {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    height: 30px;
+}
+.column-container {
+    display: flex;
+}
+.left-column, .right-column {
+    flex: 1;
+}
+.left-column {
+    text-align: right;
+    padding-right: 5px;
+}
+.right-column {
+    padding-left: 5px;
+}
+.left-column label, .right-column input, .right-column select {
+    display: block;
+    margin-bottom: 10px;
+}
+.right-column input, .right-column select {
+    background-color: #222;
+}
+
+/* Letter scheme */
+#letter-scheme {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(var(--face-margin) * 8 + var(--sticker-size) * 12);
+    height: calc(var(--face-margin) * 6 + var(--sticker-size) * 9);
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+@media only screen and (max-width: 700px) {
+    #letter-scheme {
+        position: static;
+        transform: none;
+    }
+}
+
+.cube-face {
+    position: relative;
+    width: calc(var(--sticker-size) * 3);
+    height: calc(var(--sticker-size) * 3);
+    float: left;
+    margin: var(--face-margin);
+}
+body #trainer-config #letter-scheme .sticker { /* A bunch of garbage because specificity >:( */
+    position: relative;
+    width: calc(var(--sticker-size) - 4px);
+    height: calc(var(--sticker-size) - 4px);
+    float: left;
+    margin: 0px;
+    border: 2px solid black;
+    padding: 0px;
+    font-size: calc(var(--sticker-size) / 2);
+    text-align: center;
+    color: black;
+}
+.u {
+    background-color: var(--u-face-color);
+}
+.l {
+    background-color: var(--l-face-color);
+}
+.f {
+    background-color: var(--f-face-color);
+}
+.r {
+    background-color: var(--r-face-color);
+}
+.b {
+    background-color: var(--b-face-color);
+}
+.d {
+    background-color: var(--d-face-color);
+}
