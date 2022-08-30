@@ -24,6 +24,11 @@ class TrainerConfig {
             }
             event.preventDefault();
         };
+        this.letterInputSubmit = function(event) {
+            if (this.value.length > 1) {
+                this.value = this.value[this.value.length - 1].toUpperCase();
+            }
+        }
 
         this.elements = {
             closeConfig: document.getElementById("close-config"),
@@ -57,6 +62,7 @@ class TrainerConfig {
         // Formatted [element, eventType, function] or [elementArray, eventType, function]
         this.eventListeners = [
             [this.letterSchemeElements, "keydown", this.letterInput],
+            [this.letterSchemeElements, "change", this.letterInputSubmit],
             [this.elements.closeConfig, "click", () => {
                 this.elements.trainerConfig.style.display = "none";
                 this.refresh();
