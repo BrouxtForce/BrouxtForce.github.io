@@ -1,4 +1,4 @@
-class TrainerConfig {
+export class TrainerConfig {
     constructor() {
         this.letterSchemeRaw = "AABDBDCCEEFHFHGGIIJLJLKKMMNPNPOOQQRTRTSSUUVXVXWW";
         this.toLetterSchemeRaw = [

@@ -5,18 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home | Brouxt Force's Website</title>
         <link rel="stylesheet" href="style.css">
-        <script defer src="background-canvas.js"></script>
+        <script defer type="module" src="/build/templates.js"></script>
+        <script defer type="module" src="/build/index.js"></script>
     </head>
     <body>
-        <div id="nav-bar">
-            <a href="index.html" class="nav-item">Home</a>
-            <a href="cubing/bld-exec-trainer.html" class="nav-item">3BLD Execution Trainer</a>
-        </div>
+        <nav-bar></nav-bar>
 
         <div id="rest-of-page">
             <canvas id="background-canvas"></canvas>
             <h1>Home</h1>
-            <p>As of right now, the only thing here is the 3BLD Execution Trainer. A nice tool, but it would be nice to have other stuff as well.</p>
+            <p style="text-align:center;text-indent:0">A work-in-progress website for cubing practice and improvement.</p>
         </div>
     </body>
 </html>

@@ -1,3 +1,6 @@
+import { TrainerConfig } from "./trainer-config.js";
+import { Alg } from "./alg.js";
+
 String.prototype.divideIntoChars = function() {
     const array = [];
     for (let i = 0; i < this.length; i++) {
@@ -71,7 +74,6 @@ class CubeEdges {
     static get solvedState() { return "ABCDEFGHIJKLMNOPQRSTUVWX"; }
 
     execute(alg) {
-        if (alg.inverseCharacter != "i") alg.inverseCharacter = "i";
         alg.toBeginning();
         for (let i = 0; i < alg.length; i++) {
             this[alg.next()]();
@@ -312,7 +314,6 @@ class CubeCorners {
     static get solvedStateRaw() { return "AERBQNCMJDIFUGLVKPWOTXSH"; }
 
     execute(alg) {
-        if (alg.inverseCharacter != "i") alg.inverseCharacter = "i";
         alg.toBeginning();
         for (let i = 0; i < alg.length; i++) {
             let next = alg.next();
