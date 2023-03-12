@@ -15,17 +15,22 @@
     <body>
         <nav-bar></nav-bar>
 
+        <div id="cube-container"></div>
         <form id="solution-editor">
-            <!-- <textarea name="solution-editor-input" id="solution-editor-input" cols="30" rows="10" placeholder="Click here to add moves"></textarea> -->
-            <!-- <div id="solution-editor-error"></div> -->
+            <div class="section">
+                <h3>Scramble</h3>
+                <alg-textarea id="scramble-input"></alg-textarea>
+            </div>
 
-            <h3>Scramble</h3>
-            <alg-textarea id="scramble-input"></alg-textarea>
-            <h3>Solution</h3>
-            <alg-textarea id="solution-input" min-rows="5"></alg-textarea>
+            <div class="section">
+                <h3>Solution</h3>
+                <alg-textarea id="solution-input" min-rows="5"></alg-textarea>
+            </div>
 
-            <form>
-                <select id="puzzle-size">
+            <div class="section">
+                <h3>Puzzle Options</h3>
+                <label for="puzzle-size">Puzzle Size</label>
+                <select name="puzzle-size" id="puzzle-size">
                     <option value="2">2x2</option>
                     <option value="3" selected>3x3</option>
                     <option value="4">4x4</option>
@@ -33,9 +38,19 @@
                     <option value="6">6x6</option>
                     <option value="7">7x7</option>
                 </select>
-                <button id="load-twizzle-button">Load Twizzle.net URL</button>
-                <button id="load-alg-cubing-net-button">Load Alg.cubing.net URL</button>
-            </form>
+            </div>
+
+            <div class="section">
+                <h3>Load</h3>
+                <button id="load-link-button">Load URL</button>
+            </div>
+
+            <div class="section">
+                <h3>Get link</h3>
+                <button id="gen-alg-cubing-net-link">Alg.cubing.net</button>
+                <button id="gen-twizzle-link">Twizzle</button>
+                <button id="gen-cubedb-link">CubeDB</button>
+            </div>
         </form>
     </body>
 </html>

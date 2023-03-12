@@ -22,15 +22,18 @@ export class AlgTextarea extends HTMLElement {
                     this.dispatchEvent(
                         new CustomEvent<Alg>("alg-parse", { detail: parsedAlg })
                     );
-                    this.errorDiv.style.display = "none";
+                    this.textarea.classList.remove("invalid");
+                    this.errorDiv.style.display = "";
                 } catch (error: any) {
-                    this.errorDiv.style.display = "block";
+                    this.textarea.classList.add("invalid");
                     this.errorDiv.textContent = error;
+                    this.errorDiv.style.display = "block";
                 }
             });
         });
 
         this.errorDiv = document.createElement("div");
+        this.errorDiv.classList.add("error-message");
     }
     connectedCallback() {
         // this.innerHTML = `

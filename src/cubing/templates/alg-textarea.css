@@ -3,3 +3,26 @@ alg-textarea textarea {
     font-size: 1em;
     line-height: 1.2em;
 }
+alg-textarea textarea.invalid {
+    background-color: #933;
+}
+alg-textarea textarea {
+    position: relative;
+    width: 100%;
+    background-color: #444;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    padding: 0.75em;
+}
+alg-textarea .error-message {
+    position: relative;
+    width: 100%;
+    background-color: #b66;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 0.25em;
+    box-sizing: border-box;
+    display: none;
+}
