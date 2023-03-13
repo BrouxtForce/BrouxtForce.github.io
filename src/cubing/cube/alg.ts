@@ -1,5 +1,5 @@
 import { SiGNTokens, SiGNToken, SiGNTokenInputStream } from "./sign-tokens.js";
-import { MoveIterator, CommutatorIterator, ConjugateIterator, AlgIterator } from "./alg-iterator.js";
+import { MoveIterator, CommutatorIterator, ConjugateIterator, AlgIterator, EmptyIterator } from "./alg-iterator.js";
 
 // TODO: Optimization (for both this and sign-tokens.ts)
 
@@ -310,6 +310,73 @@ export class Conjugate implements AlgNode {
     }
 }
 
+export class Comment implements AlgNode {
+    public value: string;
+    public type: "blockComment" | "lineComment";
+    public amount = 0; // Does nothing
+
+    constructor(comment: string, type: "blockComment" | "lineComment") {
+        this.value = comment;
+        this.type = type;
+    }
+    copy(): Comment { return new Comment(this.value, this.type); }
+    expand(): Move[] { return []; }
+    invert(): Comment { return this; }
+    inverted(): Comment { return this.copy(); }
+    toString(): string {
+        if (this.type === "lineComment") {
+            return `//${this.value}`;
+        }
+        return `/*${this.value}*/`;
+    }
+
+    forwardIterator(): Iterator<any> {
+        return new EmptyIterator();
+    }
+    reverseIterator(): Iterator<any> {
+        return new EmptyIterator();
+    }
+    forward() {
+        return { [Symbol.iterator]: () => this.forwardIterator() }
+    }
+    reverse() {
+        return { [Symbol.iterator]: () => this.reverseIterator() }
+    }
+    [Symbol.iterator](): Iterator<any> {
+        return this.forwardIterator();
+    }
+}
+
+export class Whitespace implements AlgNode {
+    public value: string;
+    public amount = 0;
+
+    constructor(whitespace: string) {
+        this.value = whitespace;
+    }
+    copy(): Whitespace { return new Whitespace(this.value); }
+    expand(): Move[] { return []; }
+    invert(): Whitespace { return this; }
+    inverted(): Whitespace { return this.copy(); }
+    toString(): string { return this.value; }
+
+    forwardIterator(): Iterator<any> {
+        return new EmptyIterator();
+    }
+    reverseIterator(): Iterator<any> {
+        return new EmptyIterator();
+    }
+    forward() {
+        return { [Symbol.iterator]: () => this.forwardIterator() };
+    }
+    reverse() {
+        return { [Symbol.iterator]: () => this.reverseIterator() };
+    }
+    [Symbol.iterator](): Iterator<any> {
+        return this.forwardIterator();
+    }
+}
+
 export class Alg implements AlgNode {
     public nodes: AlgNode[];
 
@@ -357,9 +424,9 @@ export class Alg implements AlgNode {
             stringArray.push(node.toString());
         }
         if (this.amount === 1) {
-            return stringArray.join(" ");
+            return stringArray.join("");
         }
-        return `(${stringArray.join(" ")})${this.amount}`;
+        return `(${stringArray.join("")})${this.amount}`;
     }
 
     forwardIterator(): AlgIterator {
@@ -388,7 +455,6 @@ export class Alg implements AlgNode {
         alg.amount = amount ?? 1;
         let nodes: AlgNode[] = alg.nodes;
 
-        let prevToken: SiGNToken | null = null;
         for (let i = 0; i < tokens.length; i++) {
             let token = tokens[i];
             switch (token.type) {
@@ -435,10 +501,15 @@ export class Alg implements AlgNode {
                             throw "Unmatched ']' or ')'.";
                     }
                     break;
+                case "blockComment": case "lineComment":
+                    nodes.push(new Comment(token.value, token.type));
+                    break;
+                case "whitespace":
+                    nodes.push(new Whitespace(token.value));
+                    break;
                 default:
                     throw `Invalid token type: ${token.type}.`;
             }
-            prevToken = token;
         }
 
         return alg;

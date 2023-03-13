@@ -95,44 +95,54 @@ export class SiGNTokenInputStream {
     readPunc() {
         return this.input.next();
     }
-    skipComment() {
+    readCommentToken() {
         this.input.next();
         if (this.input.peek() === "/") {
-            this.readWhile((char) => char !== "\n");
-            return;
+            this.input.next();
+            let comment = this.readWhile((char) => char !== "\n");
+            return {
+                type: "lineComment",
+                value: comment
+            };
         }
         if (this.input.peek() === "*") {
-            let prevChar = "";
+            this.input.next();
+            let comment = "";
             let char = "";
-            let requiredClosingComments = 1;
             while (!this.input.eof()) {
                 char = this.input.next();
-                if (char === "*") {
-                    if (prevChar === "/") {
-                        requiredClosingComments++;
-                    }
-                    else if (this.input.peek() === "/") {
-                        requiredClosingComments--;
-                        if (requiredClosingComments === 0) {
-                            this.input.next();
-                            return;
-                        }
-                    }
+                if (char === "*" && this.input.peek() === "/") {
+                    this.input.next();
+                    return {
+                        type: "blockComment",
+                        value: comment
+                    };
                 }
-                prevChar = char;
+                else {
+                    comment += char;
+                }
             }
             this.input.croak("Syntax Error: Missing end to multi-line comment.");
-            return;
+            return null;
         }
         this.input.croak("Syntax Error: Random forward slash.");
+        return null;
+    }
+    readWhitespace() {
+        return this.readWhile(this.isWhitespace);
     }
     readNext() {
         while (true) {
-            this.readWhile(this.isWhitespace);
             if (this.input.eof()) {
                 return null;
             }
             let char = this.input.peek();
+            if (this.isWhitespace(char)) {
+                return {
+                    type: "whitespace",
+                    value: this.readWhitespace()
+                };
+            }
             if (this.isMove(char) || this.isNumber(char)) {
                 return {
                     type: "move",
@@ -157,8 +167,7 @@ export class SiGNTokenInputStream {
                 return token;
             }
             if (this.isForwardSlash(char)) {
-                this.skipComment();
-                continue;
+                return this.readCommentToken();
             }
             this.input.croak(`Syntax Error: ${char}`);
         }

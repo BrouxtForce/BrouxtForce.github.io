@@ -85,7 +85,7 @@ function generateLink(site, processString = false) {
     let solutionString = solution.toString();
     if (processString) {
         scrambleString = scrambleString.replace(/ /g, "_").replace(/'/g, "-");
-        solutionString = scrambleString.replace(/ /g, "_").replace(/'/g, "-");
+        solutionString = solutionString.replace(/ /g, "_").replace(/'/g, "-");
     }
     let puzzleSize = cube.getLayerCount();
     let puzzleString = Array(3).fill(puzzleSize).join("x");

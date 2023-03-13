@@ -155,10 +155,12 @@ export class AlgIterator implements Iterator<Move> {
         this.index += this.reverse ? -1 : 1;
         if ((this.index < this.algNodes.length && !this.reverse) || (this.index >= 0 && this.reverse)) {
             this.currentIterator = this.algNodes[this.index][this.reverse ? "reverseIterator" : "forwardIterator"]();
+            return this.next();
         } else {
             if (--this.amount > 0) {
                 this.index = this.reverse ? this.algNodes.length - 1 : 0;
                 this.currentIterator = this.algNodes[this.index][this.reverse ? "reverseIterator" : "forwardIterator"]();
+                return this.next();
             } else {
                 return {
                     done: true,
@@ -167,6 +169,14 @@ export class AlgIterator implements Iterator<Move> {
             }
         }
 
-        return this.currentIterator.next();
+        // return this.currentIterator.next();
+    }
+}
+export class EmptyIterator implements Iterator<Move> {
+    next(): IteratorResult<Move, Move | undefined> {
+        return {
+            done: true,
+            value: undefined
+        };
     }
 }

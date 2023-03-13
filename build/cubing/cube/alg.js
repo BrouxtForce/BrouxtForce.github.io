@@ -1,5 +1,5 @@
 import { SiGNTokens, SiGNTokenInputStream } from "./sign-tokens.js";
-import { MoveIterator, CommutatorIterator, ConjugateIterator, AlgIterator } from "./alg-iterator.js";
+import { MoveIterator, CommutatorIterator, ConjugateIterator, AlgIterator, EmptyIterator } from "./alg-iterator.js";
 export class Move {
     constructor(face, shallow, deep, amount) {
         this.shallow = 1;
@@ -213,6 +213,64 @@ export class Conjugate {
         return this.forwardIterator();
     }
 }
+export class Comment {
+    constructor(comment, type) {
+        this.amount = 0;
+        this.value = comment;
+        this.type = type;
+    }
+    copy() { return new Comment(this.value, this.type); }
+    expand() { return []; }
+    invert() { return this; }
+    inverted() { return this.copy(); }
+    toString() {
+        if (this.type === "lineComment") {
+            return `//${this.value}`;
+        }
+        return `/*${this.value}*/`;
+    }
+    forwardIterator() {
+        return new EmptyIterator();
+    }
+    reverseIterator() {
+        return new EmptyIterator();
+    }
+    forward() {
+        return { [Symbol.iterator]: () => this.forwardIterator() };
+    }
+    reverse() {
+        return { [Symbol.iterator]: () => this.reverseIterator() };
+    }
+    [Symbol.iterator]() {
+        return this.forwardIterator();
+    }
+}
+export class Whitespace {
+    constructor(whitespace) {
+        this.amount = 0;
+        this.value = whitespace;
+    }
+    copy() { return new Whitespace(this.value); }
+    expand() { return []; }
+    invert() { return this; }
+    inverted() { return this.copy(); }
+    toString() { return this.value; }
+    forwardIterator() {
+        return new EmptyIterator();
+    }
+    reverseIterator() {
+        return new EmptyIterator();
+    }
+    forward() {
+        return { [Symbol.iterator]: () => this.forwardIterator() };
+    }
+    reverse() {
+        return { [Symbol.iterator]: () => this.reverseIterator() };
+    }
+    [Symbol.iterator]() {
+        return this.forwardIterator();
+    }
+}
 export class Alg {
     constructor(nodes) {
         this.amount = 1;
@@ -256,9 +314,9 @@ export class Alg {
             stringArray.push(node.toString());
         }
         if (this.amount === 1) {
-            return stringArray.join(" ");
+            return stringArray.join("");
         }
-        return `(${stringArray.join(" ")})${this.amount}`;
+        return `(${stringArray.join("")})${this.amount}`;
     }
     forwardIterator() {
         return new AlgIterator(this);
@@ -279,7 +337,6 @@ export class Alg {
         let alg = new Alg([]);
         alg.amount = amount ?? 1;
         let nodes = alg.nodes;
-        let prevToken = null;
         for (let i = 0; i < tokens.length; i++) {
             let token = tokens[i];
             switch (token.type) {
@@ -324,10 +381,16 @@ export class Alg {
                             throw "Unmatched ']' or ')'.";
                     }
                     break;
+                case "blockComment":
+                case "lineComment":
+                    nodes.push(new Comment(token.value, token.type));
+                    break;
+                case "whitespace":
+                    nodes.push(new Whitespace(token.value));
+                    break;
                 default:
                     throw `Invalid token type: ${token.type}.`;
             }
-            prevToken = token;
         }
         return alg;
     }

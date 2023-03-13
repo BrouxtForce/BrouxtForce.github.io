@@ -119,11 +119,13 @@ export class AlgIterator {
         this.index += this.reverse ? -1 : 1;
         if ((this.index < this.algNodes.length && !this.reverse) || (this.index >= 0 && this.reverse)) {
             this.currentIterator = this.algNodes[this.index][this.reverse ? "reverseIterator" : "forwardIterator"]();
+            return this.next();
         }
         else {
             if (--this.amount > 0) {
                 this.index = this.reverse ? this.algNodes.length - 1 : 0;
                 this.currentIterator = this.algNodes[this.index][this.reverse ? "reverseIterator" : "forwardIterator"]();
+                return this.next();
             }
             else {
                 return {
@@ -132,6 +134,13 @@ export class AlgIterator {
                 };
             }
         }
-        return this.currentIterator.next();
+    }
+}
+export class EmptyIterator {
+    next() {
+        return {
+            done: true,
+            value: undefined
+        };
     }
 }

@@ -36,7 +36,7 @@ export class CharacterInputStream {
 }
 
 export interface SiGNToken {
-    type: "move" | "punctuation"/* | "number"*/;
+    type: "move" | "punctuation" | "whitespace" | "lineComment" | "blockComment";
     value: string;
     amount?: number; // Only used for punctuation
 }
@@ -115,64 +115,68 @@ export class SiGNTokenInputStream {
     readPunc(): string {
         return this.input.next();
     }
-    skipComment(): void {
+    readCommentToken(): { type: "lineComment" | "blockComment", value: string } | null {
         this.input.next(); // First '/' in comment declaration
         if (this.input.peek() === "/") {
-            this.readWhile((char: string) => char !== "\n");
-            return;
+            this.input.next();
+            
+            let comment = this.readWhile((char: string) => char !== "\n");
+            return {
+                type: "lineComment",
+                value: comment
+            };
         }
         if (this.input.peek() === "*") {
-            // Not using readwhile so I can support nested multiline comments
-            let prevChar = "";
+            this.input.next();
+
+            let comment = "";
             let char = "";
-            let requiredClosingComments = 1;
             while (!this.input.eof()) {
                 char = this.input.next();
-                if (char === "*") {
-                    if (prevChar === "/") {
-                        requiredClosingComments++;
-                    } else if (this.input.peek() === "/") {
-                        requiredClosingComments--;
-                        if (requiredClosingComments === 0) {
-                            this.input.next();
-                            return;
-                        }
-                    }
+                if (char === "*" && this.input.peek() === "/") {
+                    this.input.next();
+                    return {
+                        type: "blockComment",
+                        value: comment
+                    };
+                } else {
+                    comment += char;
                 }
-                prevChar = char;
             }
             this.input.croak("Syntax Error: Missing end to multi-line comment.");
-            return;
+            return null;
         }
         this.input.croak("Syntax Error: Random forward slash.");
+        return null;
+    }
+    readWhitespace(): string {
+        return this.readWhile(this.isWhitespace);
     }
 
     readNext(): SiGNToken | null {
         while (true) {
-            this.readWhile(this.isWhitespace);
-
             if (this.input.eof()) {
                 return null;
             }
 
             let char = this.input.peek();
+            if (this.isWhitespace(char)) {
+                return {
+                    type: "whitespace",
+                    value: this.readWhitespace()
+                };
+            }
             if (this.isMove(char) || this.isNumber(char)) {
                 return {
                     type: "move",
                     value: this.readMove()
-                }
+                };
             }
-            // if (this.isNumber(char)) {
-            //     return {
-            //         type: "number",
-            //         value: this.readNumber()
-            //     }
-            // }
             if (this.isPunctuation(char)) {
                 let token: SiGNToken = {
                     type: "punctuation",
                     value: this.readPunc()
-                }
+                };
                 if ((this.isNumber(this.input.peek()) || this.input.peek() === "'") && (token.value === ")" || token.value === "]")) {
                     token.amount = Number.parseInt(this.readNumber());
                     if (isNaN(token.amount)) {
@@ -186,8 +190,8 @@ export class SiGNTokenInputStream {
                 return token;
             }
             if (this.isForwardSlash(char)) {
-                this.skipComment();
-                continue;
+                // It's fine if it returns null because the alg will not finish parsing if there is an error
+                return this.readCommentToken();
             }
 
             this.input.croak(`Syntax Error: ${char}`);
