@@ -269,6 +269,10 @@ export class Cube {
     move(face: Face, amount: number, shallow: number = 1, deep: number = 1): void {
         let counterclockwise = amount < 0;
         amount = Math.abs(amount) % 4;
+        if (amount === 0) {
+            return;
+        }
+        counterclockwise = (amount === 3) !== counterclockwise;
         let double = amount === 2;
 
         shallow = Math.min(shallow, this.layerCount);

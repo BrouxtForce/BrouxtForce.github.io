@@ -197,4 +197,4 @@ simplifyAlgButton.addEventListener("click", event => {
     solution.removeWhitespace();
     solution.addWhitespace();
     solutionInput.value = solution.toString();
-})
+});
