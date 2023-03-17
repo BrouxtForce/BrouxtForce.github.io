@@ -68,8 +68,8 @@ loadLinkButton.addEventListener("click", event => {
         scrambleString = scrambleString.replace(/_/g, " ").replace(/-/g, "'");
         solutionString = solutionString.replace(/_/g, " ").replace(/-/g, "'");
     }
-    scrambleInput.querySelector("textarea").value = scrambleString;
-    solutionInput.querySelector("textarea").value = solutionString;
+    scrambleInput.value = scrambleString;
+    solutionInput.value = solutionString;
     scramble = Alg.fromString(scrambleString);
     solution = Alg.fromString(solutionString);
     let puzzleNameString = url.searchParams.get("puzzle") ?? "3";
@@ -129,4 +129,39 @@ const cubedbLinkButton = document.getElementById("gen-cubedb-link");
 cubedbLinkButton.addEventListener("click", event => {
     event.preventDefault();
     navigator.clipboard.writeText(generateLink("https://cubedb.net", true));
+});
+const invertAlgButton = document.getElementById("alg-invert-button");
+invertAlgButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution.invert();
+    solutionInput.value = solution.toString();
+    updateCube();
+});
+const expandAlgButton = document.getElementById("alg-expand-button");
+expandAlgButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution = new Alg(solution.expand());
+    solutionInput.value = solution.toString();
+    updateCube();
+});
+const stripCommentsButton = document.getElementById("alg-strip-comments-button");
+stripCommentsButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution.stripComments();
+    solutionInput.value = solution.toString();
+});
+const formatAlgButton = document.getElementById("alg-format-button");
+formatAlgButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution.removeWhitespace();
+    solution.addWhitespace();
+    solutionInput.value = solution.toString();
+});
+const simplifyAlgButton = document.getElementById("alg-simplify-button");
+simplifyAlgButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution.simplify();
+    solution.removeWhitespace();
+    solution.addWhitespace();
+    solutionInput.value = solution.toString();
 });

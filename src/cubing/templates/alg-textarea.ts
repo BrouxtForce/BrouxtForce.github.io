@@ -35,11 +35,10 @@ export class AlgTextarea extends HTMLElement {
         this.errorDiv = document.createElement("div");
         this.errorDiv.classList.add("error-message");
     }
+    get value() { return this.textarea.value; }
+    set value(value: string) { this.textarea.value = value; }
+
     connectedCallback() {
-        // this.innerHTML = `
-        //     <textarea rows="1" placeholder="Click here to add moves"></textarea>
-        //     <div class="parse-error"></div>
-        // `;
         this.appendChild(this.textarea);
         this.appendChild(this.errorDiv);
 
@@ -54,7 +53,7 @@ export class AlgTextarea extends HTMLElement {
         }
     }
     static get observedAttributes() {
-        return ["min-rows"];
+        return ["min-rows", "value"];
     }
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
         switch (name) {
@@ -63,6 +62,9 @@ export class AlgTextarea extends HTMLElement {
                 if (!isNaN(number)) {
                     this.textarea.rows = number;
                 }
+                break;
+            case "value":
+                this.textarea.value = newValue;
                 break;
         }
     }

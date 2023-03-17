@@ -2,6 +2,7 @@ import { SiGNTokens, SiGNTokenInputStream } from "./sign-tokens.js";
 import { MoveIterator, CommutatorIterator, ConjugateIterator, AlgIterator, EmptyIterator } from "./alg-iterator.js";
 export class Move {
     constructor(face, shallow, deep, amount) {
+        this.type = "Move";
         this.shallow = 1;
         this.deep = 1;
         this.face = face;
@@ -58,8 +59,8 @@ export class Move {
     copy() {
         return new Move(this.face, this.shallow, this.deep, this.amount);
     }
-    expand() {
-        return [this.copy()];
+    expand(copy) {
+        return copy ? [this] : [this.copy()];
     }
     invert() {
         this.amount *= -1;
@@ -118,6 +119,7 @@ export class Move {
 }
 export class Commutator {
     constructor(algA, algB) {
+        this.type = "Commutator";
         this.amount = 1;
         this.algA = algA;
         this.algB = algB;
@@ -125,18 +127,16 @@ export class Commutator {
     copy() {
         return new Commutator(this.algA.copy(), this.algB.copy());
     }
-    expand() {
-        const expandedA = this.algA.expand();
-        const expandedB = this.algB.expand();
+    expand(copy) {
+        const expandedA = this.algA.expand(copy);
+        const expandedB = this.algB.expand(copy);
         const invertedA = [];
         const invertedB = [];
         for (let i = expandedA.length - 1; i >= 0; i--) {
-            const move = expandedA[i];
-            invertedA.push(new Move(move.face, move.shallow, move.deep, -move.amount));
+            invertedA.push(expandedA[i].inverted());
         }
         for (let i = expandedB.length - 1; i >= 0; i--) {
-            const move = expandedB[i];
-            invertedB.push(new Move(move.face, move.shallow, move.deep, -move.amount));
+            invertedB.push(expandedB[i].inverted());
         }
         return expandedA.concat(expandedB, invertedA, invertedB);
     }
@@ -150,7 +150,23 @@ export class Commutator {
         return new Commutator(this.algB.copy(), this.algA.copy());
     }
     toString() {
-        return `[${this.algA.toString()}, ${this.algB.toString()}]`;
+        return `[${this.algA.toString()},${this.algB.toString()}]`;
+    }
+    stripComments() {
+        this.algA.stripComments();
+        this.algB.stripComments();
+    }
+    removeWhitespace() {
+        this.algA.removeWhitespace();
+        this.algB.removeWhitespace();
+    }
+    addWhitespace() {
+        this.algA.addWhitespace();
+        this.algB.addWhitespace();
+    }
+    simplify() {
+        this.algA.simplify();
+        this.algB.simplify();
     }
     forwardIterator() {
         return new CommutatorIterator(this);
@@ -170,6 +186,7 @@ export class Commutator {
 }
 export class Conjugate {
     constructor(algA, algB) {
+        this.type = "Conjugate";
         this.amount = 1;
         this.algA = algA;
         this.algB = algB;
@@ -177,13 +194,12 @@ export class Conjugate {
     copy() {
         return new Conjugate(this.algA.copy(), this.algB.copy());
     }
-    expand() {
-        const expandedA = this.algA.expand();
-        const expandedB = this.algB.expand();
+    expand(copy) {
+        const expandedA = this.algA.expand(copy);
+        const expandedB = this.algB.expand(copy);
         const invertedA = [];
         for (let i = expandedA.length - 1; i >= 0; i--) {
-            const move = expandedA[i];
-            invertedA.push(new Move(move.face, move.shallow, move.deep, -move.amount));
+            invertedA.push(expandedA[i].inverted());
         }
         return expandedA.concat(expandedB, invertedA);
     }
@@ -195,7 +211,23 @@ export class Conjugate {
         return new Conjugate(this.algA.copy(), this.algB.inverted());
     }
     toString() {
-        return `[${this.algA.toString()} : ${this.algB.toString()}]`;
+        return `[${this.algA.toString()}:${this.algB.toString()}]`;
+    }
+    stripComments() {
+        this.algA.stripComments();
+        this.algB.stripComments();
+    }
+    removeWhitespace() {
+        this.algA.removeWhitespace();
+        this.algB.removeWhitespace();
+    }
+    addWhitespace() {
+        this.algA.addWhitespace();
+        this.algB.addWhitespace();
+    }
+    simplify() {
+        this.algA.simplify();
+        this.algB.simplify();
     }
     forwardIterator() {
         return new ConjugateIterator(this);
@@ -214,17 +246,18 @@ export class Conjugate {
     }
 }
 export class Comment {
-    constructor(comment, type) {
+    constructor(comment, commentType) {
+        this.type = "Comment";
         this.amount = 0;
         this.value = comment;
-        this.type = type;
+        this.commentType = commentType;
     }
-    copy() { return new Comment(this.value, this.type); }
-    expand() { return []; }
+    copy() { return new Comment(this.value, this.commentType); }
+    expand(copy) { return copy ? [this.copy()] : [this]; }
     invert() { return this; }
     inverted() { return this.copy(); }
     toString() {
-        if (this.type === "lineComment") {
+        if (this.commentType === "lineComment") {
             return `//${this.value}`;
         }
         return `/*${this.value}*/`;
@@ -247,11 +280,12 @@ export class Comment {
 }
 export class Whitespace {
     constructor(whitespace) {
+        this.type = "Whitespace";
         this.amount = 0;
         this.value = whitespace;
     }
     copy() { return new Whitespace(this.value); }
-    expand() { return []; }
+    expand(copy) { return copy ? [this.copy()] : [this]; }
     invert() { return this; }
     inverted() { return this.copy(); }
     toString() { return this.value; }
@@ -273,6 +307,7 @@ export class Whitespace {
 }
 export class Alg {
     constructor(nodes) {
+        this.type = "Alg";
         this.amount = 1;
         this.nodes = nodes;
     }
@@ -286,12 +321,34 @@ export class Alg {
         }
         return new Alg(copiedNodes);
     }
-    expand() {
-        const moves = [];
-        for (const node of this.nodes) {
-            moves.push(...node.expand());
+    expand(copy = false) {
+        const nodes = [];
+        if (this.amount > 0) {
+            for (const node of this.nodes) {
+                nodes.push(...node.expand(copy));
+            }
         }
-        return moves;
+        else {
+            for (let i = this.nodes.length - 1; i >= 0; i--) {
+                nodes.push(...this.nodes[i].inverted().expand(copy));
+            }
+        }
+        const repeatedNodesArray = [];
+        if (copy) {
+            for (let i = 0; i < Math.abs(this.amount); i++) {
+                let copyArray = [];
+                for (let j = 0; j < nodes.length; j++) {
+                    copyArray[j] = nodes[j].copy();
+                }
+                repeatedNodesArray.push(...copyArray);
+            }
+        }
+        else {
+            for (let i = 0; i < Math.abs(this.amount); i++) {
+                repeatedNodesArray.push(...nodes.slice());
+            }
+        }
+        return repeatedNodesArray;
     }
     expanded() {
         return new Alg(this.expand());
@@ -302,21 +359,128 @@ export class Alg {
             this.nodes[i].invert();
             invertedNodes.push(this.nodes[i]);
         }
+        for (let i = 0; i < invertedNodes.length; i++) {
+            if (invertedNodes[i].type === "Comment") {
+                const comment = invertedNodes[i];
+                if (comment.commentType !== "lineComment") {
+                    continue;
+                }
+                if (i + 1 >= invertedNodes.length || invertedNodes[i + 1].type === "Whitespace") {
+                    const whitespace = invertedNodes[i];
+                    if (whitespace.value.indexOf("\n") > -1) {
+                        continue;
+                    }
+                }
+                invertedNodes.splice(i, 1);
+                let broken = false;
+                for (let j = i; j < invertedNodes.length; j++) {
+                    if (invertedNodes[j].type === "Whitespace") {
+                        const whitespace = invertedNodes[j];
+                        if (whitespace.value[0] === "\n") {
+                            broken = true;
+                            invertedNodes.splice(j, 0, comment);
+                            break;
+                        }
+                    }
+                }
+                if (!broken) {
+                    invertedNodes.push(comment);
+                }
+            }
+        }
         this.nodes = invertedNodes;
         return this;
     }
     inverted() {
         return this.copy().invert();
     }
-    toString() {
+    toString(parent = true) {
         const stringArray = [];
         for (const node of this.nodes) {
-            stringArray.push(node.toString());
+            stringArray.push(node.toString(false));
         }
-        if (this.amount === 1) {
+        if (this.amount === 1 && parent) {
             return stringArray.join("");
         }
-        return `(${stringArray.join("")})${this.amount}`;
+        const absAmount = Math.abs(this.amount);
+        return `(${stringArray.join("")})${absAmount !== 1 ? absAmount : ""}${this.amount < 0 ? "'" : ""}`;
+    }
+    stripComments() {
+        for (let i = 0; i < this.nodes.length; i++) {
+            if (this.nodes[i].type === "Comment") {
+                this.nodes.splice(i, 1);
+                i--;
+                continue;
+            }
+            this.nodes[i].stripComments?.();
+        }
+    }
+    removeWhitespace(removeNewlines = false) {
+        for (let i = 0; i < this.nodes.length; i++) {
+            if (this.nodes[i].type === "Whitespace") {
+                const whitespace = this.nodes[i];
+                if (removeNewlines || whitespace.value.indexOf("\n") === -1) {
+                    this.nodes.splice(i, 1);
+                    i--;
+                    continue;
+                }
+                whitespace.value = whitespace.value.replace(/./g, "");
+                continue;
+            }
+            this.nodes[i].removeWhitespace?.();
+        }
+    }
+    addWhitespace() {
+        for (let i = 0; i < this.nodes.length; i++) {
+            this.nodes[i].addWhitespace?.();
+            let type = this.nodes[i].type;
+            if (type !== "Whitespace") {
+                if (i + 1 >= this.nodes.length) {
+                    continue;
+                }
+                if (this.nodes[i + 1].type !== "Whitespace") {
+                    this.nodes.splice(i + 1, 0, new Whitespace(" "));
+                    i++;
+                }
+            }
+        }
+    }
+    simplify() {
+        let changed = true;
+        while (changed) {
+            changed = false;
+            let prevNode = null;
+            let prevNodeIndex = -1;
+            for (let i = 0; i < this.nodes.length; i++) {
+                let node = this.nodes[i];
+                if (node.type === "Whitespace" || node.type === "Comment") {
+                    continue;
+                }
+                node.simplify?.();
+                if (node.type === "Move") {
+                    if (node.amount % 4 === 0) {
+                        this.nodes.splice(i, 1);
+                        i--;
+                        continue;
+                    }
+                    node.amount %= 4;
+                }
+                if (node.type === "Move" && prevNode?.type === "Move") {
+                    if (node.face === prevNode.face) {
+                        changed = true;
+                        prevNode.amount += node.amount;
+                        if (node.amount === 0) {
+                            this.nodes.splice(prevNodeIndex, 1);
+                        }
+                        this.nodes.splice(i, 1);
+                        i = prevNodeIndex;
+                        continue;
+                    }
+                }
+                prevNode = node;
+                prevNodeIndex = i;
+            }
+        }
     }
     forwardIterator() {
         return new AlgIterator(this);
@@ -421,6 +585,11 @@ export class Alg {
         }
         if (brackets.length !== 0) {
             return `'${brackets[brackets.length - 1]}' missing closing bracket.`;
+        }
+        for (const token of tokens) {
+            if (token.type === "move" && "XYZ".indexOf(token.value) > -1) {
+                return `'${token.value}' must be lowercase.`;
+            }
         }
         return "";
     }

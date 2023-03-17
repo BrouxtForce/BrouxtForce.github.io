@@ -84,8 +84,8 @@ loadLinkButton.addEventListener("click", event => {
     }
 
     
-    (scrambleInput.querySelector("textarea") as HTMLTextAreaElement).value = scrambleString;
-    (solutionInput.querySelector("textarea") as HTMLTextAreaElement).value = solutionString;
+    scrambleInput.value = scrambleString;
+    solutionInput.value = solutionString;
 
     scramble = Alg.fromString(scrambleString);
     solution = Alg.fromString(solutionString);
@@ -158,3 +158,43 @@ cubedbLinkButton.addEventListener("click", event => {
     event.preventDefault();
     navigator.clipboard.writeText(generateLink("https://cubedb.net", true));
 });
+
+const invertAlgButton = document.getElementById("alg-invert-button") as HTMLButtonElement;
+invertAlgButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution.invert();
+    solutionInput.value = solution.toString();
+    updateCube();
+});
+
+const expandAlgButton = document.getElementById("alg-expand-button") as HTMLButtonElement;
+expandAlgButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution = new Alg(solution.expand());
+    solutionInput.value = solution.toString();
+    updateCube();
+});
+
+const stripCommentsButton = document.getElementById("alg-strip-comments-button") as HTMLButtonElement;
+stripCommentsButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution.stripComments();
+    solutionInput.value = solution.toString();
+});
+
+const formatAlgButton = document.getElementById("alg-format-button") as HTMLButtonElement;
+formatAlgButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution.removeWhitespace();
+    solution.addWhitespace();
+    solutionInput.value = solution.toString();
+});
+
+const simplifyAlgButton = document.getElementById("alg-simplify-button") as HTMLButtonElement;
+simplifyAlgButton.addEventListener("click", event => {
+    event.preventDefault();
+    solution.simplify();
+    solution.removeWhitespace();
+    solution.addWhitespace();
+    solutionInput.value = solution.toString();
+})

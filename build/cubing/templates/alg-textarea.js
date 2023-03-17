@@ -26,6 +26,8 @@ export class AlgTextarea extends HTMLElement {
         this.errorDiv = document.createElement("div");
         this.errorDiv.classList.add("error-message");
     }
+    get value() { return this.textarea.value; }
+    set value(value) { this.textarea.value = value; }
     connectedCallback() {
         this.appendChild(this.textarea);
         this.appendChild(this.errorDiv);
@@ -39,7 +41,7 @@ export class AlgTextarea extends HTMLElement {
         }
     }
     static get observedAttributes() {
-        return ["min-rows"];
+        return ["min-rows", "value"];
     }
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
@@ -48,6 +50,9 @@ export class AlgTextarea extends HTMLElement {
                 if (!isNaN(number)) {
                     this.textarea.rows = number;
                 }
+                break;
+            case "value":
+                this.textarea.value = newValue;
                 break;
         }
     }
