@@ -1,4 +1,7 @@
-import { Move, Commutator, Conjugate, Alg, AlgNode } from "./alg.js";
+import { Alg, AlgNode } from "./alg.js";
+import { Move } from "./move.js";
+import { Commutator } from "./commutator.js";
+import { Conjugate } from "./conjugate.js";
 
 export class MoveIterator implements Iterator<Move> {
     private move: Move;
