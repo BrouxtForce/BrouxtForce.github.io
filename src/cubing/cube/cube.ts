@@ -8,6 +8,17 @@ enum Face {
     L = 4,
     D = 5
 };
+function oppositeFace(face: Face): Face {
+    switch (face) {
+        case Face.U: return Face.D;
+        case Face.F: return Face.B;
+        case Face.R: return Face.L;
+        case Face.B: return Face.F;
+        case Face.L: return Face.R;
+        case Face.D: return Face.U;
+        default:     return Face.U;
+    }
+}
 function faceToString(face: Face): string {
     switch (face) {
         case Face.U: return "U";
@@ -282,6 +293,9 @@ export class Cube {
             if (shallow === 1) {
                 this.cycleFace(face, counterclockwise);
             }
+            if (deep >= this.layerCount) {
+                this.cycleFace(oppositeFace(face), !counterclockwise);
+            }
             // shallow - 1 to start indexing depth at 0 instead of 1
             for (let i = shallow - 1; i < deep; i++) {
                 this.cycleThread(face, i, counterclockwise);
@@ -290,6 +304,11 @@ export class Cube {
             if (shallow === 1) {
                 this.cycleFaceCw(face);
                 this.cycleFaceCw(face);
+            }
+            if (deep >= this.layerCount) {
+                let opposite = oppositeFace(face);
+                this.cycleFaceCw(opposite);
+                this.cycleFaceCw(opposite);
             }
             for (let i = shallow - 1; i < deep; i++) {
                 this.cycleThreadCw(face, i);

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Chess Opening Trainer</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/chess/opening-trainer.css">
+        <script defer type="module" src="/build/templates.js"></script>
+        <script defer type="module" src="/build/chess/chess-templates.js"></script>
+        <script defer type="module" src="/build/chess/opening-trainer.js"></script>
+    </head>
+    <body>
+        <nav-bar></nav-bar>
+
+        <div class="trainer-container">
+            
+            <div class="chess-container">
+
+                <move-table></move-table>
+                <chess-board size="400"></chess-board>
+
+            </div>
+
+            <span></span>
+            <div class="settings">
+
+                <div class="section">
+                    <h3>Trainer Options</h3>
+                    <button id="train-button">Train</button>
+                    <button id="create-opening-button">Create Opening</button>
+                    <button id="load-pgn-button">Load PGN</button>
+                    <button id="save-button">Save</button>
+                    <button id="delete-button">Delete</button>
+                    <button id="flip-board-button">Flip Board</button>
+                </div>
+
+                <div class="section">
+                    <h3>Openings</h3>
+
+                    <div class="opening-list"></div>
+                </div>
+                    
+            </div>
+
+        </div>
+    </body>
+</html>

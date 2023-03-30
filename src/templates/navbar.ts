@@ -14,6 +14,12 @@ export class NavBar extends HTMLElement {
                         <a href="/cubing/cube-timer.html" class="dropdown-item">Cube Timer</a>
                     </div>
                 </div>
+                <div class="dropdown">
+                    <button class="dropdown-name nav-item">Chess</button>
+                    <div class="dropdown-content">
+                        <a href="/chess/opening-trainer.html" class="dropdown-item">Opening Trainer</a>
+                    </div>
+                </div>
                 ${""/*<button style="float:right" class="dropdown-name nav-item" onclick="document.documentElement.classList.toggle('light-mode')">Light Mode</button>*/}
             </div>
         `;

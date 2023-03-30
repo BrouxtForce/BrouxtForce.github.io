@@ -1,0 +1,27 @@
+:root {
+    --move-table-element-size: 5em;
+}
+.move-table {
+    position: relative;
+    width: calc(var(--move-table-element-size) * 2);
+    background-color: #222;
+    color: #ccc;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+.move-table .move-san {
+    width: var(--move-table-element-size);
+    padding: 5px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+.move-table .current-move {
+    background-color: #555;
+}
+
+/* Gets rid of Chessboard2's annoying border */
+chess-board .board-container-41a68 {
+    border: none;
+}

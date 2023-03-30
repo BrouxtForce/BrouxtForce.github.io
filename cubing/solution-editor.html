@@ -15,51 +15,57 @@
     <body>
         <nav-bar></nav-bar>
 
-        <div id="cube-container"></div>
-        <form id="solution-editor">
-            <div class="section">
-                <h3>Scramble</h3>
-                <alg-textarea id="scramble-input"></alg-textarea>
-            </div>
+        <div id="solution-editor-container">
+            
+            <div id="cube-container"></div>
+            
+            <form id="solution-editor">
+                <div class="section">
+                    <h3>Scramble</h3>
+                    <alg-textarea id="scramble-input"></alg-textarea>
+                </div>
+                
+                <div class="section">
+                    <h3>Solution</h3>
+                    <alg-textarea id="solution-input" min-rows="5"></alg-textarea>
+                </div>
+                
+                <div class="section">
+                    <h3>Puzzle Options</h3>
+                    <label for="puzzle-size">Puzzle Size</label>
+                    <select name="puzzle-size" id="puzzle-size">
+                        <option value="2">2x2</option>
+                        <option value="3" selected>3x3</option>
+                        <option value="4">4x4</option>
+                        <option value="5">5x5</option>
+                        <option value="6">6x6</option>
+                        <option value="7">7x7</option>
+                    </select>
+                </div>
+                
+                <div class="section">
+                    <h3>Alg Tools</h3>
+                    <button id="alg-invert-button">Invert</button>
+                    <button id="alg-expand-button">Expand</button>
+                    <button id="alg-simplify-button">Simplify</button>
+                    <button id="alg-strip-comments-button">Strip Comments</button>
+                    <button id="alg-format-button">Format</button>
+                </div>
+                
+                <div class="section">
+                    <h3>Load</h3>
+                    <button id="load-link-button">Load URL</button>
+                </div>
+                
+                <div class="section">
+                    <h3>Get Link</h3>
+                    <button id="gen-alg-cubing-net-link">Alg.cubing.net</button>
+                    <button id="gen-twizzle-link">Twizzle</button>
+                    <button id="gen-cubedb-link">CubeDB</button>
+                </div>
+            </form>
 
-            <div class="section">
-                <h3>Solution</h3>
-                <alg-textarea id="solution-input" min-rows="5"></alg-textarea>
-            </div>
+        </div>
 
-            <div class="section">
-                <h3>Puzzle Options</h3>
-                <label for="puzzle-size">Puzzle Size</label>
-                <select name="puzzle-size" id="puzzle-size">
-                    <option value="2">2x2</option>
-                    <option value="3" selected>3x3</option>
-                    <option value="4">4x4</option>
-                    <option value="5">5x5</option>
-                    <option value="6">6x6</option>
-                    <option value="7">7x7</option>
-                </select>
-            </div>
-
-            <div class="section">
-                <h3>Alg Tools</h3>
-                <button id="alg-invert-button">Invert</button>
-                <button id="alg-expand-button">Expand</button>
-                <button id="alg-simplify-button">Simplify</button>
-                <button id="alg-strip-comments-button">Strip Comments</button>
-                <button id="alg-format-button">Format</button>
-            </div>
-
-            <div class="section">
-                <h3>Load</h3>
-                <button id="load-link-button">Load URL</button>
-            </div>
-
-            <div class="section">
-                <h3>Get Link</h3>
-                <button id="gen-alg-cubing-net-link">Alg.cubing.net</button>
-                <button id="gen-twizzle-link">Twizzle</button>
-                <button id="gen-cubedb-link">CubeDB</button>
-            </div>
-        </form>
     </body>
 </html>

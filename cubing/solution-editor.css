@@ -1,16 +1,19 @@
 body {
-    overflow: hidden;
+    height: 100vh;
+}
+
+#solution-editor-container {
+    display: flex;
+    flex: 1;
 }
 
 #solution-editor {
-    position: absolute;
-    width: 50%;
-    right: 0px;
-    height: calc(100% - var(--navbar-height));
+    height: calc(100vh - var(--navbar-height));
     background-color: #333;
     color: #ccc;
     box-sizing: border-box;
     overflow: scroll;
+    flex: 1;
 }
 
 #solution-editor h3 {
@@ -28,13 +31,8 @@ body {
 }
 
 #cube-container {
-    position: absolute;
-    width: 50%;
-    height: calc(100% - var(--navbar-height));
-}
-#cube-container .cube {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }

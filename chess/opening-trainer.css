@@ -1,0 +1,76 @@
+body {
+    height: 100vh;
+}
+
+.trainer-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    height: calc(100vh - var(--navbar-height));
+}
+.chess-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    height: 100%;
+}
+.chess-container chess-board {
+    max-width: 100vmin;
+    flex: 1;
+}
+
+.settings {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    height: calc(100vh - var(--nav-bar-height));
+    flex: 1;
+}
+.settings h3 {
+    font-size: 1.5em;
+}
+.settings > div {
+    padding: 20px;
+}
+
+.section {
+    flex: 1;
+    overflow: scroll;
+}
+.opening-list {
+    overflow: scroll;
+    padding: 0px;
+}
+.opening-list button, .section button {
+    display: block;
+    background-color: #191919;
+    color: #ccc;
+    padding: 1em;
+    user-select: none;
+    border: 1px solid #666;
+    text-align: center;
+    font-size: 1em;
+    width: 100%;
+}
+.opening-list button:hover, .section button:hover {
+    background-color: #444;
+    cursor: pointer;
+}
+
+button.active {
+    background-color: rgb(202, 35, 35);
+}
+button.active:hover {
+    background-color: #ff5c5c;
+}
+
+@media screen and (max-width: 800px) {
+    .trainer-container {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 580px) {
+    .chess-container {
+        flex-direction: column-reverse;
+    }
+}
