@@ -8,6 +8,8 @@ export class AlgTextarea extends HTMLElement {
         this.textarea.rows = 1;
         this.textarea.spellcheck = false;
         this.textarea.addEventListener("input", () => {
+            this.textarea.style.height = "0px";
+            this.textarea.style.height = this.textarea.scrollHeight + "px";
             window.cancelAnimationFrame(this.animationFrame);
             this.animationFrame = window.requestAnimationFrame(() => {
                 try {
@@ -25,10 +27,16 @@ export class AlgTextarea extends HTMLElement {
         });
         this.errorDiv = document.createElement("div");
         this.errorDiv.classList.add("error-message");
+        this.rowsRulerDiv = document.createElement("div");
+        this.rowsRulerDiv.classList.add("rows-ruler");
     }
     get value() { return this.textarea.value; }
-    set value(value) { this.textarea.value = value; }
+    set value(value) {
+        this.textarea.value = value;
+        this.textarea.dispatchEvent(new InputEvent("input"));
+    }
     connectedCallback() {
+        this.appendChild(this.rowsRulerDiv);
         this.appendChild(this.textarea);
         this.appendChild(this.errorDiv);
         if (!document.querySelector("link#alg-textarea")) {
@@ -46,10 +54,16 @@ export class AlgTextarea extends HTMLElement {
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "min-rows":
-                let number = Number.parseInt(newValue);
-                if (!isNaN(number)) {
-                    this.textarea.rows = number;
+                const calcMinRows = () => {
+                    let minRows = Number.parseInt(newValue);
+                    this.rowsRulerDiv.textContent = Array(minRows).fill("\n").join("");
+                    this.textarea.style.minHeight = this.rowsRulerDiv.clientHeight + "px";
+                };
+                if (document.readyState !== "complete") {
+                    window.addEventListener("load", calcMinRows);
+                    break;
                 }
+                calcMinRows();
                 break;
             case "value":
                 this.textarea.value = newValue;

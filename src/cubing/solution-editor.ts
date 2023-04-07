@@ -87,8 +87,8 @@ loadLinkButton.addEventListener("click", event => {
     scrambleInput.value = scrambleString;
     solutionInput.value = solutionString;
 
-    scramble = Alg.fromString(scrambleString);
-    solution = Alg.fromString(solutionString);
+    // scramble = Alg.fromString(scrambleString);
+    // solution = Alg.fromString(solutionString);
     
     // TODO: Load puzzles bigger than 9 (because I only read the first character)
     let puzzleNameString = url.searchParams.get("puzzle") ?? "3";
@@ -96,7 +96,9 @@ loadLinkButton.addEventListener("click", event => {
     if (isNaN(puzzleSize) || puzzleSize < 2) {
         puzzleSize = 3;
     }
-    resizeCube(puzzleSize);
+    if (cube.getLayerCount() !== puzzleSize) {
+        resizeCube(puzzleSize);
+    }
 });
 
 function generateLink(site: string, processString: boolean = false): string {

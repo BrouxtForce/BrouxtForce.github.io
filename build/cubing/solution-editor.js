@@ -70,14 +70,14 @@ loadLinkButton.addEventListener("click", event => {
     }
     scrambleInput.value = scrambleString;
     solutionInput.value = solutionString;
-    scramble = Alg.fromString(scrambleString);
-    solution = Alg.fromString(solutionString);
     let puzzleNameString = url.searchParams.get("puzzle") ?? "3";
     let puzzleSize = Number.parseInt(puzzleNameString[0]);
     if (isNaN(puzzleSize) || puzzleSize < 2) {
         puzzleSize = 3;
     }
-    resizeCube(puzzleSize);
+    if (cube.getLayerCount() !== puzzleSize) {
+        resizeCube(puzzleSize);
+    }
 });
 function generateLink(site, processString = false) {
     const url = new URL(site);

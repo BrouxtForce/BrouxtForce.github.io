@@ -1,2 +1,3 @@
 import { AlgTextarea } from "./templates/alg-textarea.js";
-export { AlgTextarea };
+import { AlgInput } from "./templates/alg-input.js";
+export { AlgTextarea, AlgInput };

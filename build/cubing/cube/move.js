@@ -46,13 +46,19 @@ export class Move {
             amount *= -1;
         }
         if (!Number.isSafeInteger(shallow) || !Number.isSafeInteger(deep) || !Number.isSafeInteger(amount)) {
-            throw `Number too large to have precise behavior.`;
+            throw `Invalid move: Number too large to have precise behavior.`;
         }
-        if ("UFRBLDMESmesxyz".indexOf(face) === -1 ||
-            face.length !== 1 ||
-            shallow > deep ||
-            shallow < 1) {
-            return null;
+        if (face.length === 0) {
+            throw "Invalid move: Face is missing.";
+        }
+        if ("UFRBLDMESmesxyz".indexOf(face) === -1) {
+            throw `Invalid move`;
+        }
+        if (shallow > deep) {
+            throw "Invalid move: Shallow index cannot be greater than deep index.";
+        }
+        if (shallow < 1) {
+            throw "Invalid move: Shallow index must be at least 1.";
         }
         return new Move(face, shallow, deep, amount);
     }
