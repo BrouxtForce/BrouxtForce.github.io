@@ -1,7 +1,10 @@
 import { OpeningList } from "./opening-list.js";
 import { Opening } from "./opening.js";
-import { writePgnToObject } from "./parse-pgn.js";
 import { OpeningPlayer } from "./opening-player.js";
+window.module = {};
+window.exports = {};
+await import("../dependencies/pgn-parser/pgn-parser.js");
+const pgnParser = module.exports;
 const chessboard = document.querySelector("chess-board");
 const moveTable = document.querySelector("move-table");
 const openingList = new OpeningList(document.querySelector(".opening-list"));
@@ -68,7 +71,7 @@ createOpeningButton.addEventListener("click", async () => {
     openingList.add(openingName);
 });
 const loadPgnButton = document.getElementById("load-pgn-button");
-loadPgnButton.addEventListener("click", () => {
+loadPgnButton.addEventListener("click", async () => {
     if (openingList.currentOpening === null) {
         alert("No opening selected.");
         return;
@@ -77,9 +80,8 @@ loadPgnButton.addEventListener("click", () => {
     if (pgn === null) {
         return;
     }
-    const pgnObject = {};
-    writePgnToObject(pgn, pgnObject);
-    openingList.currentOpening.writeObject(pgnObject);
+    const [result] = pgnParser.parse(pgn);
+    openingList.currentOpening.writePgnParserObject(result);
 });
 const saveButton = document.getElementById("save-button");
 saveButton.addEventListener("click", () => {

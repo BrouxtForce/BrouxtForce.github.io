@@ -78,6 +78,26 @@ export class Cube {
     getLayerCount() {
         return this.layerCount;
     }
+    solve() {
+        let stickersPerFace = this.layerCount * this.layerCount;
+        for (let i = 0; i < 6; i++) {
+            for (let j = 0; j < stickersPerFace; j++) {
+                this.stickers[i][j] = i;
+            }
+        }
+    }
+    solved() {
+        let stickersPerFace = this.layerCount * this.layerCount;
+        for (let i = 0; i < 6; i++) {
+            let faceColor = this.stickers[i][0];
+            for (let j = 1; j < stickersPerFace; j++) {
+                if (this.stickers[i][j] !== faceColor) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     faceHtml(face) {
         const nodes = [];
         for (const faceColor of this.stickers[face]) {
@@ -293,8 +313,6 @@ export class Cube {
             else if ("xyz".indexOf(move.face) > -1) {
                 let faceNum = stringToFace("RUF"["xyz".indexOf(move.face)]);
                 this.move(faceNum, move.amount, 1, this.layerCount);
-                let oppositeFaceNum = stringToFace("LDB"["xyz".indexOf(move.face)]);
-                this.move(oppositeFaceNum, -move.amount, 1, 0);
             }
             else {
                 console.error(`Move ${move.face} not supported.`);

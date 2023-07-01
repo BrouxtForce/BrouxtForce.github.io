@@ -54,7 +54,14 @@ export class OpeningDB {
             request.onsuccess = (event) => {
                 let cursor = event?.target?.result;
                 if (cursor) {
-                    map.set(cursor.value.fen, cursor.value.moves);
+                    const openingPositionWithFen = cursor.value;
+                    const openingPosition = {
+                        moves: openingPositionWithFen.moves
+                    };
+                    if (openingPositionWithFen.comments !== undefined) {
+                        openingPosition.comments = openingPositionWithFen.comments;
+                    }
+                    map.set(openingPositionWithFen.fen, openingPosition);
                     cursor.continue();
                 }
                 else {
@@ -69,28 +76,41 @@ export class OpeningDB {
     async overwriteWithMap(map) {
         let transaction = this.db.transaction("positions", "readwrite");
         let positions = transaction.objectStore("positions");
-        for (const [key, value] of map) {
+        for (const [fen, openingPosition] of map) {
             await (new Promise((resolve, reject) => {
-                let getRequest = positions.get(key);
+                let getRequest = positions.get(fen);
                 getRequest.onerror = () => {
                     reject();
                 };
                 getRequest.onsuccess = () => {
                     if (getRequest.result === undefined) {
-                        let addRequest = positions.add({
-                            fen: key,
-                            moves: value
-                        });
+                        let openingPositionWithFen = {
+                            fen: fen,
+                            moves: openingPosition.moves
+                        };
+                        if (openingPosition.comments !== undefined) {
+                            openingPositionWithFen.comments = openingPosition.comments;
+                        }
+                        let addRequest = positions.add(openingPositionWithFen);
                         addRequest.onsuccess = () => {
                             resolve();
                         };
                         return;
                     }
                     let moves = getRequest.result.moves;
-                    let putRequest = positions.put({
-                        fen: key,
-                        moves: Array.from(new Set(moves.concat(value)))
-                    });
+                    let updatedMoves = Array.from(new Set(moves.concat(openingPosition.moves)));
+                    let comments = getRequest.result.comments;
+                    let updatedComments = (comments !== undefined) ?
+                        Array.from(new Set(comments.concat(openingPosition.comments ?? []))) :
+                        openingPosition.comments ?? [];
+                    let updatedOpeningPosition = {
+                        fen: fen,
+                        moves: updatedMoves
+                    };
+                    if (updatedComments.length > 0) {
+                        updatedOpeningPosition.comments = updatedComments;
+                    }
+                    let putRequest = positions.put(updatedOpeningPosition);
                     putRequest.onsuccess = () => {
                         resolve();
                     };

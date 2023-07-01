@@ -330,6 +330,11 @@ export class Chessboard extends HTMLElement {
     getPieceOnSquare(square: ChessSquare): ChessPiece {
         return this.chess.get(square);
     }
+
+    // From the Chess.js library (because this function isn't exported)
+    static strippedSan(move: string): string {
+        return move.replace(/=/, '').replace(/[+#]?[?!]*$/, '')
+    }
 }
 
 customElements.define("chess-board", Chessboard);

@@ -1,4 +1,4 @@
-import { Alg } from "./alg";
+import { Alg } from "./alg.js";
 
 enum Face {
     U = 0,
@@ -38,7 +38,7 @@ function stringToFace(string: string): Face {
         case "B": return Face.B;
         case "L": return Face.L;
         case "D": return Face.D;
-        default:  return -1;
+        default:  return -1 as Face;
     }
 }
 
@@ -82,6 +82,26 @@ export class Cube {
     }
     getLayerCount(): number {
         return this.layerCount;
+    }
+    solve(): void {
+        let stickersPerFace = this.layerCount * this.layerCount;
+        for (let i = 0; i < 6; i++) {
+            for (let j = 0; j < stickersPerFace; j++) {
+                this.stickers[i][j] = i;
+            }
+        }
+    }
+    solved(): boolean {
+        let stickersPerFace = this.layerCount * this.layerCount;
+        for (let i = 0; i < 6; i++) {
+            let faceColor = this.stickers[i][0];
+            for (let j = 1; j < stickersPerFace; j++) {
+                if (this.stickers[i][j] !== faceColor) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private faceHtml(face: Face): HTMLElement {
@@ -331,8 +351,8 @@ export class Cube {
             } else if ("xyz".indexOf(move.face) > -1) {
                 let faceNum = stringToFace("RUF"["xyz".indexOf(move.face)]);
                 this.move(faceNum, move.amount, 1, this.layerCount);
-                let oppositeFaceNum = stringToFace("LDB"["xyz".indexOf(move.face)]);
-                this.move(oppositeFaceNum, -move.amount, 1, 0);
+                // let oppositeFaceNum = stringToFace("LDB"["xyz".indexOf(move.face)]);
+                // this.move(oppositeFaceNum, -move.amount, 1, 0);
             } else {
                 console.error(`Move ${move.face} not supported.`);
             }

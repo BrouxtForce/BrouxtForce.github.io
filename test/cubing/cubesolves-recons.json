@@ -1,0 +1,1802 @@
+[
+    {
+        "link": "http://cubesolv.es/solve/5957",
+        "solver": "Dylan Raymond",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.34",
+        "scramble": "R2 F' L2 F2 U2 F' L2 U2 B' U2 B U2 L D R2 U L2 U' B F D' U'",
+        "solution": "z2 y' // inspection\nL R2' F D L2' // cross\nU D U R U' R' D' // 1st pair\nU L' U L // 2nd pair\ny U' R U' R' U R' U' R // 3rd pair\nU' R U R' U' R U R' // 4th pair\nU' U' R' F R U R' U' F' U R // OLL(CP)\nU // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5955",
+        "solver": "Michael George",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "10.93",
+        "scramble": "D2 U2 L' R' D2 L' F D L2 B D' B L B' L F2 R' B D2",
+        "solution": "y x2 // inspection\nr (D U') R' U2 x' D2' // cross\nU U R' U2 R U R' U' R // 1st pair\nU' y' R U R' U2 L' U' L // 2nd pair\nU' R U' R' U2 R U' R' // 3rd pair\nU' U' R' U2 R U R' U' R // 4th pair\nU r U R' U' r' R U R U' R' // OLL\nU R U R' F' R U R' U' R' F R2 U' R' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5960",
+        "solver": "Graham Siggins",
+        "event": "8x8BLD",
+        "puzzle": 8,
+        "result": "24:42.51",
+        "scramble": "y' z2 l2 r2 3d2 3u b2 u2 B' R' 3f' 4u' f 3u r f l2 b2 3l D' 4f2 3r' b' 3d2 r f L 4f u2 l B' u' 4u2 l' L 4f2 3f2 l' b l2 3l 3d r u' 4u2 3f 3b 3u r' 3d2 3u b F 4f2 3d F L 3d 3b2 3d' r2 3r' 3d2 U f2 4f' 3r2 4f2 4u 4f d' L B' R2 L' 4r2 3l 4u2 b2 3f2 d' U2 R' 3d' L 3l2 d2 F2 U' l' 3f' 4r' B2 3d2 4r b' 4f' 3u2 3d2 R d2 f 3l' 3r' 3u' L U 3r' f2 3u 3f' 3r U' B2 L2 B l2 U' 4r 3b 3u2 d",
+        "solution": "x y2 // \n // \n // inner x centers (9 algs)\n[4U, 4R' U2 4R] // 8/8\n[U 4L' : [4L' U' 4L, 4U]] // 11/17\n[4L', U 4R' U'] // 8/25\n[U'D : [U' 4R2 U, 4L]] // 11/36\n[U : [4R' 4D 4R, U]] // 9/45\n[R' : [4D', 4R U2 4R']] // 10/55\n[x' z : [4R, U' 4L' U]] // 8/63\n[U'D' : [U' 4R2 U, 4L']] // 11/74\n[4L, U 4R' U'] // 8/82\n // \n // middle x centers (10 algs)\n[z : [3L U 3L', 3U']] // 8/90\n[y' : [3L', U' 3R2 U]] // 8/98\n[U, 3R' 3U 3R] // 8/106\n[F' : [3L', U 3R' U']] // 10/116\n[U' : [U' 3R2 U, 3L]] // 9/125\n[U' : [U' 3R' U, 3L']] // 9/134\n[U2, 3R' 3D' 3R] // 8/142\n[U, 3L 3U' 3L'] // 8/150\n[3Uw' : [U' 3R' U, 3L2]] // 10/160\n[3L', U 3R U'] // 8/168\n // \n // outer x centers (9 algs)\n[U 2L' : [2U', 2L' U' 2L]] // 11/179\n[2U, 2R U 2R'] // 8/187\n[Rw' : [U, 2R' 2U' 2R]] // 10/197\n[R2 : [2U', 2R' U2 2R]] // 10/207\n[2R U2 2R', 2D] // 8/215\n[R 2U : [2R U 2R', 2U]] // 11/226\n[R y : [U' 2L' U, 2R2]] // 10/236\n[D : [D 2R2 D', 2L2]] // 9/245\n[U' : [2L', U' 2R U]] // 9/254\n // \n // inner'right obliques (10 algs)\n[F' : [U 4L U', 3L']] // 10/264\n[4L' : [3U', 4L' U 4L]] // 9/273\n[7Uw' : [U' 3R2 U, 4R]] // 10/283\n[R2 : [3R U2 3R', 4U]] // 10/293\n[4R' U' 4R, 3U'] // 8/301\n[3R' 4U' 3R, U2] // 8/309\n[x : [U 3L U', 4R']] // 8/317\n[y U : [3R, U 4R2 U']] // 9/326\n[x' : [U 4L' U', 3L']] // 8/334\n[U' 4R2 U, 3L2] // 8/342\n // \n // inner'left obliques (10 algs)\n[y : [4R, U 3R' U']] // 8/350\n[y : [U 3R U', 4R2]] // 8/358\n[R : [4L U' 4L', 3U']] // 10/368\n[4D : [3R U2 3R', 4D]] // 9/377\n[3D, 4L' U' 4L] // 8/385\n[U : [4R' 3U' 4R, U2]] // 9/394\n[4Rw : [3L2, U 4R' U']] // 10/404\n[F' : [3D', 4L' U' 4L]] // 10/414\n[3Lw : [4L2, U 3L' U']] // 10/424\n[U : [4R2, U 3R2 U']] // 9/433\n // \n // outer'inner left obliques (9 algs but messed up and did 12, kinda?)\n[y' : [4R, U 2L U']] // 8/441\n[4L : [2D, 4L U 4L']] // 9/450\n4U 4R' U2 4R 4R' U2 4R 4U' // started an alg in wrong oblique orbit 8/458\n[4D', 2R' U2 2R] [2R' U2 2R, 4D'] // did the alg then realized i skipped one so undid it 16/474\n[2L', U 4L U'] // 8/482\n[4D', 2R' U2 2R] // 8/490\n[R 2U : [4L' U 4L, 2U2]] // 11/501\n[x U : [U 4L U', 2L]] // 9/510\n[U' 4R2 U, 2L] // 8/518\n[y D : [U 2R2 U', 4L']] // 10/528\n[x' z : [2L', U 4L' U']] // 8/536\n // \n // outer'inner right obliques (9 algs)\n[4D', 2R U2 2R'] // 8/544\n[2L', U 4R' U'] // 8/552\n[y' U : [U 4R2 U', 2L']] // 9/561\n[R2 : [2U', 4L U' 4L']] // 10/571\n[Rw' U : [U 2R U', 4R2]] // 11/582\n[L' : [4R U 4R', 2U']] // 10/592\n[R : [2L, Uw 4R Uw']] // 10/602\n[4L' U' 4L, 2D] // 8/610\n[x' z' : [U' 2R U, 4L']] // 8/618\n // \n // outer'outer left obliques (9 algs)\n[y : [3L', U 2R' U']] // 8/626\n[2U', 3L' U 3L] // 8/634\n[U' : [3R, U' 2R2 U]] // 9/643\n[3R : [3R U' 3R', 2D']] // 9/652\n[Rw' U' : [3R', U' 2R U]] // 11/663\n[6Rw : [U 3L U', 2L2]] // 10/673\n[z U : [3L' U 3L, 2U]] // 9/682\n[3R' 2D 3R, U'] // 8/690\n[F' : [2L, U 3L' U']] // 10/700\n // \n // outer'outer right obliques (8 algs)\n[R' y : [U 2R' U', 3R]] // 10/710\n[U : [U 2R' U', 3R2]] // 9/719\n[R2 : [3D', 2R U2 2R']] // 10/729\n[2L, Uw 3R Uw'] // 8/737\n[2U, 3L U' 3L'] // 8/744\n[Rw' U' : [3L', U' 2R U]] // 11/755\n[Lw : [3L2, U 2L' U']] // 10/765\n[z U : [2U, 3R U 3R']] // 9/774\n // \n // corners (4 algs)\n[R U R' : [R' D' R, U']] // 13/787\n[R : [U2, R D R']] // 9/796\n[D R D : [U, R' D' R]] // 14/810\n[U R U : [R' D' R, U2]] // 13/823\n // \n // inner wings (12 algs)\n[x' : [U' R U, 4R]] // 8/831\n[4Rw' U' : [4R2, U' L U]] // 11/842\n[4R' U : [R', U 4R U']] // 11/853\n[D', 4L U2 4L'] // 8/861\n[4Lw2 U : [L, U 4L U']] // 11/872\n[F : [R, U' 4R2 U]] // 10/882\n[R' y' : [R, U' 4L U]] // 10/892\n[D' : [4R' D 4R, U']] // 10/902\n[L 4R' : [U' L' U, 4R2]] // 11/913\n[y' 4R : [4R U 4R', D2]] // 9/922\n[U : [U 4L2 U', L]] // 9/931\n[R B : 4L' U2 4L' U2 F2 4L' F2 4R U2 4R' U2 4L2] // 16/947\n // \n // middle wings (11 algs)\n[U' 3Rw : [U' R' U, 3R]] // 12/959\n[U R U', 3R] // 8/967\n[3R' U : [R, U 3R U']] // 11/978\n[x' R : [U' 3R2 U, R2]] // 9/987\n[5Lw' : [U2, 3R' D 3R]] // 10/997\n[z : [R, U' 3R' U]] // 8/1005\n[5Lw : [3R' D2 3R, U2]] // 10/1015\n[D : [U' R' U, 3R]] // 10/1025\n[x' : [L, U' 3R U]] // 8/1033\n[U' : [3L', 5Rw U R' U']] // 11/1044\n[U' L' U : 3L' U2 3L' U2 F2 3L' F2 3R U2 3R' U2 3L2] // 18/1062\n // \n // outer wings (12 algs)\n[Rw' U' : [U' R U, 2R]] // 11/1073\n[U' Rw : [2R, U' R' U]] // 12/1085\n[U' : [U' 2L U, R2]] // 9/1094\n[x' : [U 2R U', R2]] // 8/1102\n[Rw' U : [2R2, U R' U']] // 11/1113\n[x' : [L, U' 2R U]] // 8/1121\n[z D' : [U' R U, 2L']] // 10/1131\n[2R, U' L2 U] // 8/1139\n[R' : [2R' D' 2R, U2]] // 9/1148\n[z 2R' : [U R U', 2R2]] // 9/1157\n[6Rw U' : [L, U' 2L' U]] // 11/1168\n[2R' U' : [U' 2R2 U, R']] // 11/1179\n // \n // 122 algs, roughly 121 is average assuming each center type is 9 algs on average\n // 1179 moves in 643.05 seconds = 1.83 STPS"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5954",
+        "solver": "Max Park",
+        "event": "5x5",
+        "puzzle": 5,
+        "result": "34.92",
+        "scramble": "U L2 l' f2 B2 D' b2 R' U2 F' l2 d' b' L' R2 u2 L r B2 l2 L' r2 R2 U B b' f' d L' f' u2 L F2 d' B' U d B u f2 B' F' r2 B r' b2 D d F' u2 F r' d D' r R2 F r l' B'",
+        "solution": "y' // inspection\n // centers\nD' r2' l F r U 3r U 3r' D r' // yellow\ny U' r U' r' z' U' r z y r U r' x' y' U r 3r' l' R2 u' R2' u // white\nx' D x r U' 3r' r U' x2' r' U' U' 3l' U U r U' r' // red\nx2' r U r' 3r2 U' U' 3r2' D 3r U' 3r' 3l' U r' F F r2 // YR/green\nr' x' F r U' U' r' F r U' U' r U r' U' r U' r' // orange/blue\n // edges\n3u' y 4d' L' U L u' y' F R' F' R u' u' // YB\nU' R U' R' U 4d U U' L' U L z2' d' U U R U' R' U 3d u d // YG\nL' U L d' // YO\nR U' R' u u x' x' U u U' d' L' U L d // WB\nU R U' R' u u d // WG\nU' R U' R' d R U R' F R' F' R u' d' // WO\nU' 4d' L' U L u z' x z' R U R' F R' F' R U' d // RB\nL' U L u' y' R U R' F R' F' R 3d // WR\nU' R U' R' U U d R U' R' z' r' // RG/OG/OB\n // 3x3x3\nx U' z' D' L' D' y' R' U' F' D D // cross\ny y R U R' D' L' U L D // 1st pair\nU' R U R' y U R U' R' // 2nd pair\ny D D U' R U' R' D D // 3rd pair\nU' R U' U' R' U R' F R F' // 4th pair\nU' U' U' R' F R U R' U' F' U R // OLL(CP)\nU R' U R' U' R' U' R' U R U R2 U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5958",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.16",
+        "scramble": "R2 F' L2 D2 F2 U2 B' L2 F R2 D2 F2 D L' U B R' F' R D R2 U2",
+        "solution": "z y2 // inspection\nU' R' r' L' // cross\nF' U F // 1st pair\nR' U' R U R' U' R // 2nd pair\nL U' L' // 3rd pair\nU y' U R U' R' U' R U' R2' F R // 4th pair\nU R U' R' U R U2' R' U' R U R' F' // OLL(CP)"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5953",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.56",
+        "scramble": "R F' R2 D2 B U' D' F R' U2 L2 D2 F2 U2 F' R2 L2 F2",
+        "solution": "y' // inspection\nR2 U' D U' D R' U D' // cross\nd R U' R2' U' R // 1st 2nd pairs\ny' U' R U' R' d R' U R // 3rd pair\nU' R U R' U' R U R' // 4th pair\nl' U' L U' L' U U l // OLL\nU' U' R U R' F' R U R' U' R' F R2 U' R' U2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5951",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.53",
+        "scramble": "D' L2 U2 B2 D R2 U B2 L R2 D' L2 B D2 L' U B' L",
+        "solution": "x // inspection\nD R2 D R' F R D D R2 d' R U' R' u // Xcross\nR U R' L U' L' // 2nd pair\nU R' U R y R U R' // 3rd pair\nU L' U L U L' U L U' L' U L // 4th pair\nL L' U U r' R2 U R' U R U' U' R' U M' // OLL(CP)\nU' R' U R' U' R' U' R' U R U R2' U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5959",
+        "solver": "Jayden McNeill",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.97",
+        "scramble": "D2 U2 F' L2 B D2 F L2 R2 B' R' U B' F U L' D2 B' D B2",
+        "solution": "z' y' // inspection\nF R' U R U2' R2 F R // Xcross\nU R U' R' U' R U' R' L U2 L' // 2nd pair\nU2 S R' S' // 3rd / 4th pairs\nU x' R U' R' U R U' R' U x R' U' R U R' U' R U' // OLLCP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5942",
+        "solver": "Keaton Ellis",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.76",
+        "scramble": "B D U' B R2 U' L' U F2 L2 B' R2 D R D' B U' R'",
+        "solution": "x' // inspection\nF2 R' D L F D D // cross\nU' U' R' U R // 1st pair\nL U L' // 2nd pair\nR U' R' U' L' U' L // 3rd pair\nU' y' R' U2 R U' R' U R // 4th pair / OLS\nU' U F' U' F R2 u R' U R U' R u' R2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5944",
+        "solver": "Keaton Ellis",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.98",
+        "scramble": "L2 D' L2 B' U2 B2 L' U L2 U F' R' D B2 D L' B2",
+        "solution": "z x' // inspection\nR D R' y' L U' L' D L F' L' // Xcross\nU R U' U' R' U' R U R' // 2nd pair\nU' L F' L' F // 3rd pair\nU' R' U R U' R' U' R // 4th pair\nU' r U R' U' r' F R F' // OLL\nU' x R' U R' D2 R U' R' D2 R2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5952",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.50",
+        "scramble": "L2 D2 B L2 B R2 U2 B' L' F' U R2 B' R' D2 L R' F' U2",
+        "solution": "x // inspection\nD' B R2' U' D U' r U' r' D u // Xcross\nL' U L // 2nd pair\ny U' R' U' R U U R' U' R U R' U' R // 3rd pair\nU R U' R' d R' U R // 4th pair\nr U R' U' r' F R F' // OLL\nU' u' R U R' U' D R2 U' R U' R' U R' U R2 U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5956",
+        "solver": "Max Park",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "6.82",
+        "scramble": "R2 B2 L' U2 L R' D2 U2 R' B U' R F2 L B L2 D' R' F U'",
+        "solution": "x2 z // inspection\nD U' z U D z' u' U R // cross\nz U' R U // 1st pair\nz' U' U' R' U' R U z U R' U' // 2nd pair\nz' U R' U' U' R U' R' U R // 3rd pair\nz x' z' R' U R U' R' U' R // 4th pair\nr U R' U' z U' z' U R U' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5940",
+        "solver": "Elijah Brown",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.14",
+        "scramble": "L D2 F D2 F' B' U2 R D F' U2 F' R2 D2 F L2 B' U2 B",
+        "solution": "x2 // inspection\nD2' R' F' D' R' D' // cross\nR U' R' // 1st pair\ny U' R' U R // 2nd pair\ny' U y' R U R' U U R U' R' // 3rd pair\ny' L' U L d' L U L' // 4th pair\nF U R U' R' F' // OLL\nU R U R' F' R U R' U' R' F R2 U' R' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5949",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.90",
+        "scramble": "U2 L2 D2 U2 B2 L2 B F' L B2 U' F R F2 D' F L' R2 U2",
+        "solution": "y' // inspection\nR2' D' L' D' R D // cross\nR U' R' // 1st pair\ny L U L' U' L U L' // 2nd pair\nR U' R2' U R // 3rd pair\nU R U' U' R' U' R U R' // 4th pair\nU' U' R U R' U' R' F R2 U R' U' F' // OLL\nR' U L' U U R U' R' U U R L U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5948",
+        "solver": "Patrick Ponce",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.78",
+        "scramble": "U2 R' D2 L' U2 B F D2 B L' B2 U L U B2 D' F2 R2",
+        "solution": "x y' // inspection\nR2' D F D L F' L' // cross\nU' R U R' // 1st pair\ny' U' L U L' // 2nd pair\ny' R U' R2' U R // 3rd pair\nU2 R U2' R2' F R F' // 4th pair\nU' R U' U R' F' r U R' U' r' F R U' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5950",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.72",
+        "scramble": "B2 D2 U F2 R2 D' B2 F2 U' B' F L' U' L2 F2 R2 B2 U2 F2",
+        "solution": "x2 // inspection\nD' U' U' x' R D D U' R2' F' // pseudo Xcross\nR U R' u' // XXcross\nU L' U L d' R U' R' // 3rd pair\ny R' U' R U R' U' R U R' U' R // 4th pair\nR U R' U' R' F R F' // OLL\nU' U' F R U' R' U' R U R' F' R U R' U' R' F R F' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5947",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.76",
+        "scramble": "B U2 L2 F' L' U B2 L' U' F' D U R2 D' U B L'",
+        "solution": "x' z' // inspection\nD R l U D R2' U' R D' // Xcross\nL' U L d R U R' // 2nd pair\nU U R' U' R // 3rd pair\nd R U' R' // 4th pair\nR U R' U' R U' R' F' U' F R U R' // OLL(CP)\nU' R' U R' U' R' U' R' U R U R2' U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5943",
+        "solver": "Keaton Ellis",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.60",
+        "scramble": "B F2 R' B F' L B' R U2 R' F' L' D F2 L D' B",
+        "solution": "y x' // inspection\nU r R' F R' // cross\nU' y' L U L' U L U' L' // 1st pair\nU2 R U' R' U2 L' U L // 2nd pair\nU' R' U' R U' y R U R' // 3rd pair\nU2 L' U2 L U y' R' F R F' // 4th pair\nU' R U R' U R U2' R' // OLL\nU' x R' U R' D2 R U' R' D2 R2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5931",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.52",
+        "scramble": "U B R' D' F R2 L D2 F U2 R2 F' R2 F U2 B' D' B' L2",
+        "solution": "z' y' // inspection\nR' D' r' F' D2 R D // cross\ny' U2 L' U' L R U' R' // 1st pair\nU' R' U R y U R' U R2 // 2nd pair\nU R' L U L' // 3rd pair\nF' U' F U R U' R' // 4th pair\nU' R U R' y R' F R U' R' F' R // OLL\nU U R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5930",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.41",
+        "scramble": "F U2 L2 B' R2 F' D2 L2 R2 F D2 R B' L F2 D L2 B F2 L B2",
+        "solution": "y // inspection\nR' F R D y' R' D R' // cross\nL' U U L R' U R // 1st pair\nU y' R U' R' U' F U' F' // 2nd pair\nU' R U' R' U' R' U' R // 3rd pair\nU R U2' R' U R U R' U R U' R' // 4th pair\nU F U R U' R' F' // OLL\nU2 R U' R' U' R U R D R' U' R D' R' U2 R' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5945",
+        "solver": "Keaton Ellis",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "9.37",
+        "scramble": "R F2 D B' F2 L2 R' F' U F2 D F D' L R2 D R U2",
+        "solution": "z' y // inspection\nL D' U' R' L U' L // cross\nU R' U' U' R2 U R2' // 1st pair\nU' R U y' L' U' L2 U L' // 2nd pair\nU U' R U' R' U2 L' U' L // 3rd pair\nU2 R U' R' U2 y' R' U' R // 4th pair\nU' r U R' U R U' U' r2' U' R U' R' U2 r // OLL\nU2 R U' R' U' R U R D R' U' R D' R' U2 R' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5946",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.74",
+        "scramble": "F2 R2 D2 F2 D R2 F2 L2 B2 D2 U' R2 U' L' B F2 D' F' L2 U' L'",
+        "solution": "z2 // inspection\nR' F U' R2 D F // psuedo cross\nU' D' R' U R // 1st pair\nD U L' U' L u // 2nd pair / finish cross\nU R' U' R // 3rd pair\ny L U' L' U L U L' // 4th pair\nR U R' U R U' R' U R U2' R' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5934",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "9.21",
+        "scramble": "D B2 F2 U' L2 D2 L2 R2 D L2 B' F L B R' U2 F2 D' U R",
+        "solution": "x2 // inspection\nB' D2 R2 D R' L2' y L' U L D2' // Xcross\ny U' R U2 R' U' R U R' // 2nd pair\nU2' F U2' F' U L' U' L // 3rd pair\nU' R' U R // 4th pair\nU' U' U U' F U R U' R' F' // OLL\nR' U R' d' R' F' R2 U' R' U R' F R F U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5926",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.57",
+        "scramble": "L' B' D R2 F U L B L2 B2 U D' F2 L2 F2 D' L2 B2 U2",
+        "solution": "z2 y // inspection\nU' R U L F R // cross\nd' R' U' R // 1st pair\nU y' U L' U L U' L' U L R' U2' R // 2nd pair\nR U' R' U' R U' R' U R U' R' // 3rd pair\ny' R U2' R2' F R F' // 4th pair\nU2 U l' U' L U' L' U2 l // OLL\nU2' R U R' F' R U R' U' R' F R2 U' R' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5937",
+        "solver": "Alex Maass",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "11.00",
+        "scramble": "U2 F2 D B2 D' F2 U L2 B L' U R2 F U L' D2 B2 L' F",
+        "solution": "z2 // inspection\nU2' R' l' U' L // 3 cross edges\nx2' R U U y' L' U L // 1st pair\nU U R U2' R' U R U' R' // 2nd pair\ny U R // finish cross\nU' U R U R' U' R U2' R' U R U' R' // 3rd pair\ny R U' R' U y' U R' U' R // 4th pair\nU R' U' R' F R F' U R // OLL(CP)\nU' R R U' S R2' S' R2 U R2' U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5939",
+        "solver": "Alex Maass",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "9.25",
+        "scramble": "D2 R U' D F2 L' B R' F2 B' R' L2 F2 B2 D' R2 D' B2 L2",
+        "solution": "z' y2 // inspection\nD L2 R' U2' y R2' // cross\ny U' R U' R' U R U' R' // 1st pair\ny U U' U' y U' R' U' R // 2nd pair\ny' U R U R' // 3rd pair\ny U' U R U' R' U R U' R' // 4th pair\nU2' F R U R' U' F' // OLL\nR U R' U' R' F R2 U' R' U' R U R' F' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5924",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.35",
+        "scramble": "R' B U2 F' L2 F' U2 F' D2 B' D2 B2 L2 U' B R F L R' D'",
+        "solution": "x // inspection\nL D' l' R' F R D' R' D // cross\nU R' U2' R y' U2 R' U' R2 // 1st pair\nU' R' y' U' L' U L // 2nd pair\nU R U2' R' y U2 L' U' L U R U2' R' U R U R' y' R' U2' R U' R' U' R // 3rd pair\ny' U R' U R U' R' U' R // 4th pair\nU' R' R F' U' L' U L2 F L' U' L' U L // OLLCP\nU // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5938",
+        "solver": "Alex Maass",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "10.48",
+        "scramble": "D2 F2 D2 L R2 D2 L R2 D' R2 D R2 D' B' D' F U2 L F'",
+        "solution": "x y' // inspection\nU' F2 R y D // cross\ny y' R U' R' y U R U' R' // 1st pair\ny U R U2' R' y U R U' R' // 2nd pair\ny U' U' R U' R' L U' L' // 3rd pair\nR U R' U2' R U' R' U R U R' // 4th pair\nF R U R' U' R U R' U' F' // OLL\nR' U R' U' R D' R' D R' U D' R2 U' R2' D R2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5921",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.70",
+        "scramble": "L D2 L' F2 R D2 F2 D2 L' D2 L F D' F R' D' F' U' F L B",
+        "solution": "z y // inspection\nR' D' U' r' u // psuedo cross\nU L' U' L R U' R' // 1st pair\nd' U' R U R' U R U' R' // 2nd pair\nU l U' l' // finish cross\ny U' R U2' R' y U2 R U R' // 3rd pair\nU U' L' U L U' L F' L' F // 4th pair\nU' U2 F l' U' L U l F' L' U // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5922",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.06",
+        "scramble": "R' F2 D' F2 R2 U2 R2 D' R2 F2 D L B' L2 D' F D R2 B2 R",
+        "solution": "x' y2 // inspection\nF' r' R2 D R2' D // cross\ny' U L' U' L U' y L U L' // 1st pair\nU' U R U2' R' U R U' R' // 2nd pair\nU y' U R U' R' U' R U' R' U R U' R' // 3rd pair\nL U L' U' L U L' // 4th pair\nU2 R U2' R2' F R F' R U2' R' // OLL\nU2' R2' F2 R U2' R U2' R' F R U R' U' R' F R2 U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5920",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.78",
+        "scramble": "B2 L2 U2 B2 U2 L' D2 L2 R' D2 B2 L F' D B2 D U R' F' L' B2",
+        "solution": "z y // inspection\nL D' l' R' F R D2 u' U2 D R // cross\nU R' U' R // 1st pair\ny' L' U' L U y' R U' R' // 2nd pair\nd' U' R U2' R' U R U' R' // 3rd pair\nd' R U2' R' U2 R U' R' // 4th pair\nU2 R U R' U R U2' R' // OLL\nU U x R' U R' D2 R U' R' D2 R2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5928",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.63",
+        "scramble": "F R D2 R2 F2 R' F2 U2 L' U2 R F D' F L U2 R' D2 F'",
+        "solution": "y' // inspection\nD r2 U' R' F R2 y R' U' R D2' // Xcross\ny' U' R' U2' R U R' U' R // 2nd pair\nU' U2 R U' R' // 3rd pair\ny' U R U' R' U' R U R' // 4th pair\nU' U R' U' R' F R F' U R // OLL\nU U x R' U R' D2 R U' R' D2 R l U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5936",
+        "solver": "Alex Maass",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "11.94",
+        "scramble": "B2 F2 L2 F2 R D2 L' R' D2 F R' F' L' U' L D' R2 B' D",
+        "solution": "x' // inspection\nD R D' L // cross\ny U' R U R' U' y R' U' R // 1st pair\ny' R U R' U U R U' R' // 2nd pair\ny U' U R U R' U U R U' R' // 3rd pair\ny2' U U R' F R F' U2 R U' R' // 4th pair\nU r U R' U R' F R F' R U2' r' // OLL\nU2' F R' F R2 U' R' U' R U R' F' R U R' U' F' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5935",
+        "solver": "Alex Maass",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "9.92",
+        "scramble": "R2 B' L2 D2 R B' D2 F' U R' U2 L2 B D2 B' L2 B' R2 L2 F'",
+        "solution": "x' y2 // inspection\nU R2' U' D' y U R' F R // cross\ny2' U' U' R U U R' y' L' U L // 1st pair\nU R' U R2 U R' // 2nd pair\ny U' U' y R U R' // 3rd pair\ny' U' R U' R' y U' L' U L // 4th pair\nU' f R U R' U' R U R' U' f' // OLL\nU2' R U R' U' D R2 U' R U' R' U R' U R2 D' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5932",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.80",
+        "scramble": "U F2 L2 B2 D2 R2 D R2 B2 F' L U2 L D2 R2 U2 L' D2",
+        "solution": "z2 // inspection\nD R' D' // cross\ny L' U L U2 L U L' // 1st pair\nU2 R U' R' U' F U' F' // 2nd pair\nU' R U' R2' U2' R U R' U2' R // 3rd pair\nR U' R' U R U R' // 4th pair\nU2 U' F R U R' U' R U R' U' F' // OLL(CP)\nR2' U  R R' R U R' U' R3 U' R' U R' U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5929",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.14",
+        "scramble": "F U F' U B' U' D2 B U2 R F2 L' F2 U2 R2 B2 R B2 U",
+        "solution": "y // inspection\nF' R D2' R' F2 // cross\ny U L U L' U' L U L' // 1st pair\nU' y U' L' U L2 U' L' // 2nd pair\nU U y' U2 R U' R' U R' U' R // 3rd pair\ny' U R' U R U R' x' F R2 U' R' U // 4th pair\nx U' l' U U' l U r U2' R' U' R U' r' // OLL(CP)\nU R U R' U R' U' R2 U' R' U R' U R U2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5933",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.10",
+        "scramble": "R2 U F R2 U2 L2 F2 U2 R2 F' L2 D' L2 R' U L D2 B2",
+        "solution": "y2 // inspection\nR' F R2 D' B' R2' D' // cross\nL' U L2 U' L' // 1st pair\nL' U L U2 y' R U R' // 2nd pair\ny U' F R' F' R y L' U L // 3rd pair\nU' R U R' U' F' U' F // 4th pair\nU' L' U' L U' L' U2 L // OLL\nR2 U R' U R' U' R U' R2 D U' R' U R D' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5923",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.24",
+        "scramble": "U2 B R' F' B2 R2 L' B' U' R2 F2 U D R2 F2 U2 F2 D' L'",
+        "solution": "U' L2' R' F R2 D2 // cross\nU L' U' L U y' R' U' R // 1st pair\nR' F R y' R' U' L' U' L // 2nd pair\nU R' U' R U' y L' U L // 3rd pair\nR U2' R' U R U R2' F R F' // 4th pair\nR U R' U R U' R' U R U2' R' // OLL\nU' F R U' R' R U R' R U' R' U' R U R' F' R U R' U' R' F R F' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5927",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.25",
+        "scramble": "F L' U2 F' R2 B' D U2 R D2 L' B2 L F2 U2 F2 D2 R' B",
+        "solution": "x2 y // inspection\nR F D2 R' F R2 // cross\nU' L F' L' F L' U L y L' U' L R U' R' // 1st pair\nU2 L' U' L y' L U' L' // 2nd pair\nU2' R U R' U R U' R' // 3rd pair\nL' U L U' y L U2 L' U' L U2 L' // 4th pair\nU2 L' U' L U' L' U L U L F' L' F // OLL\nR' U2' R U2' R' F R U R' U' R' F' R2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5919",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.91",
+        "scramble": "R2 B D2 F' R2 F2 U2 F' U2 L2 D L R' F' D F2 D' L2 R2",
+        "solution": "z y // inspection\nr2 U' D r' R U2' R' u' // Xcross\nU R U' R' U' y R' U' R // 2nd pair\ny2' U R' U2' R // 3rd pair\ny' U R' U' R U R' U' R // 4th pair\nR U R' U R U2' R' // OLL\nU R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5925",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.50",
+        "scramble": "U R U' D2 F' B' D' R U' F2 D2 R' U2 F2 R D2 R B2 L D2 B2",
+        "solution": "z y // inspection\nU' D r' R D' R' D' R' // cross\nu' R' U' R D // 1st pair\ny' R' U2 R U' R' U R // 2nd pair\ny' U' R U R' U R U' R' // 3rd pair\nU' R' U2 R d' R U R' // 4th pair\nU' U' r' R U R U R' U' r R2' F R F' // OLL\nU R2' F2 R U2' R U2' R' F R U R' U' R' F R2 U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5913",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.51",
+        "scramble": "F2 R L2 D' F2 U R2 D2 F2 U' F2 U' B' L' F2 U' B' F L' F'",
+        "solution": "x' // inspection\nR U2' F r' D R D // cross\nU' R U' R' // 1st pair\ny2 U2 R U' R2' U R // 2nd pair\ny' U' R' F R F' R' U' R U2 U R' U2' R U' R' U' R // 3rd pair\nU R U R' U2' R U R' // 4th pair\nU' U R' F R U R U' R2' F' R2 U' R' U R U R' // OLL\nR2 U R' U R' U' R U' R2 D U' R' U R D' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5914",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.50",
+        "scramble": "L' U B2 D' R B' L2 F' L F2 L2 U D B2 D2 F2 L2 F2 D R2 F",
+        "solution": "y2 // inspection\nR' D R F' // cross\nL U L' y' U L' U' L // 1st pair\nL U2 L' // 2nd pair\nU U' y U2' R U R' // 3rd pair\nU L F' L' F // 4th pair\nU U L' U' L U' L' U L U L F' L' F // OLL\nx' R U' R D2 R' U R D2 R2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5917",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.23",
+        "scramble": "U' R B' R2 B2 F2 U L2 F2 D U' F2 L2 U2 R F' U L2 B R",
+        "solution": "z y // inspection\nU r F D R' D' R D2 // cross\nU L' U' L y U' L U L' // 1st pair\nU' R U R' U R U' R' // 2nd pair\nU' L' U L y U L U' L' // 3rd pair\nU2 y' U R' U2' R U R' U2' R // 4th pair\nU r U R' U R U' R' U R U2' r' // OLL\nU' R U R' U' D R2 U' R U' R' U R' U R2 D' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5918",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.12",
+        "scramble": "F' U' B2 F2 L2 D2 R2 U R2 D' B2 U F2 L' F' L R B D' R2 U'",
+        "solution": "x y2 // inspection\nr' U' R2' B' R D2 // cross\ny' U L' U L2 U' L' // 1st pair\nR U' R' U' F U' F' // 2nd pair\nU R U R' U2 R U' R' // 3rd pair\ny U R U' R' // 4th pair\nU2 L U F' L F L' U' L' // OLLCP\nU // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5916",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.62",
+        "scramble": "R2 U2 B' U2 R2 F' R2 D2 B' D2 L2 B2 U' B L' U' L D2 R U2 F'",
+        "solution": "z2 // inspection\nF' R2' D2 F2 R // cross\nd' L' U L y' U' L' U L // 1st pair\nR U2' R' y U2 R U R' // 2nd pair\nU' R' U' R U' R' U R // 3rd pair\nU2 L' U L U' L' U' L // 4th pair\nU' r' R U R U R' U' r R2' F R F' // OLL\nU' l' U R' D2 R U' R' D2 R2 x' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5912",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.99",
+        "scramble": "B U2 F R2 U2 L2 R2 B U2 B2 D2 L' D L' B' F D F D' L'",
+        "solution": "z' y // inspection\nD R F R U2 l y L U L' D2' // Xcross\nU2 R U R' U2 R U' R' // 2nd pair\nU2 R' U' R U' R' U R // 3rd pair\ny' U2 R U' R' U R U R' // 4th pair\nU' r U R' U' r' R U R U' R' // OLL\nU R U' R' U' R U R D R' U' R D' R' U2 R' U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5910",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.44",
+        "scramble": "U' L U' F' L2 B' U' F' U' L' B2 R2 F2 U2 L D2 L2 D2 L U2 B2",
+        "solution": "x' // inspection\nL F' L' r' R' F D2 R2 // cross\nU r' U' R U M' // 1st pair\nU2 L' U L2 U L' // 2nd pair\nU U2 R U' R' // 3rd pair\ny' U' F' U' F R' F R F' // 4th pair\nU2 r U R' U R U2' r' // OLL\nR' U' F' R U R' U' R' F R2 U' R' U' R U R' U R U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5915",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.01",
+        "scramble": "U L' D' B2 U R2 U B2 R2 U' L2 U R2 F' U' R' B2 R' D R2",
+        "solution": "y' // inspection\nR' D R U' R D R // Xcross\nU2 R U' R' U R' U' R // 2nd pair\ny' U2 R' U' R U R' U' R2 // 3rd pair\nU' R' U R U' R' U R U' R' // 4th pair\nU2 F R' F' R U R U' R' // OLLCP\nU2' // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5911",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.87",
+        "scramble": "R D F' R2 F' L2 B2 U2 L2 D2 R2 B2 F' D' R2 U2 B' R U' R B2",
+        "solution": "R' D R' D2 R D // cross\nR U R' L U L' // 1st pair\nR U2' R' y L U L' // 2nd pair\nU L' L U2 R U' R' U' L' U' L // 3rd pair\ny' R' U2' R // 4th pair\nU R' U' R U' R' U2 R F R U R' U' F' // OLL\nU' R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5905",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.90",
+        "scramble": "L U B2 L2 U2 F2 R2 D F2 R2 F2 U B D2 F R B2 U F' D B",
+        "solution": "z2 y // inspection\nU F R' D F R // cross\ny' R' F R F' R' U' R // 1st pair\ny' R U2' R' U y L' U' L2 // 2nd pair\nU2 L' U' R U R' // 3rd pair\ny' U L' U2 L U' U' L' U L // 4th pair\nU r U R' U R U2' r' // OLL\nU' R U' R' U' R U R D R' U' R D' R' U2 R' U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5902",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.87",
+        "scramble": "B2 D2 L2 B2 D' L2 R2 B2 D2 U' L2 U' L D U' L' R B L' D' U",
+        "solution": "x' z // inspection\nU' D r' D' R' F R2 D // cross\nL U2 L' U' L U L' // 1st pair\nU2 U' R U2' R' U R U' R' // 2nd pair\nU' d' L U2 L' R U' R' // 3rd pair\ny' U L' U L d' L U2 L' U' L U2 L' // 4th pair\nU R U R' U R U2' R' // OLL\nx R2' D2 R U R' D2 R U' R // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5903",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.74",
+        "scramble": "U2 B2 D2 B2 L D2 U2 B2 L' D2 B2 R2 U B L R F D L B D2",
+        "solution": "x2 y // inspection\nD' R D2 F' D L // cross\nU' R U' R' U R' U' R // 1st pair\nU' R U' R' U2' R U' R' // 2nd pair\ny' U' L' U2 L U' y L U L' // 3rd pair\ny' U2 R U' R' // 4th pair\nU R U R' U' R U' R' F' U' F R U R' // OLL\nU R' U2' R U2' R' F R U R' U' R' F' R2 U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5909",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.16",
+        "scramble": "F B R' U' R' F2 U2 R' F2 D' B2 U2 L2 U L2 U L2 B2 R2 L'",
+        "solution": "x y2 // inspection\nD r' R' D' F R L U' L' D2' // Xcross\nR' U2' R U R' U' R // 2nd pair\ny2' U R' U' R // 3rd pair\nU R U' R' y' U R' U' R // 4th pair\nU2 R U R' U R' F R F' U2 R' F R F' // OLL(CP)\nU' R U R' U R' U' R2 U' R' U R' U R U2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5908",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.49",
+        "scramble": "B2 D' R2 B2 U' R2 B2 R2 U L2 D' R' B D2 L' B2 U2 F' D R' D'",
+        "solution": "x2 y // inspection\nD' R r U' r' L' D' // cross\ny L' U L U' L' U' L // 1st pair\nU R' F R F' R U' R' // 2nd pair\ny U U' R U R' U2 R U' R' // 3rd pair\nU R' U2' R y U' R U R' // 4th pair\nU' r U r' R U R' U' r U' r' // OLL\nU R' U R' d' R' F' R2 U' R' U R' F R F U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5906",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.25",
+        "scramble": "D2 B' D2 F R2 F' D2 B2 U2 B' L2 F2 L D' L2 D2 F R2 B' L2 B2",
+        "solution": "x // inspection\nD' U' r R' U' R' D2 // cross\nU L' U2 L // 1st pair\nU' R U' R2' U R // 2nd pair\nU' y' U' R' U2' R U R' U' R // 3rd pair\ny' R U' R' U' R U R' // 4th pair\nU2 r' R2 U R' U R U2' R' U M' // OLL\nx' R U' R' D R U R' D' R U R' D R U' R' D' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5907",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.99",
+        "scramble": "F' L D' F' B2 U F2 D' B L D' L2 D' B2 R2 U2 L2 D' F2 B2",
+        "solution": "x' // inspection\nR' U' r R' D R2' // cross\nU R U R' L' U L // 1st pair\ny R U2' R2' U' R // 2nd pair\nU y' U2 R' U' R // 3rd pair\nU' R U R' U2 R U' R' // 4th pair\nU U U' r U2 R' U' R U R' U' R U' r' // OLL(CP)\nU' R' U R' U' R3 U' R' U R U R2' U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5899",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.31",
+        "scramble": "F2 D L2 D' F2 L2 B2 F2 U2 F2 R2 F U F' R B L B D R2 B",
+        "solution": "z2 y // inspection\nR' F' D' R' D2 U' R u' // cross\nR' U R // 1st pair\nU L' U L2 U' L' // 2nd pair\nU2 U' L' U L U' U2 R U R' U2 R U' R' // 3rd pair\nU2 L' U' L U L' U' L // 4th pair\nr' R U R U R' U' r R2' F R F' // OLL\nR2 U R' U R' U' R U' R2 D U' R' U R D' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5901",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.98",
+        "scramble": "U2 R2 B2 D2 R2 D' L2 F2 R2 F2 B' U' F L D B' F' U' B",
+        "solution": "x' y2 // inspection\nU' r' U' D' F R' U L' U L u // Xcross\nU U' R' U' R d' R U' R' U R U' R' // 2nd pair\ny2' U R' U R U R' U2' R // 3rd pair\nU R U2' R' U' R U R' // 4th pair\nf R U R' U' R U R' U' f' // OLL\nx' z' R U' R D2 R' U R D2 R2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5904",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.86",
+        "scramble": "D R2 F B2 L F U L' F2 L F2 D2 L2 F2 L B2 R' F U'",
+        "solution": "x' // inspection\nF D' r' R U' D' F D' // cross\nU R' U' R // 1st pair\ny' U' R' U R d' L' U L // 2nd pair\ny2 R U' R' U' R U' R' U R U' R' // 3rd pair\nU L U2 L' U' L U L' // 4th pair\nU' f R U R' U' R U R' U' f' // OLL\nU R U' R' U' R U R D R' U' R D' R' U2 R' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5898",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.66",
+        "scramble": "B2 L2 U2 L2 F' D2 F2 L2 U2 L2 D2 F' R B U2 F D' B' D' L'",
+        "solution": "x2 y // inspection\nU R' F R D2 U F' D2 // Xcross\ny R U' R' U R' U' R U' R' U R // 2nd pair\nU2 R U2' R' U2 R U' R' // 3rd pair\ny' U' R U' R' U R U' R' // 4th pair\nR' U' R' F R F' R' F R F' U R // OLL(CP)\nR U R' U R' U' R2 U' R' U R' U R U // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5894",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.25",
+        "scramble": "D2 F L' U2 D' B' R' F2 U' R2 D B2 D R2 D B2 U' R2 U L'",
+        "solution": "y // inspection\nU' L F' L' R' U' R D y' R' // Xcross\ny U2 L' U' L U' L' U L // 2nd pair\nU2 R U R' // 3rd pair\ny2' F' U' F U R U R' // 4th pair\nU2 U2 R U2 R D R' U2 R D' R U' R U' R' U2 R U2' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5895",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.32",
+        "scramble": "U D2 F' R D2 B' L2 U' L' R2 F D2 L2 B' U2 F' D2 L2 U2 F2",
+        "solution": "y' x // inspection\nU' R' D r U' D // cross\nR U' R2' U R // 1st pair\nU' R U' R' d R' U R // 2nd pair\nU2' L' U' L U y' R' U' R // 3rd pair\nU F U R U' R' F' R U' R' // 4th pair\nU U2 R U2' R2' F R F' U2' R' F R F' // OLLCP\nU' M2' U M' U2' M U M2' U2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5900",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.08",
+        "scramble": "B L' B2 U2 B' D' B2 U' R' F' R2 D2 F' B' D2 L2 B' D2 F U2",
+        "solution": "z2 y // inspection\nR D R' U R' F L' D // cross\nR' U R U L' U' L // 1st pair\nU R U R' U R U' R' // 2nd pair\ny U2 R' U' R // 3rd pair\ny' R' U2' R // 4th pair\nF R U R' U' R U R' U' F' // OLL\nU R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5893",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.21",
+        "scramble": "L2 U' F2 U R2 U2 R2 U' B2 D' F' U2 F2 U2 B L D' L' F' R'",
+        "solution": "z y // inspection\nD r' R D' // cross\ny' R' U' R U2 U' U R U' R' // 1st pair\nd' U R' U2' U' R // 2nd pair\nU R U' R' U' L U L' // 3rd pair\ny' U R' U' R U R' U2' R // 4th pair\nU' F R U R' U' R U R' U' F' // OLL\nU x' R U' R' D R U R' D' R U R' D R U' R' D' F // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5892",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.16",
+        "scramble": "B2 U' L F2 U2 B2 U2 L' R2 D2 R' D2 U L2 B2 R B D2 L2",
+        "solution": "x z // inspection\nR D2 r' R2 // cross\ny L' U' L U' L' U L // 1st pair\ny R U2' R' U' R U R' // 2nd pair\nU L' U L R' U R // 3rd pair\nU' L' U2 L U L' U' L // 4th pair\nU2 U l' U' L U' L' U2 l // OLL\nU x' R U' R' D R U R' D' R U R' D R U' R' D' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5896",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.13",
+        "scramble": "R L' U F2 B U' D F R' U2 D2 L' D2 L' B2 L' U2 R2 D2 B",
+        "solution": "F' R D2 R' U R' F // cross\nL' U2 L R' U R // 1st pair\nU2 R U' R' U R U R' // 2nd pair\nU L U2 L2' U' L // 3rd pair\nU' L U' L' U L U L' // 4th pair\nU R U2' R2' F R F' U2 M' U R U' r' // OLL\nU2 x R2' D2 R U R' D2 R U' R x' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5888",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.78",
+        "scramble": "L D' F R' F2 L' B2 R B2 R2 F2 U2 R2 D' L' D B' R F' U",
+        "solution": "x' // inspection\nD r' R2 D R' F' L' U L D // Xcross\nU R U' R' U2 R' U' R2 // 2nd pair\nU2' R' U U U R U2' R' U2 R U' R' // 3rd pair\ny' L' U2 L U' L' U' L U' L' U L // 4th pair\nU2 U F' U' L' U L F // OLL(CP)\nU' M2' U' M2' U2' M2' U' M2' U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5891",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.75",
+        "scramble": "B' R F2 U D' B' R2 D R2 U2 L' U2 L' B2 U2 F2 D2 L B2 F",
+        "solution": "y2 // inspection\nD B' R D R2' D // cross\ny' L F' L' F L U L' // 1st pair\nU L' L U' R' U' R2 // 2nd pair\nU R' R U2' R' U2 L' U' L // 3rd pair\nR U' R' y' U2 R' U' R // 4th pair\nU2' L F' L' U' L U F U' L' // OLL\nR U R2' F' R U R U' R' F R U' R' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5897",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.84",
+        "scramble": "U2 F' R2 U' F2 D L F U R2 F' U2 L2 F L2 F' U2 R2",
+        "solution": "x y2 // inspection\nD R L2' U x' U' R2 // cross\nU R U' R' L U' L' // 1st pair\nR' U2' R U L' U' L // 2nd pair\ny L' U L y' R' U2' R // 3rd pair\nR' F R F' // 4th pair\nU U L' U' L U' L' U L U L F' L' F // OLL\nU2' R U R' F' R U R' U' R' F R2 U' R' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5890",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.17",
+        "scramble": "D' B2 D L2 D' F2 U B2 F2 U B2 R' F2 D2 U' F' U L' D2 B U",
+        "solution": "x2 // inspection\nR' F' D R' D2 R D' // cross\nU L U L' R' U R // 1st pair\nL' U' L U y' R' U' R // 2nd pair\nU R U R' U R U' R' // 3rd pair\ny' R U2' R' U' R U R' // 4th pair\nU2' U' R U R' y R' F R U' R' F' R // OLL\nU' U' R U R' U' D R2 U' R U' R' U R' U R2 D' U' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5889",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.27",
+        "scramble": "R D2 F D' B' L2 U B2 D2 F2 U2 B' R2 F D2 R2 F L' D'",
+        "solution": "x2 y // inspection\nD' R2' D R U' F' // cross\nU2 R U R' // 1st pair\ny' U L' U' L d' L U L' // 2nd pair\ny R U2' R' L U' L' // 3rd pair\nU R U' R' // 4th pair\nU2' F R U R' U' F' // OLL(CP)\nU R U R' U R' U' R2 U' R' U R' U R U2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5880",
+        "solver": "Antonio Kam Ho Tung",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.91",
+        "scramble": "F2 R' U2 F2 R' F2 D2 L' F' D2 R' F D U B U R U R",
+        "solution": "x // inspection\nz' R' U F' // 1st square\nU R U' M' f' // 1st block\nz R U R' U2' R r U R' // 2nd square\nU' M2' U2' r' U' R // 2nd block\nR U R' U' R' F R R U' R' U' R U R' F' // CMLL\nU' M U2' M' U' U' M2' // EOLRb\nU M' U2' M U2' // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5882",
+        "solver": "Antonio Kam Ho Tung",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "10.95",
+        "scramble": "F2 R2 D' F2 R2 D' F2 D' U2 L' F R' B2 L' D' L2 U B' U F",
+        "solution": "x y2 // inspection\nz' r' U R R F // 1st square\nM' M' f' // 1st block\nz R' U2' R' U R // 2nd square\nU R U2' R' U R U' R' // 2nd block\nR' U' R U' R' U F' U F R // CMLL\nU' M' U' M' U M U' M' // EOLRb\nU' M U' U' M' M' U2' M' // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5883",
+        "solver": "Antonio Kam Ho Tung",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "11.90",
+        "scramble": "B2 L' B R2 D R' F U' D' F U2 R F2 R2 F2 R' B2 U2 R2 B2 L",
+        "solution": "z' // inspection\nz' r' u R u' // 1st square\nU' R U' R' U F' // 1st block\nr2 U' R R U M U M' U2 r' U' R // 2nd square\nU' M2' U2' R U' R' // 2nd block\nR' U' R U' R' U F' U F R // CMLL\nM2' U M' U M2' // EOLRb\nU M U2' M' U2 M' // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5879",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.99",
+        "scramble": "D2 F' R2 D2 L2 U2 B2 F' U2 L' D F2 L2 B R B U' L' D'",
+        "solution": "x z' // inspection\nr R' D' F R U u' // cross\nU R' U' U' R2 U R' // 1st pair\nU' U' R' U R U' R' U R // 2nd pair\ny' R U' R' U U R U' R' // 3rd pair\nd R U R' U' F' U' F // 4th pair\nU F R U R' U' R U R' U' F' // OLL(CP)\nR' U' R U' R U R U' R' U R U R2' U' R' U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5878",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.48",
+        "scramble": "D L2 R2 D' L2 D' F2 D' U2 L' B' L D2 R' F' L2 D L' B2 U'",
+        "solution": "x // inspection\nR U' D' r' U' D R // Xcross\nU R U' R' U R U' R' // 2nd pair\ny' R U' R' U' L' U' L // 3rd pair\nU R U' R' U' R U' R' U R U' R' // 4th pair\nR U R' U R U' R' U' R' F R F' // OLL\nx' R U' R D D R' U R D D R2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5881",
+        "solver": "Antonio Kam Ho Tung",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "11.74",
+        "scramble": "B R2 F L2 R2 U2 B' D2 R2 B F2 L' R2 U' F' R D' U2 R2 B'",
+        "solution": "y // inspection\nz' U f' // 1st square\nU' U' R' U r F' // 1st block\nU r U R R U' R U R' U' R U R' // 2nd square\nM2' U2' M r' U' R // 2nd block\nU2' U' U U F U' R' U' R U F' U2' R' U2 R // CMLL\nM2' U M' U' M U M2' // EOLRb\nU M' U2' M // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5875",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.02",
+        "scramble": "B' L2 F U2 B R2 B' U2 L2 D2 R2 D' L' D' R2 F2 U2 L' U2 F' R'",
+        "solution": "x // inspection\nR D R D R D' // cross\nL' U U L R' U R // 1st pair\nL' R U' R' L // 2nd pair\ny2' U R' U' R U U R' U R // 3rd pair\nU' R U R' // 4th pair\nU U U r' U r2 U' r2' U' r2 U r' // OLL(CP)\nU R U R' U R' U' R2 U' R' U R' U R U // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5885",
+        "solver": "Sean Patrick Villanueva",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.98",
+        "scramble": "D' F2 D L2 R2 D2 R2 F' R' B D' F U2 L' F' L D' U'",
+        "solution": "y // inspection\nU L R U R' D D // 1st block\nR U M' R' U R // 2nd square\nU R U r' // 2nd block\nU r' U r2 U' r2' U' r2 r' r U r' // CMLL(EO)\nU' M2' U' M' U2' M' U' M2' // LSE"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5887",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.79",
+        "scramble": "D R F L2 D L2 U' F2 L2 U2 B2 D R2 L F' R B L' D2 F'",
+        "solution": "y2 // inspection\nR' B' R U L F' D' // cross\nU2 L U' L' U y' R U' R' // 1st pair\ny R U' R' y U R U' R' // 2nd pair\nL' U L y U L U' L' // 3rd pair\nU2 R U R' // 4th pair\nU' l' U2 L U L' U l // OLL\nR U' R' U' R U R D R' U' R D' R' U U R' U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5884",
+        "solver": "Antonio Kam Ho Tung",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "12.06",
+        "scramble": "B U2 D2 L U2 L B2 U F2 U' R L2 U2 L F2 L' D2 R",
+        "solution": "z' y // inspection\nz' U' M' U R R f' // 1st square\nz U' R U2' R' U2 F' // 1st block\nR R U2' U' r U R' U M R U' R' // 2nd square\nU' U' U' M2' U2 r' U' r // 2nd block\nU R' U' R U' R' U2 R // CMLL\nU' M2' U' M' U2' M' U2 M' // EOLRb\nU' M' U' U' M2' // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5876",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.42",
+        "scramble": "L2 D2 R2 D F2 U2 L2 F2 D2 F L F' U' F' D L' R2 D' L U2",
+        "solution": "R2 D R' F F U' D R U' R' U D D // cross\nR U R2' // 1st pair\nU' R d' R U' R' U R U' R2' // 2nd pair\nU' R d' R U' R' U R U' R' // 3rd pair\nU U R' U' R U R' U' U' R // 4th pair\nU' R U R' U R U' U' R' // OLL\nU' l' U R' D D R U' R' D D R l  U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5874",
+        "solver": "Ben Baron",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.61",
+        "scramble": "U F2 U' L2 D2 L2 U2 F L' D U' F' R' B R B L2 R",
+        "solution": "x y2 // inspection\nU l' D' U R' U' R2' // Xcross\ny' U2 R' U R // 2nd pair\nU2 R U' R' // 3rd pair\ny' U2 R U' R' U R U' R' // 4th pair\nU U2 r U r' R U R' U' r U' r' // OLL(CP)\nU2' // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5871",
+        "solver": "Juliette Sébastien",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "10.87",
+        "scramble": "F2 U D2 F B D R B R' L' D2 B2 D F2 B2 R2 B2 U F2 U",
+        "solution": "x' y' // inspection\nR' U D2 R' U y' R u' // cross\nU' R U R' U y R U R' // 1st pair\ny R' U' R2 U R' // 2nd pair\nU' U' R' U' R U' R' U R // 3rd pair\nU y R' U R U' R' U R // 4th pair\nU R U y R U' R' F' // OLL\nU' U' R U R' U' R' F R2 U' R' U' R U R' F' U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5886",
+        "solver": "Kevin Gerhardt",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.34",
+        "scramble": "U2 R2 F2 U2 R' B2 R' D2 U2 B2 U2 D' L2 R B2 L D L B' D'",
+        "solution": "x' // inspection\nF' U' r' D2' R U' D R2' // Xcross\nU' R U R' y' U R' U' R // 2nd pair\nR U R' L U' L' // 3rd pair\nU' R U2 R' U' R U R' // 4th pair\nU' U' r2' D' r U r' D r2 U' r' U' r // OLL\nU' R U' R' U' R U R D R' U' R D' R' U2 R' U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5870",
+        "solver": "Juliette Sébastien",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.90",
+        "scramble": "L2 D' R2 D' F2 L2 U R2 U2 B2 U' L' B L2 D2 F R' B F2 D",
+        "solution": "x z' // inspection\nF' R' D R2 D D y' R U' R' U y' R' F R // Xcross\ny' R' U' U' R U R' U' R // 2nd pair\nU' R U' R' U R U R' // 3rd pair\ny' R U' R' U R U' R' U y' R' U' R U' R' U' R // 4th pair\nU' U U R U' U' R' U' R U' R2 U' R U' R' U' U' R U' U' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5868",
+        "solver": "Juliette Sébastien",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "8.59",
+        "scramble": "L2 U R U2 B2 U2 L' B' R2 D' L2 U2 B2 R2 F2 B D2 F D2",
+        "solution": "z y // inspection\nR U' R2 U' z U' R' // Xcross\ny U R U R2 U' R // 2nd pair\nU' U' R U' R' U R U R' // 3rd pair\ny2 U' U' R U' R' U' R U' R' U y' R' U' U' R y R U' R' // 4th pair\nU' U' R' y' U' R' U2 R U' R' U' R y R // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5877",
+        "solver": "Max Park",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.96",
+        "scramble": "R' U R U2 F2 R2 B' L' F D R' B2 D2 B2 U L2 U' F2 U' L2 B2",
+        "solution": "z y2 // inspection\nU r' D D L F' L' D' // cross\nL' U L // 1st pair\nU' y U' R' U R // 2nd pair\nd U R U' R' F' U' F // 3rd pair\nR' U' R U U R' U R // 4th pair\nR U R' U R U' U' R' // OLL(CP)\nR U' R U R U R U' R' U' R2 U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5867",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.53",
+        "scramble": "U' B2 L2 U' R2 D2 F2 D F2 U2 L F R D2 B' R' B2 L' D' F'",
+        "solution": "x' // inspection\nr' D' F' L' D' R' u' D' // cross\nL' U L U' L U L' // 1st pair\nU L' U L U' L' U' L // 2nd pair\nU' R U' R' U R U R' // 3rd pair\nU' R' U R U R' U' R // 4th pair\nU U2' l' U' l L' U' L U l' U l // OLL\nF R U' R' U' R U R' F' R U R' U' R' F R F' U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5873",
+        "solver": "Jeremy Smith",
+        "event": "10x10",
+        "puzzle": 10,
+        "result": "9:07.83",
+        "scramble": "",
+        "solution": " // centers\n // blue\nU2' 4r' 3r U' y x' 3l' 4l z U 3r' z' x U' x' U2' U 5r 4r' U' 5r' U 5r x' x U' 4r' U 4r U' 6r' 2r U' y 5r' 4r U' x' 5r 4r' U3' x' U' 4l2' x z U2' x' 2r z' 2r U' y 4r' 3r U' x' 4r 3r' 6r' 5r U2' x U' 2r U' x' U 6r' 5r z U' 2l' z' x U' x' U' x2' 4r' U' x' 4l2' x' y U' x U' x' 5r 4r' U 5r' 4r U 4r U' x' 4r' U x 4l 5l' x 4l U' 6r' x' z U' x' 4r' 3r U2' x 6r2' 5r2 z' x' 3l 4l' x' z 4r' 4r 5r' 4r U2' x' 3l' 4l U' x' x U' x' U3' 7l 4r 3r' x' z x' 3r 2r' U' y U' x U' 7r' U2' x' 6r 5r2' 4r U 7r' 6r z 8r' 3r U' y U' x 3l 4l' 3r 2r' U' x' U' 5r' 4r U 5r 4r' x U' x2' 2l 3l' x' U' U 4r2' 3r2 6r2' 5r2 x z x' 3r 2r' x' U' 3l' U' 7r U' x' U 7r U' 3l' U 2l U' 8r' z U2' 6r' 3r U 2r' 2r U2' 5r' 4r U' 3r' 3r 2r' z U2' 2l 3l' z' U2' 6r' U2' 4r' 3r x 3r' 3r 2r' U2' x' x 2r x' 2l 3l' U x' 3r' 2r x' U' x' U2' 8l z' x U' x' U x 5r' 4r U' 5r 4r' U2' 2r'  // \n // green\nU' x' U' U x 5r' 4r 4l U' 6r' 5r 4r' x U' x' z 5r x' U2' 6r U' 8r2' 7r2 x 2l 3l' x' U' x' x U' x2' x U 2r U' x' U 4r' x U 2l2' U2' x' 4r' 3r x U' x' 4r 3r' x3' y U' 5r 4r' U' 5r' 4r y' U2' x U' 5r 4r' U' x' 4r U' 7r2' 6r2 y x2 U' x' U' 5r U2' 5r' z x U' x' F U2' x' 6r' 5r 6r 5r' U' U 4r U 4r' U x U' U 6l U' x2 4r' x  U' x2' 4l 5l' U' x 5r' 4r U' x2' 2l2' x U' x2' U2' 5r2' 4r2 U' 4l 5l' U x' 6r' 5r z' x U' x' U 6r U' 6r' x U 4l U 4l' z U' x' U 3r U2' 3r' z' x U' x' U2' 6r' 5r U' 2l 4r' 3r U' x' 5r' 5r U3' 5r2' 4r2 y' x 3r U2' 7l' 3r' U 3r U' y U2' x U2 x2' 3r 2r' U3' x' 4r 3r' 2r' U' x' U2' 6r2' 5r2 y x U2' 2l' U2' 8r U' x' z' U2' x' 3l 4l' 4r' 3r U' 2r' x' 5r' 4r 8r U2' 6r' 5r z U2' 3r U2' 3r' z' x' x U' 4r 3r' U2' x' 2l 3l' x' 4l' 5l U' 3l' 4l U2' x' 5r' 4r x' U' 8r' z y U' 2r U2' 2r'  // \n // red\nz' x 8r' U' x2 x' 6r U' 6r' x' U2' x' U' x 6r' 5r U x2' 2r2 U2' x' 4r' 4r U2' x' U2' x U' x' 6r 4r' U' 6r' 4r x2 7r2' 6r2 x2' 6r2 x U2' 5r 4r' U 5r' 4r U U2' 4r U 4r' U' x' U' 6r' 5r U x U x' 4r U 4r2' 3r2 U' x' x 5r' 4r U' 5r2' 4r2 U' x 4r' 4r x' U2' 6l' U' 4r 3l' 4l U x' 3l 4l' U' x 6r' 5r U 6r 5r' 7r' U' 7r U 4l U' 4l' 3r' 2r x' 5r U' 5r' U' x U 3l 3l' 4l U' 4l' 8l' U' x' U 3r U2' x' 3r' 2r U' x 2r' U 2r U' x2' x2 5r2' 4r2 3l2' 4l2 U' 3l2' 4l2 5r2' 4r2 U' x2' U3' x2 3l2' 4l2 U' 3l2' 4l2 2l' 3l U' x' U' x 3r' U' 3r 2r' U' x' R x' 2r x2 5r2' 4r2 U' 5r2' 4r2 U' 4r2' 3r2 U 4r2' 3r2 3r' 2r U' U2 2l U2' 8r' 3l' U' 3l U 5r 4r' U' 5r' 4r U' x' U' 6r U' 6r' U x U' x' 4r 3r' U' x' 4r' 3r 2l' x 2r' U' x U' 4r' 3r 3l U 3l' x' 4r 3r' x U 4r' 3r U 4r 3r' 3r 2r' U 3r' 2r U2' x U' x' 2r U' x 2r2' // \n // white\nU' x' 5r' 5r U 4r U' 4r' x U' x' x U U' x2' U2' x2 7r2' 6r2 U2' 7r2' 6r2 U' x' 6r U2' 6r' x' x U3' x' 4r U' 6l' x 3r' U' 3r U' x' U2' x' 4r' 4r x 4r' U' 4r U' 2l' U 2l x' 5r U' 5r' U' x U x' 4r2' 3r2 U' 4r2' 3r2 U' 4l 5l' U' 4l' 5l x U3' x' 5r 4r' U 5r' 4r 3r2' 2r2 U2' 3r2' 2r2 U' x U' x' 4r 3r' U 4r' 3r 2r2' U2' x 2r2' U 6r' U' 6r x' U' 5r2' 4r2 U 5r2' 4r2 x 5r' 5r x' U4' U U3' 2l' U' 2l U x U 7r' U' 3l U x U' x' 4r 3r' 2r U' 2r' x 4r' 3r x' 3r' 3r U2' x2 U' 3l2' U2' 3l2' x2' 3l' 3l U2' 7l' U' 3r 5r' 4r U x' 5r 4r' U' x 2l' 3l U 2l 3l' U2' 2r U2' 2r' x' 3l' U' 3l x x' U2' 2l 3l' U' 2l' 3l x 3l' U' 3l x' U 5r 3r' U' 5r' 3r 2l2' 3l2 U2' 2l2' 3l2 U' 6r U' 6r' U' F 4l 5l' U' 6r' 5r U' x U x' 4r 3r' U' 4r' 3r U' x 2l' U' 2l x' 2l 3l' 3r 2r' U' 3r' 2r U' U 2l' 3l U' x U' x' 2r U 8l2' U2' x' 2r  // \n // orange/yellow\nU' x' 3r' 3r U x 4r' U 4r x' 4l 6l' U' 6r' 4r U2' 2l 4l' U2' 2l' 3l 3l' 4l U' 5r 4r' U' 5r' 4r U2 3r 2r' U' 3r' 2r U x U2' 4r' 3r U2' x' 4r 3r' U 6r 6r' 5r U' 5r' U3' 5r U' 5r' U 5r U' 5r' U' 4l 5l' U2' 6r' 5r U2' 5r U' 5r' 5r 4r' U' 5r' 4r U2' 4r 3r' U 4r' 3r 3r 2r' U 3r' 2r U 2r U' 2r' U2' 3r 2r' U' 3r' 2r U' 5r 4r' U2' 5r' 4r U' U 4r 2r' U 4r' 3r 3r' 2r 4r 3r' U 4r' 3r U 4r 3r' U2' 4r' 3r U' U 3r 2r' U' 3r' 2r U 2r U 2r' U' 3r 2r' U' 5r 3r' U' 3r' 2r U 5r' 4r 4r' 3r U 3r 2r' U' 4r 3r' U 3r' 2r U' 4r' 3r U' 3r 2r' U' L' L 2l' U 3r' 2r U' 2l 2r U' 2r' U' U 2r U2' 2r' U' 2r U' 4r 3r' U 2r' U' 4r' 3r U' 2r U 3r 2r' U' 2r' U 3r' 2r2 U' 4l 5l' U 2r' U'  // \n // edges\nz' U' U' R U' R' y' U R U' R' z' x2' 5r 4r' 4l' 5l z U' R U R' U' x' y x' 2l' 3l z' U' U' R U R' U' y' R U' R' U' z' x' 3l' 4l x' 2l2' 3l2 2l' // YB\nx' z' U' y' R U R' U' y' R U' R' x' y x' 3r 2r' z' U' y' R U' R' U' L' U2' L z' 3r2' 2r2 y' x R U R' x' y 2l2' x' 3l 4l' 5l 6l' z' U' U' R U' R' 2u L' U' L x U' L U L' x' z' 4l' 5l // WB\nx z R R' U y L' U' L z' x 3r2' 2r2 x2' 5r' 4r x' z U' U' L' U2' L2' U2 L' x y' x 8l x' 4r2' 3r 4r 4r' 3r z' U' R U2' R' U' R U' R' z' 4r' 3r z' U' x' y z' U' x' y z' U' x' y z' U' y' y L' U' L x' y z' 2u // RG\nU' R U' R' U' z' x' z' U' z' x' z y' U' y L' U2' L z' x x' 6r2' 5r2 x' 2r x' 3r' 2r z U2' U y L' U' L z' x 2l' 3l z U' R U' R' z' 3l' 4l 5r' 4r z' U' U L' U' L 2d // OB\nU y L' U' L z' x 2r' x' 5r' 4r 2r' x' z' U' x y' 8r' 4r 3r' z U y L' U' L z' x' x' 4l 5l' x' 5r' 4r 3r' z U2' R U' R2' U R z' 3r' 2r 3l2' 4l2 x2' y x' U' L' U' L x U' L U L' x' z' 2l 3l' // WG\nz R U' R' U' y z' x 5r 4r' x' z U' L' U' L x U' L U L' x' 2u' 2d' U2' y L' U2' L x y' 2l' 3l // OG\nz U' y' U' y L' U' L z' x' 4l' 5l x' 2r' x' 3r 2r' // YG\nz U' R U' R' z' 7r' z U' z' 2l2' 4r2' 3r2 z L' U' L x U' L U L' y' x 2l' 3l 2l' x' 4r 3r' // YO\nz U' R U2' R' z' x' 2l' x' 4r' 3r x2' 5r2' 4r 3r 4r 3r' x' z L' U' L x U' L U L' x' z' 3r' 2r // WO\n5r' z L' U' L x U' L U L' x' z' x' 2l 3l' 2l z L' U' L x U' L U L' x' z' x' 6r' 5r 2l2' z L' U' L x U' L U L' y' 2l' 4l 5l' x' z L' U' L x U' L U L' x' z' 2l 4l' 5l z L' R U2' D2' L R' z' 5r2' 4r2 4r' 3r' 4r' 3r z L' R U2' L R' z' z L' R U2' L R' z' 4r2' 3r2 z L' R U2' L R' z' 5r2' // WR\nx x' 5r' 5r U2' x' 5l2' x' z L' U' L x U' L U L' x' z' x' 5l2' x' U2' 6r 5r' 2r z y L' U' L x U' L U L' y' 6r' 5r 2r' // YR/RB\n // 3x3x3\nz' U y' R U2' R' x' z' x' U' y L F' L' // cross\nU L 2u' U' 2u U' L2' U' L // 1st pair\ny U2' R U' R' U y R U' R' // 2nd pair\nL U L' U L 2u' 2u U' L2' // 3rd pair\nU L U' L' U' L U' L' U L // 4th pair\nU' 6l 6l' 5l 5r U2' x U2' x' 5r U2' 5r' U2' 5r U2' x U2' 5r U2' 5r' x' U2' 5l' 5r' // OParity\nU' L U L' U L U2' L' // OLL(CP)\nU L U L' U L' U' L L U' L' U L' U L U2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5864",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.13",
+        "scramble": "L' B' U2 L D2 B2 F2 L D2 F2 U2 R' D2 U' R' U' B' R2 U' D B",
+        "solution": "z y // inspection\nU x' U' R2 D r U' r' // cross\nR' U R // 1st pair\nu' U2 R U' R' D // 2nd pair\ny' R' U' R // 3rd pair\nU' F' U' F U R U' R' // 4th pair\nU2 l' U' L U' L' U2 l // OLL(CP)\nU' R U R' U R' U' R2 U' R' U R' U R // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5872",
+        "solver": "Juliette Sébastien",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "11.81",
+        "scramble": "F R2 B' D R F R' U2 L2 B' R L2 D2 B' U2 B2 U2 L2",
+        "solution": "z' y' // inspection\nr' F' F' R D' F R y' R' U' R D2 // Xcross\ny' U' R' U R U' R' U R // 2nd pair\nR U R' U' U' R U R' // 3rd pair\ny2' U' U' R' U R y R U R' // 4th pair\nU' U' U' R' U' R U' R' U' U' R U R' U' R U' F U' R' U' R U F' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5866",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.52",
+        "scramble": "D L' F2 R2 B R2 F' R2 D2 F R2 D2 B2 D2 L U' F R2 U2 B L",
+        "solution": "z' y // inspection\nU L2 F' U R' U' R L' U' L D // Xcross\nR' U R // 2nd pair\ny' U2 R U R' U' D' R U R' D // 3rd / 4th pairs\nU' r' R U R U R' U' r R2' F R F' // OLL\nx R' U R' D2 R U' R' D2 R2 x' U2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5869",
+        "solver": "Juliette Sébastien",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.75",
+        "scramble": "B2 F2 D' L2 D' L2 R2 D B2 U2 B L B D' U2 F' L2 D' F2 R",
+        "solution": "x y // inspection\nr' U' R z' R' U' R // cross\nz U' U' R U' U' R' U' U' R U' R' // 1st pair\ny R U' U' R' U' R U R' // 2nd pair\nU' y' y' R U' R' z U' R U // 3rd pair\nz' y' U' R' U' U' R U R' U' R // 4th pair\nU' U' U' U' R U R' U' R' F R F' R' U' R U' R' U' U' R // OLL(CP)\nU // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5865",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.20",
+        "scramble": "F U B2 D F2 R2 U2 F2 D' L2 R2 U' R2 L F R D2 U' R' D2 F'",
+        "solution": "z' // inspection\nD L R F d' U' R' U' R' u2' // Xcross\nU' R' F U' F' R2 // 2nd pair\nU R' U' F U' F' // 3rd pair\nU' R U' R' U2 R U' R' // 4th pair\nR U R' U R U2' R' // OLL(CP)\nR2 U' R' U' R U R U R U' R // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5863",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.43",
+        "scramble": "U2 R' D' F' U' L' D R2 U R2 F' L2 D2 L2 F' B' R2 U2 F'",
+        "solution": "y // inspection\nR F R2' D R' F R U' D' // cross\nR' F R F' R' U' R // 1st pair\nU2 R U2' R' U2 R U' R' // 2nd pair\ny2' R U' R' D' U2' R U R' U R U' R' D // 3rd / 4th pairs\nU' U r' U r2 U' r2' U' r2 U r' // OLL(CP)\nU' // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5862",
+        "solver": "Patrick Ponce",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "7.06",
+        "scramble": "L2 U' B2 D2 L2 F2 U' R2 U' F D B2 L D U' F' U R' D' B2",
+        "solution": "x' y2 // inspection\nR' U' F' U' r x' u // cross\nU' R' U R // 1st pair\nU R U R' z U R' U' // 2nd pair\nz' U' D R U R' U' D' // 3rd pair\nR U' R' U R U' R' // 4th pair\nU' U' R' U' R U' F U' R' U' R U F' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5861",
+        "solver": "Bhargav Narasimhan",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.46",
+        "scramble": "F2 U' R2 B2 D2 R2 F2 D' R2 U B2 R' D2 F R D' U F U' L",
+        "solution": "z2 // inspection\nD R' D U r U' x' D // cross\nU' y U' y U' R U R' // 1st pair\nR' U' R // 2nd pair\ny' R U' R' y' R U R' // 3rd pair\nU' U' R' U R U' R' U' R // 4th pair\nU' U' U r' U r2 U' r2 U' r2 U r' // OLL(CP)\nU' z U' R U' R' U' R' U' R U R U2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5941",
+        "solver": "Keaton Ellis",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.49",
+        "scramble": "B L2 R' D B' F L' B2 L2 R F' U' F2 L U R2 D' R'",
+        "solution": "z x // inspection\nF D2 F2 U R D' // Xcross\nU' R' U R U' R' U' R // 2nd pair\ny' R U' R' L' U' L // 3rd pair\nU y' U R' U2 R U' x' R U' R' U // 4th pair\nx U' R U' L' U R' U L U L' U L U2 // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5853",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.35",
+        "scramble": "D2 B2 D F2 R2 D2 F2 U' F' L B R2 D B' D' F U' L U'",
+        "solution": "x' z // inspection\nD R D' R' // cross\ny' R' U R U' R' U R // 1st pair\nU R U' R' U' L U L' // 2nd pair\ny' U R' U' R2 U R2' U' R // 3rd pair\nF' U' F U' R U R' // 4th pair\nU' R U R' U' R' F R F' // OLL\nU' R' U L' U2 R U' R' U2 R r // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5855",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.38",
+        "scramble": "B' R' L B' U' B' R U2 L2 B D' B2 R2 D F2 B2 U L2 U",
+        "solution": "z2 // inspection\nr' U R' F R D2 F // cross\ny U' U' R' U' R // 1st pair\nU' U' L' U' L2 U L' // 2nd pair\nF' U' F R' F R U' F' // 3rd / 4th pairs\nF F' U' R' U R U' R' F' U' F R U R' F R' F' R U' R U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5844",
+        "solver": "Arisandra Soo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.49",
+        "scramble": "L' U' R' B D' L F' B2 D' B L' B2 U L2 B2 R2 F2 U L2 F2",
+        "solution": "z2 y // inspection\nU' R' F L D L2' D' // cross\ny' U2 L' U L // 1st pair\nU R U R' d' R' U' R // 2nd pair\nU L' U L R U2' R' U2 R U' R' // 3rd pair\ny' U2 R U' R' y' U R' U' R // 4th pair\nU F R U' R' U' R U R' F' // OLL\nU R2' F2 R U2 R U2' R' F R U R' U' R' F R2 U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5847",
+        "solver": "Tudor Lin",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.24",
+        "scramble": "F2 D B2 U2 L2 R2 U L2 B2 D R2 F D' B2 L F R' B' D2",
+        "solution": "x // inspection\nR' U2' R' D2 // 1st square\nU' U' R' U F' F' // 1st block\nr U' r2 U' U U M' U' r' U R // 2nd square\nU' r U' U' M2' U' r' // 2nd block\nR U2' R' U' R U R' U' R U' R' // CMLL\nM U M' U' M U' M U' U' M' // EOLRb\nU U' U' M' U' U' M2' // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5848",
+        "solver": "Tudor Lin",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.93",
+        "scramble": "R2 U' F2 D' B2 D2 B2 U' R2 U2 L' R' U' F' L' D' B U L2 U R'",
+        "solution": "y2 x // inspection\nF D' // 1st square\nR U' R B' // 1st block\nU r r U' M' U' r' U r // 2nd square\nr U' U' r' U r U' r' // 2nd square\nU R U R' U' R' F R F' // CMLL\nM U' M U' U' M U' M' U' M2' U' // EOLRb\nM2' U' U' M' U' U' M // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5832",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.36",
+        "scramble": "U2 L2 U2 F2 D R2 F2 R2 U2 L2 D F D' B2 F R' B2 U' B2 D'",
+        "solution": "x2 // inspection\nR D R2' L' U' L' U' D // Xcross\nR' U' R U R' U' R // 2nd pair\ny' U' R' U R U' R U R' // 3rd pair\nR' U' R U' R' U R // 4th pair\nU' U' R' U2 R U R2' D' R U R' D R2 U' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5845",
+        "solver": "Arisandra Soo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.31",
+        "scramble": "R2 U' L2 D' R L U2 F L U L U2 L' F2 R2 F2 L' D2 B2 U2",
+        "solution": "x2 y // inspection\nD' F2 R2 D' R' D' // cross\ny U2 R U' R' // 1st pair\ny' U R U R' y' U R' U' R // 2nd pair\nL' U' L U2 R U R' // 3rd pair\ny' U' U y' R' U' R // 4th pair\nU' U R' U' R' F R F' U R // OLL\nU2 R2 U R' U R' U' R U' R2 D U' R' U R D' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5827",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.76",
+        "scramble": "D2 U2 B' D2 B U2 L2 B U2 F2 R2 D' R' D' U' B' R2 F2 U B U",
+        "solution": "U R' F R' // cross\nU' L U2 L' // 1st pair\ny U' U' R U' R' U R U' R' // 2nd pair\ny2' U R U' R' U' R' U' R // 3rd pair\nd R' U' R U R' U R // 4th pair / WVLS\nR U R' F' R U R' U' R' F R2 U' R' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5818",
+        "solver": "Will Callan",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.82",
+        "scramble": "B' D2 U2 R2 B R2 F L2 B' R D2 L F L' D' L2 R B' U' R2",
+        "solution": "z y2 // \nR D F R' D // \nL U L' y' U R U' R'  // \nL' U' L R' U R // \ny' R U R' // \nL' U' L U L F' L' F // \nR U R' F' R U R' U' R' F R2 U' R' U // "
+    },
+    {
+        "link": "http://cubesolv.es/solve/5840",
+        "solver": "Sei Sugama",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.80",
+        "scramble": "U2 B' R' F2 U B2 U' R2 B' L' D2 B F' D' L R2 F U2",
+        "solution": "z y // inspection\nU' r' L' D' F' R' F y (U D') // cross\nR' U' R // 1st pair\nU y' R U R2' U' R // 2nd pair\nU' R U' R' U R U R' // 3rd pair\nU L' U' L // 4th pair\nU' R U R' U' r R' U R U' r' U // ELL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5828",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.75",
+        "scramble": "L2 D' U' B2 L2 B2 U' F2 U' L2 U2 B' R2 F D F2 L F' D' L' F'",
+        "solution": "x' y' // inspection\nr F' R2' F R // cross\nU' R U' R' d R' U R // 1st pair\nR U R' U' R U R' // 2nd pair\nU' L' U L2 U' L' // 3rd pair\nU U' L' U2 L U' L F' L' F // 4th pair\nR' U2' R U R' U R // OLL\nU' R U R' U' R' F R2 U' R' U' R U R' F' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5821",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.66",
+        "scramble": "U' F2 D2 F' U2 L' U B2 F' U2 F2 R' D R F2 D2 L2 R'",
+        "solution": "y x' // inspection\nU2 R D R // Xcross\nd R' F U' F' R // 2nd pair\nd R U' R' U R U' R' // 3rd pair\nU2' R' U R U' R' U R // 4th pair\nU R U R' U' r R' U R U' r' // OLL\nU R2' F R R' F R U2 R U2' R' F R U R' U' R' F R2 U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5817",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.99",
+        "scramble": "U' R F U2 F' U2 F2 D' R D' L2 R' F D B2 L' B R' U2",
+        "solution": "x // inspection\nU' R U2 R (U' D) // cross\nR' U R2 U' R' // 1st / 2nd pairs\ny' R U' R' U' R U R' U2 R U' R' // 3rd pair\ny' U R' F R F' U R U' R' R U' R' // 4th pair\nF R U R' U' F' // OLL\ny' x' R U' R D2 R' U R D2 R2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5814",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.04",
+        "scramble": "D' L D' U2 R2 U' B L U2 B2 R U R2 F2 D' U2 B' ",
+        "solution": "x y2 // inspection\nU' R2 D R' D2 // cross\nR U' U' R' U L U L' // 1st pair\nU' R' U2 R d' R U R' // 2nd pair\nU' L U2 L' // 3rd pair\ny' U R U' R' y' R' U' R // 4th pair\nF R U' R' U' R U R' F' // OLL(CP)\nR U' R U R U R U' R' U' R2 U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5836",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.84",
+        "scramble": "R' F2 R' U2 R U2 R U2 D R D2 U L' F' L2 B' F' L F L",
+        "solution": "z2 y // inspection\nD F2 L' R U' R' U r' U r D // Xcross\ny' U' y' R' U' R U' R' U R // 2nd pair\nU' y' U' R U R2' U' R // 3rd pair\ny' R' U2 R U' R' U' R U R' U R // 4th pair / WVLS\nR' U L' U2 R U' R' U2 R L U2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5820",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.92",
+        "scramble": "B2 U' F2 D U' B' U' L2 F D B2 L R' B2 F2 U' R U",
+        "solution": "x' // inspection\nr' U' F' R2 u L U D // cross\nR' U R // 1st pair\nU2 y' R U' R' U R' U' R // 2nd pair\nu' R U' R' (U D) // 3rd pair\nR' U R // 4th pair\nU2 l' U' R r' U' L U R' F R // OLL(CP)\nU' R' U R' U' R3 U' R' U R U R2' U // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5813",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.16",
+        "scramble": "R2 F' U2 L D' L' D' R D2 U2 F2 L' D2 L' D' B' U'",
+        "solution": "y // inspection\nR2' F D F D2 // cross\nR U' R' y R U' R' U R' U' R // 1st pair\ny' U' L' U L R' U R // 2nd pair\nR U' R' F U F' // 3rd pair\nU' R U R' // 4th pair\nU' U' F U R U2 R' U' R U2 R' U' F' // OLL\nU R U R' F' R U2' R' U2' R' F R U R U2' R' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5831",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.51",
+        "scramble": "B R L' D' R U L U F2 L2 F2 R2 L2 F R2 D2 B2 U2 B",
+        "solution": "D' L R' U2 R U' R' D' U R2 // Xcross\nU' y U' R' U R U' R' U R // 2nd pair\ny' R' F R F' R' U' R // 3rd pair\ny' R' U2 R U' R' U R // 4th pair\nU' r U2 R' U' R U R' U' R U' r' // OLL\nU' R U R' F' R U R' U' R' F R2 U' R' U2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5825",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.24",
+        "scramble": "F2 D U R2 U' F' R2 D U2 R U B F2 R' U' F2 L' D'",
+        "solution": "x y // inspection\nD' r R' y L' U' R2 // Xcross\nU' L' U L2 U L' // 2nd pair\ny' U2 R U2' R' U2 R U' R' // 3rd pair\nL U2 L' // 4th pair\nU U' U' F U R U' R2' F' R U R U' R' // OLL(CP)\nU' R' U R' U' R3 U' R' U R U R2' U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5805",
+        "solver": "Viljo Elo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.61",
+        "scramble": "F2 B2 D L2 F2 L U2 D2 B R2 F2 L2 D' F2 B2 D' B2 D2 R2",
+        "solution": "z2 // inspection\nr' B' // 1st square\nD R2 U R' D' // 1st block\nR' U R U' R' U R' U' R // 2nd square\nU' r U r' U2 r U R' // 2nd block\nU U' M' U2 M' U2 M' U M // EO\nU2 M U2 M' // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5811",
+        "solver": "Keaton Ellis",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "7.26",
+        "scramble": "U F2 D U2 B L' U2 R' D2 L2 D L D U F2 U2",
+        "solution": "x2 y // inspection\nU' R R U' F' // Xcross\nR U' R' U' z U R' U' // 2nd pair\nz' y' U' R U' U' R' U R U' R' // 3rd pair\ny R U' R' U' y' R' U' R // 4th pair\nU' F R U R' U' F' // OLL(CP)\nU' U' // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5808",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.37",
+        "scramble": "F U2 L2 R2 F' D2 B L2 F L2 F U' L B2 L2 F D2 L' B' U R2",
+        "solution": "x' // inspection\nr' D' L' U' R' F R u' // cross\n(U' D') L U L' // 1st pair\nU R' U R D // 2nd pair\nU2 R' U2' R U R' U' R // 3rd pair\ny' R' U R U' R' U' R // 4th pair\nU U2 R' R R' R R' U' R' D' R U R' D R U R' U' R' U' R' U R U R2' U' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5793",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "9.54",
+        "scramble": "D2 F2 D B2 F2 L2 U2 R2 D F2 D L B D2 L' U' L' B2 R U",
+        "solution": "z2 // inspection\nU R2' D R2 U2 L' u2 // Xcross\ny' d R U R' U R U' R' // 2nd pair\nU R' U R2 R' d' U' L U L' // 3rd pair\nd' U' L' U L U' L' U' L // 4th pair\nU R r' U' r U2' r' U' R R' M' r' R2 U' (R' M') // OLL\nU2 R' U' R (U D') R2 U R' U R U' R U' R2' D U2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5809",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.78",
+        "scramble": "F U' B' R' L' F2 U B' L' R2 D2 F2 R2 D' R2 B2 D B2 L2 U'",
+        "solution": "z2 // inspection\nU' R' F R' U L u' // cross\nL U L' U L U' L' // 1st pair\nR' U' R U' R' U R // 2nd pair\nU' y' R' U' R U R' U' // 3rd pair\nR2 U R' U R U R' // 4th pair\nU R' U' R' F R F' U R // OLL(CP)\nM2' U' M2' U2' M2' U' M2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5790",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.19",
+        "scramble": "D' B' U' B2 U' R U2 B2 U' R2 F D2 B2 R2 F2 L2 D2 R2 B L2",
+        "solution": "y x2 // inspection\nU L U L F' D2' L' D2 // cross\nU R' U' R // 1st pair\nU' U' L' U L U' L' U L U2' L' U L // 2nd pair\nU' R U' R' d L' U L // 3rd pair\nU2 R' U' R // 4th pair\nU R U R' U R U2' R' F R U R' U' F' // OLL(CP)\nU' R' U R' U' R' U' R' U R U R2' U // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5803",
+        "solver": "Viljo Elo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.78",
+        "scramble": "F' B L D' F' U L' F' R' B' U' F2 R2 L2 U' L2 U F2 U' L2",
+        "solution": "y2 // inspection\nU r U R B' // 1st square\nU2' r' R2 F // 1st block\nr2' U' U r' U' r U' R // 2nd square\nU r U r' // 2nd block\nU U' R U2' R2' F R F' U2 R' F R F' // CMLL\nM' U2 M' U2 M U M' U' // LSE"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5800",
+        "solver": "Viljo Elo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "9.33",
+        "scramble": "B2 L2 D2 R' B2 L D2 U2 L' D2 L' D' B F2 R U B D R' U",
+        "solution": "y' // inspection\nD2 F' // 1st square\nU' R' U B2 // 1st block\nU R U R U M' r U R' // 2nd square\nU' M' U2 M r' U' r // 2nd block\nU' U' R' U' R' F R F' R U' R' U2 R // CMLL\nM' U2 M' U2 M U M // EO\nU2 M2' U' M2' U2 M' U2 M // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5783",
+        "solver": "Phillip Lewicki",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.52",
+        "scramble": "B2 R' L2 U' B2 U' R2 B2 F2 U' D2 L2 U2 F' U' L' F' U' D2 R2",
+        "solution": "D2 R' U F' U' L2' // cross\nd L U' L' // 1st pair\nR U' R' U R' U' R // 2nd pair\nF' U2' F U' R U R' // 3rd pair\nU y' U R U U' R' U R U R' // 4th pair\nl' U l2 U' l2' U' l2 U l' U2 // OLL(CP)"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5860",
+        "solver": "Bhargav Narasimhan",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.30",
+        "scramble": "U' R' U' L U2 B' D' L' F2 L2 F D R2 L2 D' B2 D F2 L2 D'",
+        "solution": "x2 // inspection\nD2 R D y' U' R' F // cross\nU' R U' U' R' U R U R' // 1st pair\nU' y' R U' R' U R U R' // 2nd pair\ny' R U' R' U' R U R' U' U' R U R' // 3rd pair\ny2' R' U R U' R' U' R // 4th pair\nr U R' U R U' U' r' // OLL(CP)\nU y z U' R U' R' U' R' U' R U R U2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5795",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.71",
+        "scramble": "F' L D F' B2 R L' F' U2 B2 L' F2 R U2 B2 U2 R2 L' D2",
+        "solution": "y2 x // inspection\nD2 r D R' // pseudo cross\ny L' U L D' // Xcross\nR' U R // 2nd pair\nU2 R U R' // 3rd pair\nd R U R' U2 R U' R' // 4th pair\nU U' R' U' R U R' U R L' U R' U' R L U // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5781",
+        "solver": "Phillip Lewicki",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.16",
+        "scramble": "F' D F2 R F2 D2 L D2 L' U2 F2 L F U L D' B U D",
+        "solution": "x' y2 // inspection\nD R r' L' U L D2 R' D // Xcross\ny U' R U R2' U' R // 2nd / 3rd pairs\ny' U' R U2' R' U F' U' F // 4th pair\nU' U R' F' U' F U R U' // OLL(CP)"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5796",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.86",
+        "scramble": "R2 D' R2 U R L' U R L2 U2 F2 R2 B U2 B U2 D2 F D",
+        "solution": "y // inspection\nD r U x' U R2 u' // cross\nU R' U2' R2 // 1st pair\nU2' R' U2 R U' R' // 2nd pair\nL' U' L d' L U L' // 3rd pair\ny R U2' R' U2 R U' R' // 4th pair\nU2' U r U' r2' U r2 U r2' U' r // OLL\nR U R' (U' D) R2 U' R U' R2' R U R' U R2 U' D' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5786",
+        "solver": "Phillip Lewicki",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.27",
+        "scramble": "L' U2 L2 F2 U' L2 B2 U' D F2 B D' L' B R' U' D' L'",
+        "solution": "z2 // inspection\nR' D' R U D2 // cross\nR U R' y' U' R' U R2 // 1st pair\nU' R' L' U' L y' U R' U R // 2nd pair\ny' U' R' U R2 U' R' // 3rd pair\ny U' R U2' R' U' R U R' // 4th pair\nU l' U l2 U' l2' U' l2 U l' // OLL\nR' l' D2 R U R' D2 R U' R // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5785",
+        "solver": "Phillip Lewicki",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.49",
+        "scramble": "F' D F2 B' D L2 U D2 F2 D2 R2 U R2 L B' D' L' F D L'",
+        "solution": "y2 // inspection\nU R' (F B') R U' R2 // cross\ny' U y R U' R' // 1st pair\ny' U' R U' R' L' U' L U2' L' U L // 2nd pair\nU R U R' // 3rd pair\ny' U y' U R U R' U' R U' R' F' U F // 4th pair\nR U R' U' R U' R' F' U' F R U R' // OLL\nU' D' R U R' U' D R2 U' R U' R' U R' U R2 U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5775",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.64",
+        "scramble": "D' U2 L2 F U2 F R U' B' R F2 D2 U2 L' B D2 B2 U'",
+        "solution": "y' z' // inspection\nR' U' F R' (U' D) // cross\nR U' R' y' L U L' // 1st pair\nL' U2 L R' U R // 2nd pair\nU R' F R F' U' R' F R F' // 3rd pair\nU' L' U L // 4th pair\nU' R2 D R' U2' R D' R' U' // OLL\nR' U' R' F R2 U' R' U' R U R' F' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5784",
+        "solver": "Phillip Lewicki",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.14",
+        "scramble": "B L2 B' D2 B D2 L2 D2 L2 B L2 R U' F2 D F' B L D L' F",
+        "solution": "x' // inspection\nD' r' F' D R' D F' D' // cross\nU y' U L U' L' // 1st pair\nR' U R U R' U2' R // 2nd pair\nL' U' U' L R U' R' U y' R' U R // 3rd pair\nU2 R U R' U2 R U' R' // 4th pair\nU' r U R' U R U2' r' // OLL\nU2 l' U R' D2 R U' R' D2 R2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5846",
+        "solver": "Tudor Lin",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "10.49",
+        "scramble": "U R2 D' B2 L2 D' B2 U R' U F L B2 D2 L2 D B R2 D'",
+        "solution": "z2 // inspection\nU' R U R' F // 1st square\nU' R2 U' M' f' z // 1st block\nr2 U' r2 U' R' U' R U' R' U R // 2nd square\nU M U' r U' r' // 2nd block\nU' U' R2 D R' U2' R D' R' U2' R' // CMLL\nM' U' M' U' M' U M' U' U' M' U M // EOBFb\nU' U' U U M' U' U' M2' U' U' M' U' // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5842",
+        "solver": "Arisandra Soo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "9.06",
+        "scramble": "F U2 R U B L2 U' F' U' R' B R2 B' L2 F L2 F D2 R2",
+        "solution": "x2 // inspection\nU' R' F R L D' U' R2' // cross\nU R U' R' U2 R U' R' // 1st pair\ny' U L' U' L y' U' L' U L // 2nd pair\nU R U2' R' U2 R U' R' // 3rd pair\ny U2 R U' R' y' U' U x' R U' R' U // 4th pair\nx U f R U R' U' f' // OLL\nU R U R' U' R' F R2 U' R' U' R U R' F' U2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5834",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.25",
+        "scramble": "B2 F2 R2 F2 U' F2 R2 U' F2 D' F2 R' B' F U2 F L' B2 L U2 R'",
+        "solution": "z y2 // inspection\nD L2' U' F R' U2 R U' R' D2 // Xcross\nU' L U2 L' // 2nd pair\nL' U L U' L' U' L // 3rd pair\nU R' U2' R // 4th pair\nR U R' F' U' F U R U2 R' // OLL\nU' U' R U R' F' R U R' U' R' F R2 U' R' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5769",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.02",
+        "scramble": "B2 R2 F2 R D2 B2 D2 R2 B2 U2 R' F2 R' F' L' U' B U2 R2 B' F' U",
+        "solution": "x y2 // inspection\nr' D' r R' U2 R' D D // cross\nR' U' R // 1st pair\nR U' R' y R' U' R U' R' U' R // 2nd pair\ny' R U2' R' U2 R U' R' // 3rd pair\nL' U' L U L' U2 L // 4th pair / WVLS\nU R U R' U' R' F R2 U' R' U' R U R' F' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5849",
+        "solver": "Tudor Lin",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "11.10",
+        "scramble": "U' L2 U' R2 U' R2 B2 L D' L' R B2 U L B' D' R2 D2 F",
+        "solution": "y' x' // inspection\nM2' U' R B' // 1st square\nr' U' U' r' F // 1st block\nR U' U' R' U' R U R' U' R // 2nd square\nr U' U U' R' U R U R' // 2nd block\nU' U R' R U' R' F R F' r U' r' U' R U' R' // CMLL\nU' M U' M2' // EOLRb\nU' M2' U' U' M' // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5773",
+        "solver": "Louis de Mendonça",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.86",
+        "scramble": "F2 L2 U R2 B2 R2 U2 L2 U2 F2 U L2 U R F D B' F R' D2 L2 U'",
+        "solution": "y2 // inspection\nU U L U' M F' U l' u' L' u // FB\nl2' U U' M L' U' L2 // SS\nU2 L' U' L U l' // SP\nl U' l' U U L' L' F' L' F L' // CMLL\nM' U M M2 // EOLRb\nU M' U U M' U U // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5767",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.05",
+        "scramble": "D2 U2 R2 B2 F R2 B' U2 B' F' D' L D F R' D' B2 R2 B2 L B'",
+        "solution": "x2 y // inspection\nL U R U' U' F y D2 // cross\nU' R' U R // 1st pair\nU' R U' R' U R U R' // 2nd pair\ny2' U' R' U' R // 3rd pair\nU R U' R' y' R' U R U R' U R // 4th pair / SVLS\nU R' d' F R2 u R' U R U' R u' R2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5835",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.83",
+        "scramble": "D' R2 D2 L2 U' L2 U' L2 D2 F2 L2 F' U' L R' B' U' R2 U2 R' U'",
+        "solution": "y2 // inspection\nL2' D l D' R' U' R' D2 // Xcross\ny' R U' R' d R' U2 R U2' R' U R // 2nd pair\nd R' U2' R U R' U' R // 3rd pair\nU' F' U' F U R U' R' // 4th pair\nU R U R' F' U' F U R U2 R' // OLL\nR' U R U' R' F' U' F R U R' U' R d' R U R' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5843",
+        "solver": "Arisandra Soo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "9.29",
+        "scramble": "R2 L U' B' U' L' D' L F2 U F2 R' L' F2 B2 L D2 R F2 R",
+        "solution": "x2 // inspection\nD' D D' L' F2 R U2 L' U L y' U2 R' F2 R y' U F2 // Xcross\ny' R U R' d' R U' R' // 2nd pair\ny' U' R U R' U2 L' U' L // 3rd pair\nR' F' R U R U' R' F // 4th pair\nU' R U R' U' M' U R U' r' // OLL\nU' R U R' U' R' F R2 U' R' U' R U R' F' U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5857",
+        "solver": "Bhargav Narasimhan",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "10.86",
+        "scramble": "U2 B U2 B2 D R2 F' R2 L D2 F' U2 F2 U' L2 U R2",
+        "solution": "z2 y // inspection\nR D y' R' y D2 z' U' z D' // cross\nU' R U' R' // 1st pair\nU' R' U R U z U' R' U // 2nd pair\nz' R' U R U' y U' R' U' R // 3rd pair\nU' U' R U R' // 4th pair\nU' r U R' U R U' U' r' r' U' R U' R' U' U' r // OLL\nU R U R' y z U' U' r' U R' U' R U' r U' U' R' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5776",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.57",
+        "scramble": "B' R2 F' U2 B U' F2 U2 R' F2 D' U B U' F2 R' D2 U'",
+        "solution": "z' // inspection\nR U' r' D' // cross\nL U2 L' // 1st pair\ny U' R U' R' U R U' R' // 2nd pair\ny2' R U' R2' U' R // 3rd pair\nU' R U R' y' U' R' U R U' R' U R // 4th pair\nU R2' F2 R U2' R U2' R' F2 R U' R' U R // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5850",
+        "solver": "Tudor Lin",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.67",
+        "scramble": "F' D' R2 B D' B2 L D' B U' F' B2 L2 U2 F2 R F2 L2 B2 R2",
+        "solution": "z2 y' // inspection\nR U M' U f' // 1st square\nz U D z D2 z' U' D' // 1st block\nR2 U' M U' U' r U' r' // 2nd square\nU R' M' U' r // 2nd block\nU' U' z U R U' R U R D' R U' R' D z' // CMLL\nM' U M U' U' M' U' M U' U' M2' // EOLRb\nU M2' U2' // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5772",
+        "solver": "Andrey Che",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.29",
+        "scramble": "L' U' B' D2 R2 B' U  F' B' R' B  R2 U2 F2 R' L' F2 L",
+        "solution": "x2 y' // inspection\nD R F' D2 R' D D // Xcross\nU R U' U' R' U R U' R' // 2nd pair\nU L U' L' U L U L' // 3rd pair\nU' R' U R U' R' U R // 4th pair\nU' R' F R F' R' F R F' R U R' U' R U R' U' // OLL(CP)"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5770",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.80",
+        "scramble": "R2 U' B2 D' B2 R2 U2 F2 L2 F2 D' R2 B' U B2 F' U R' D2 L D'",
+        "solution": "x z2 // inspection\nF' R2 u L2' // cross\nR U' R' U' L' U' L // 1st pair\nR' U2' R // 2nd pair\ny' U U R' U' R U L' U' L // 3rd pair\ny R U' R' U' M' U R U' r' // 4th pair / EO\nU R' F' r U R U' r' F // COLL\nR U' R U R U R U' R' U' R2 U // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5822",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.57",
+        "scramble": "R2 B2 F2 R2 B2 L D2 B L U' B2 F R2 B L' D' R' U' R2",
+        "solution": "y x // inspection\nU x' U' F R' D' R D // cross\ny' R R' U' R R' U R U' R2' U R // 1st pair\nd R' U R U' R U R' // 2nd pair\nU L' U2 L d' L U L' // 3rd pair\nU2 R U R' // 4th pair\nF (R U R' U')2 F' // OLL\nR2' F2 R U2 R U' R' R U' R' F R U R' U' R' F R2 U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5761",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "8.99",
+        "scramble": "R F2 D' F2 U' L D F R2 U F' D2 B' R2 B L2 F2 D2 R2 B2",
+        "solution": "z y' // inspection\nr' F' R' z U' R U z' R' D2 // Xcross\nU' R U2' R' U y' R' U' R // 2nd pair\nU' R U' R' U2' R U' R' // 3rd pair\nr U' r' // 4th pair\ny' U' R' F R F' U // OLL(CP)\nR' U' R' U' R U R U R U' R U // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5837",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.54",
+        "scramble": "F2 R2 B2 D U' F2 U B2 U2 B2 L2 R' F U2 R B' F U L' R2 U2",
+        "solution": "x' y' // inspection\nD' R' D R F' U D' // cross\nR U R' L U L' // 1st pair\ny' R U R2' U' R // 2nd pair\nU' R U' R' U L U L' // 3rd pair\nU R U' R' U R U R' U' R U' R' // 4th pair / WVLS\nU' U' F R U' R' U' R U R' F' R U R' U' R' F R F' U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5762",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "9.20",
+        "scramble": "U' B D2 B2 L' F' U F' D R2 L U2 F R2 L2 B2 L2 F' U2 B2",
+        "solution": "x' y' // inspection\nU' r U x' R y U' R U' // cross\nz2' U' R U R2' U' R // 1st pair\ny' U2' R U' R' y' R' U2' R // 2nd pair\nR U z' U' r U' z U' R // 3rd pair\ny' U2' R U R' // 4th pair\nU' R' z x U' R' U R z' y' R // OLL(CP)\nU2' // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5838",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.42",
+        "scramble": "L2 D2 B2 F' R2 D2 R2 F' R2 B2 F U R B' U' L F' R B R'",
+        "solution": "x z // inspection\nL R D' R // cross\nD R' U' R D' // 1st pair\nU y' L' U' L U F' U' F U' R U R' // 2nd pair\ny' U' R U2' R' U L U L' // 3rd pair\nR U2 R' U' R U R' // 4th pair\nR U R' U R U' R' U' R' F R F' // OLL\nU' R2 U R2' U' U R U R' U' R U' R2 U' D R' U R D' U2' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5807",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.37",
+        "scramble": "U2 F L2 B' L2 F2 R2 F R2 F' L2 R' B R2 B2 D U2 L D' B2",
+        "solution": "x' y // inspection\nD F U R U R // cross\nd' L' U L // 1st pair\nD' U R U' R' u // 2nd pair\ny U2 R U R' // pseudo 3rd pair\n(U' D) R U R' D' // 4th pairs\nU R R' U' R U2' R2' U' R2 U' R2' U2' R // OLL\nU2 R U R' U' R' F R2 U' R' U' R U R' F' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5854",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.21",
+        "scramble": "B2 D' R2 D L2 B2 D B2 U F L2 R2 F2 U2 L F U' L2 R' D",
+        "solution": "x // inspection\nU' R2 D R' L' U' L R' U' R D // Xcross\nU' R U' R' U R U' R2' F R y' R' // 2nd pair\nU2 R U' R' // 3rd pair\nU' U' L' U L U' L' U' L // 4th pair\nR U2' R2' F R F' U' U' M' U R U' r' // OLL(CP)\nU2 M2' U M2' U2 M2' U M2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5812",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "3.41",
+        "scramble": "R' L D' B L' D' L B' U L' U2 B2 R2 U2 B2 R' B2 R' U2 B2",
+        "solution": "z // inspection\nD2 R D F R // cross\nU' U' R' U R U' R' U R // 1st pair\ny' R' U' R U L' U L // 2nd pair\nU' R U' R' // 3rd pair\nU R' U' R U' f R f' // 4th pair\nR U R' U' R' F R F' // OLL(CP)"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5806",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.57",
+        "scramble": "R U' F2 L2 F L D2 L F2 U2 F U2 F' D2 F' U2 B2 D2 B'",
+        "solution": "x2 // inspection\nR' F R D U L // pseudo cross\nu' L U L' u' // pseudo Xcross\n(D' U) L U L' u // XXcross\nU L' U2 L U' L' U L // 3rd pair\nd' L' U L2 F' L' F // 4th pair / EOLS\nU' R' U2 R' D' R U2 D D' R' D R2 // COLL\nU' R U' R U R U R U' R' U' R2 U // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5794",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.74",
+        "scramble": "B2 R2 B2 L2 D' L2 D F2 D F2 U2 L' B' L' B F L2 R2 D' L R2",
+        "solution": "y' // inspection\nU r U' r' D2' F // pseudo cross\nU R' U2' R2 U R' D E' // XXcross\nR U' R' U' R U' R' U R U' R' // 3rd pair\nU2 L U' L' // 4th pair\nU2 U' U R2 D R' U2 R D' R' U R U R U R U' R' U' R2 U2' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5823",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.77",
+        "scramble": "L2 D F2 D2 B2 R B2 L2 U B2 L' R' B R' B' F' D2 U' L",
+        "solution": "z2 // inspection\nR' D' R D' R D // cross\nL' U L U' L U L' // 1st pair\nU' R U R' U2 R U' R' // 2nd pair\nL' U L d' U' L U L' // 3rd pair\nU F' U' F U' R U R' // 4th pair\nU F (U R U' R')2 F' // OLL\nU U R U R' U' R' F R2 U' R' U' R U R' F' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5810",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.84",
+        "scramble": "L2 D' F2 L2 U L2 U' L2 D2 L2 U R D' B F2 R' D U B2 U'",
+        "solution": "y x' // inspection\n(D' U) r U' r' F r U r U' r' // pseudo Xcross\ny L' U L u // XXcross\ny' R U2' R' y R U R' // 3rd pair\ny' U' R U2' R' U2 R U' R' // 4th pair\nU2 U' R' U2' R F U' R' U R U R' U R U' F' U' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5852",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.38",
+        "scramble": "U2 R D2 F R B2 L' F2 D' B' U2 R2 B2 D' F2 U' D2 B2 R2 U2 B2",
+        "solution": "z2 // inspection\nF' U R' F D2 R // cross\nU2 R U' U' R' d R' U' R // 1st pair\nU' L' U L U y' R' U R // 2nd pair\nU' U' R U2' R' F U F' // 3rd pair\nU' R U' U' R' U U R U' U' R' // 4th pair\nF R U R' U' F' // OLL\nU' R U R' F' R U R' U' R' F R2 U' R' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5804",
+        "solver": "Viljo Elo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "9.13",
+        "scramble": "U R2 B R' L U F R D2 R L2 U' R2 U F2 D B2 U' R2 D2 R2",
+        "solution": "M D // 1st square\nU R' U' R2 F // 1st block\nR' U' r' U' R' U R' U' R U R' U' R U R' // 2nd square\nU2 R' U R U' R' U' R // 2nd block\nR U R' U' R' F R F' R U R' U R U2' R' // CMLL\nU2 M U M // EO\nU' M' U2 M' U' // UL/UR\nM U2 M' U2 // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5799",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.43",
+        "scramble": "R U2 R' D' F U' F2 L B' U2 B R2 U2 F' U2 R2 L2 F' U2 F2 U",
+        "solution": "y' // inspection\nU R2' F (U' D) // cross\nL U' L' // 1st pair\nu' R U' R' u // 2nd pair\nU' U R U R' U R U' // 3rd pair\nR2' U R d' R U R' // 4th pair\nU R U R' U' R' F R F' // OLL\nU' R' U' R' D' R U' R' D R U R' D' R U R' D R2 U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5856",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.98",
+        "scramble": "R' B D' F2 L F U' F2 U' B2 R' U2 R' B2 R' B2 R B2 D2 L2",
+        "solution": "y // inspection\nF' R' L' U l u' // cross\nU L' U' L // 1st pair\nU' R U' R' U L U L' // 2nd pair\nU' D' R U' R' u // 3rd pair\nU' R U2' R' U2 R U R' U' R U' R' // 4th pair\nU' R' F' U' F U R // OLL\nR U R' U' R' F R2 U' R' U' R U R' F' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5839",
+        "solver": "Nicolás Sánchez",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.38",
+        "scramble": "F2 L2 R2 U2 R2 B D2 U2 B2 U R F2 R D' B F' U L2 F",
+        "solution": "z2 // inspection\nL2' D' R' F2 // cross\nU' L' U' L // 1st pair\ny R' U R U' y L' U L // 2nd pair\ny' U L' U' L U' L' U L // 3rd pair\nU R' U' R U R' U' R // 4th pair\nl' U' L U l F' L' F // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5791",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.82",
+        "scramble": "U' B' L B2 U2 F2 U R F2 L' F2 R' B2 R2 B2 L U2 R F U",
+        "solution": "y' // inspection\nU' R' U' F R' L2' D2 // cross\nR U R' U y' R' U' R // 1st pair\nu' D R' U R U' R' U' R // 2nd pair\ny' U' R U' R' U R U' R' U R' U' R // 3rd pair\nU R U R' U' R U R' // 4th pair\nU2 U' R U' R2' D' r U r' D R2 U R' // OLL\nU' U' U' F R U' R' U' R U R' F' R U R' U' R' R R' F R F' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5802",
+        "solver": "Viljo Elo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "10.66",
+        "scramble": "U B2 L2 U R2 D U2 R2 U2 L2 F' U2 B' U' L' B U F D' L",
+        "solution": "y2 x' // inspection\nr U R D // 1st square\nF' R U2' r F' // 1st block\nr U' R U R U' M' R' U R // 2nd square\nU' R U2' R' U2 R U' r' // 2nd block\nU' U r' D' r U r' D r U' r U r' // CMLL\nU' M2' U M' U2 M' U2 M' U M // EO\nU' U2 M' U2 M2' U2 M' U2 // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5826",
+        "solver": "Jeremy Smith",
+        "event": "17x17",
+        "puzzle": 17,
+        "result": "48:41.90",
+        "scramble": "",
+        "solution": " // centers\n // blue\nU' 10r' 8r U 10r 8r' U' x 7r' 6r U' y x U2' x' 9r 8r' U' 9r' 8r U' y x U' U 2l' x' U' U x' U' x' x U x' U3' x' y U' x U' y U' y U' x U3' x' 8r 7r' U' 8r' 7r U' x' U' x' U2' x2' 7r2' 6r2 U' y x U3' U 7l' x' U' x' 7l U' 7l U' y x' U' 9r' 7r z 6r 5r' z x U' x' U3' U 8r' 7r U' x' 7r' x z' U 5r 3r' x' U' y 8l U' 8r' 8r 7r' U3' x' U3' x' U2' U x' 8r 7r' x' z U2' x' 4r 3r' U' y U2' x U2' x2' U' 10r 9r2' 8r z U2' x' 3r 2r' U' y U2' x U2' 6r U' x' 8r 7r' x' U' x' x U' x' U' 10l2 x' z U2' x' U' 8r 7r' U' y x 9l 8r' 7r U' x' 8r 7r' 10r' 9r U' x' U3' x' U2' 10r' y x' U 7r x' U' y U2' x' U' U 7l U' x U' x2' U' U 10r' 9r z 4r 3r' z U' x U2' x' U2' U U' 9r' 8r U 9r 8r' U2' x U' x' 10r' z' U' 2l' x' 2l 3l' U' y U' x U' U U' x' 9r' 7r U3' x' U2' U 10r2' 9r2 x z U' x' 2l 3l' x' U2' x U3' x' y U' x U' x' U2' 7r U' 7r' x U' y U' x U3' x2' U3' x' U' 7r2' x z U x' 5r 4r' x z' x' U' 8r2' x' U3' x' U2' U 10r2' 9r2 y' x U2' x' 6r 5r' U' 8r 7r' U' y x U' x U' x U3' 8r U2' x' 8r' z' x U' x U x' 7l 8l' U' 7l' 8l U' y U 6r' 4r 3r' 2r x U' 5l' x' U' 7r 6r' U3' 5r U x' U' 8r' 7r U2' U2' U x' U' 4l2' 5l2 x2 U 2r' U' 2r x U2' x' 7l 8l' x' U2' x' U2' x2' U' y x U' x' U' y U' 5r U' x' U 3r' 3r 2r' U3' U 3l' 4l U2' x' U2' U2' x' U3' x' y U' U 5l' U' x' U' 6l 7l' U 6l' 7l 4l2' 5l2 U' 2l2 x U' y 3r' U 3r U' 4l' x' U 7r 6r' U' 4l' x' U 2l 3l' 6l 7l' 6r 5r' x' U' 4r' 3r U2' x U2' U 2r' U' 2r U2' x U2' x' 9r 8r' U' 3l' U' y U' x U' x' 4l 5l' U' x' 4l' 5l U x' 4r 3r' y U' U x U' y' x U' U2' x' 3r' 2r y y' 3r 2r' U' x' U' 5r U' 5r' U2' x 3r2' 2r2 y x' U2' x' 7l x U' 8r' 7r U2' x' U' x U2' x U' 5r x' U' y x' U2' x' 5r 4r' 6r 5r' x' z U3' 6r U 5r' 6r' 5r U' x U x' 2l' 5l 6l' x' U' U2' U 5l' 6l U' x' U' 10r2' 8r2 U' x2' U' y x U' U2' x' x U' x' 7r 6r' U' 7r' 6r U' x U' U x' U' 2l' U2' 2l U' x U' x' y U' x U' x' x U' x' y U' 5r 4r' U2' x' 2r U2' x y U' x U3' x' x' U U3' x' U3' x' U2' U2' x' 4l 5l' x' U2' U2' z' x U' U 3l' 4l U' 3l 4l' U' 5l' 6l U' y U2' x 6r' 4r U 4r' x' 4l' 5l U' 5l' 6l' 6l2 5l' 6l x2 U' x' U' U3' 2r' U' x' x U' U x' U' 9r2' 8r2 U 7r2' 6r2 4l2' 5l2 U' U x2' U' y 8r 7r' U' 8r' 7r U' x' U' U 2r x U2' x' x y U' x 2l' x' U' 5l' 6l U 5l 6l' x' U' U 6r' 5r 3r' 2r U' x' U' x' U2' x' 7l 8l' x' z' x' 6r 5r' U' y x' U' U x x 5l 6l' U2' x2' 3r U2' 6l' 7l 6r' 5r U' x' U2' 9r2' 8r2 U2' x' U' x' 4r 3r' U' 5r 7l' 8l U' x' 6l 7l' U 8r' 7r z' x U' x' x 2l' 2l U2' x' U 2r' x U' 2r U' x' U' x 7r' 6r U' 7r 6r' y x U2' x' 8r 7r' x' z U2' x' 5r y U2' x U' x2' 7l 8l' 7l2' 8l2 U2' 2l x U' 3l' 4l U 3l 4l' x' U' x U' 11r' U 9r 8r' x' U' x' 7r' 6r U' x' U' x' y U' x U' x' 8r 7r' U' x' 8r' 7r U 3l' x' U' y U3' x U x' 8l' x 2l U2' 3l 4l' 4l2' 5l2 x2' U3' x' U 5l2' 6l2 U2' x' 2l2' 3l2 x' U' y x U3' x' 8l 9l' U' 8l' 9l U' y U' x U' z' U2' x 3r' 2r y' 11r2' 10r2 y' x U2' x' 3r 2r' U' y U3' x U 4r' 3r U2' 2l' 3l 5l' 6l 5r' 4r U' x U' 7r' 6r U' 7r 6r' 2l' x' U' x' U' x2' U2' 10r2' 9r2 U' y 3r 2r' 9r 8r' U' x' 9r' 8r x 3r' 2r U' x' U' x R' 2r' 4r 3r' U' x' 4r' 3r x' 3r U' y U2' x U2' x' 7r' 6r U' x' U 9r2' 7r2 2l2' 3l2 U x' 2r2 3r 2r' U' 7l 8l' U' x' 4r 3r' U' 4r' 3r U' 4r 3r' U' y x U' x' 5r 4r' U' 4r' 3r 4r 3r' 5r' 4r U' 5l 6l' U' 5l' 6l U' x U' x' 4l 5l' U' x' 4l' 5l U' x' 4r 3r' 3r 2r' x' U' z' U 7l' 8l 4r' 3r U' 2r' U' 7r' 6r U' x' 6l' 7l U 6r2' 5r2 U x' 5r2' 4r2 U 2l 3l' x' 9r 8r' x' 3r 2r' U' 5l' 6l U' 4l' 5l x U' 3r U' x' U x' 4r' 3r x' U' x' y U' U2' 3r 2r' U 3r' 2r // \n // \n // green\nU' y 8l' U' x' 4l' U x' x U' 3l' 4l 9r' 8r U' 9r 8r' x' U3' U 7r' x U 2l' 3l x' U2' 10r 7l' x' U' x 9r' 8r 7l U2' 7l' x' U' x' 7r' x2 U 2l U' x' U3' x' x U2' x' U' 6l 7l' U 6l' 7l x U2' x' 10r2' 9r2 8r2' 7r2 U' 4l2' 5l2 x 8r' U' 8r U' x' 7r' 6r U2' x' U2' x' x' U2' 10r2' 10r 9r 10r' 9r U U' x U2' 5r' 4r U' x' U' y x U' x' 7l 8l' U' 7l' 8l U y' U2' 6r2' 5r2 x 10r' U 5l2' U2' x' U' U x U2' x' 6l 7l' 8r 7r' U2' x U' x' 9r2' 8r2 U 8r2' 7r2 U2' U2' x2' 8r' 7r 7r 6r' U' x' 9r U' 9r' U' x 7l' x' U' 7l U' 8r 7r' U 8r' 7r 7r2' 6r2 U' y U' x U' 7l' 8l U 7l 8l' U2' x' U' U x 6l' 7l U' 6l 7l' x U' x' 8l' U2' x' 8l U' y x2' U' x2 7l U' 7l' x U' x x 7r2' U' x 7r' 8r' 7r U' x' 5l2' x U' 5r U x' U' x' U2' 10l' U2' x' U' U U2' x' U3' x' U2' U2' x' U' y x' U x 7r' U 7r U y' 3l' 4l x' x 8r' 7r U' 8r 7r' U' x' U3' x' U' U 7r2' 6r2 U3' x' x' U' U x 2l' x' U' U x' U' z U x U' 8r' U 8r U y' 2l U U' x' U' 7r' U' x 7l' 8l U 7l 8l' 5l' 6l x' U2' U 9r 8r' U' x' 9r' 8r U' x 7l U' 7l' U' x U' x' 10r2' 9r2 U' 2l2' 3l2 U 7l2' 8l2 U2' x' U' 7l 8l' U' 10r' 9r 9r 8r' U x' 9r' 8r x' 6l 7l' U x2 6l2' 7l2 U' x' 6l 7l' U' y x' z' 6l' z U x 9r' U2' 8l U' x' U' y y' U 6r U' 7r' 7r 6r' U' y x' 6r U' 2l' 4l 5l' 10r 8r' x' U2' 3r' 2r U2' x' U' x' U' x' U2' x x2' 3r 2r' U3' U 4r' 3r U' x' U2' x' x U' x 6l2' 7l2 z U2' 6l' U2' 6l x U' y U' 6l 6l' 5l U 5l' x' U' U2' 2r' U' 4r' 2r U' 5r' 4r U' U2' x U2' x 8r 7r' x' 5l 6l' x U2' x' R 2r x U' x' 6r 5r' x' 9r 8r' U3' x' U2' x' U3' x' U' y x U' x' U 5r U' 5r' U' y 7r' 5r U' 7r 6r' x' z 5r U2' 5r' z' x U' x' 3l' x' 3l' 4l 6r' 5r U' 2r' U' x U' 3r U' 2u' 2u U2' 7l 8l' x' 5r 4r' 8r' 7r U' 6r' 5r U3' x' U2' U 3r2' 2r2 U' x' U2' x' x U' x2' U' x' U3' x' z x 3r' U' 3r U y' x2' 9r2' 9r 8r 9r' 8r x U' z U2' x 3r' U' 3r U x' z' x' 4r2' 3r2 x' U' U 8r' 7r z U2' U2' 4r U2' x' 3r' 4r' 3r U' y x2' U' 8r 7r' 6r x' U' z U' U U2' x 2l' 3l U2' 2l 3l' U' y U' 10r 9r' 5l 6l' 7r 6r' U' 3r' 5r' 4r U' x' 3r 7r' 6r U2' U x' 9r2' 8r2 U' x' x' U2' x' U2' x' 2r' U3' x' U' x' 3r 2r' y' x' U U2' 4r U2' 4r' z' U' U' U U' x' U' x' U' U x' 7r 6r' x' z U2' 3r U2' 3r' z' U' U x x U3' x' 3r U' 2l U 2l' x' U2' x' 3l2' 4l2 5l2' 6l2 U' x U' x' x' U3' x' U2' x' U' x' 3r2' 2r2 U' x' U' x' z U' y z' U' x U' 3r x' U' x' U3' x' U3' x' U2' x' U' x' z z' x U' x U' x U3' x U3' U U2' z x 3r' U2' 3r U' y U' x U' x' 4l' 5l 3l' 4l U2' 5l' 6l U' U2' x U' 6r U' x' U 4r' x 4r 3r' 5l 6l' 9r 8r' U2' x U' x U' U' 6l2' 7l2 U' x U' z' y x 6r' 5r U' 6r 5r' U y' U2' 4l' 5l U2' U U' U' x' U' U' x2' 5r2' 4r2 U' 10r' 6l' 7l U' x U x' 6l' 7l U' x' U2' x' x' U2' 4r 3r' x' z 6r 5r' U2' x' 6r' 5r U' y U' U2' 4l U' U x' U' 5l2' 6l2 U' 7r2' 6r2 U' 5r2' 4r2 U' x2' x2 U' 4l2' 5l2 x U' U U' U2' x' 2r' U' x2' U2' 7r2' 6r2 U2' x U2' x2' 3r 2r' U2' U x' U' z y x 5r' 4r U' 5r 4r' U y' 2l2' 3l2 x' U2' x' 8l 9l' 6r 5r' x' z 5r 4r' U2' x' 5r' 4r U' y U' U U' 7l 8l' U' 8r' 9r' 8r U' x 9r 8r' x' 5r 4r' U' 4l U' 4l' U' 6r' U 6r U' 2r U' x' U 7r' 6r 5l' 6l U2' 3r' 2r U2' x' x U' x' 3l' 4l x' U2' 2l' x' U2' x' z U' 2r U2' 2r' x' 4r 3r' U' 4r' 3r U' y 4l U' 4l' x' 8r' U2' 5r' 4r U x' 7r' 6r U2' x2' 4r2' 3r2 x2' U' x 2r2' U' x 10r' 9r U' 5r' 4r U' 5r 4r' U' U 7r 6r' 6r 5r' x' U2' x 5l' 6l U2' x U3' 2l' x2' z U 4r 3r' 3r 2r' U2' 4r' 2r z' U' x' U' x' U' x' 6l 7l' x' z 3r 2r' U2' 3r' 2r x 2l 2l' x2' 2l' 2l U' 2l' U 2l y U' U' x' 8l U2' 4l2' 5l2 U' 4r2' 3r2 5l2' 6l2 U' 6l2' 7l2 U' x' 3l2' 4l2 U' 2l 3l' U' x2' 2r U' 6r' 5r 3r' 2r x' U' x2 7r2' 6r2 U' 2r U' x' U 10r' 9r z 2l' U2' 2l // \n // \n // yellow\nx U' y U2' x' 9r' 9r U' 10r' 9r 8r' 7r x2 U' x2' x U' x' 8r U' 8r' U' 7r U 7r' U' x U x' 9r 8r' U 2l2' 3l2 x 10r' U 7l x 5l' 6l x' U' x' U' U 7l x U' 7l' U2' 6l2' 7l2 U x U' x2' 8r 7r' U' x2' 7r x' 7r U' 9r2' 8r2 U3' 4l2' 5l2 U2 x U3' x2' U2' x U' x2' x' U' U x2 7l2' 8l2 U' 7l2' 8l2 5r 4r' U' 9r 8r' U' x' 9r' 8r U2' 2l' U' 4l' U' x' U' U 7l' 8l U' 7l 8l' U' 9r' 8r U 7l 8l' 7l' 8l2 9l' U 3l' 4l U' 6r' 5r x' U' x U' x2' U' 7r' x U' 7r U' U 7r U' 7r' U' x 4r' 3r 4r' 3r x' U' x U3' U 8r' U' 8r U2' 9r' 8r U 9r 8r' x' U3' x' U3' x2' 8r2' 7r2 U' 8r2' 7r2 3r' 2r U2' x' x U' x' U2' 7r' x 8r' 7r U' 8r U x' 10r U2' 10r' U' 7l x U' 7l' U2' x2 U2' 10r' 9r 8r' 7r x U2' x' 7r U' 7r' x U' x U' x' 7r2' 6r2 U 7r2' 6r2 U' x' x U 7r U 7r' U2' x U' x' x U x' 9l 10l' x U' x' 9r 8r' U' 9r' 8r U x' x 7r' U 7r x 8r2' 7r2 U' x U' x' U' x' 5l 9l' 8l' 9l U' 6l' 8l U2' x' 3l2' 4l2 U' x U' x' 6l 7l' U' 6l' 7l U' U 6l' U' 6l x U x' 5l 7l' U 5l' 7l U' 2l' 3l 4l' U2' 2l 3l' 4l U2' x U3' x2' x 3l 4l' x U' U2' x2' x' 3l' 4l' x2 3l' 4l U' x2' 2l 3l' x' U' 3l' 4l U' U x x' U2' 4l2' 5l2 x x' x U' x' 4l 5l' 5l 6l' U 4l' 6l x U x' U' 6r 5r' 3r 2r' U' U x U' x' x x' 3l 4l' U' 3l' 3l 3l' 4l 2r U' 2r' U 6r' U x U' x' 5r 4r' x' U3' U U' x' x' U' U2' x' x U' x2' U' U 2r' U' x x' U2' x2 5l 6l' U 5l' 6l x' 9r 8r' 7r 6r' U' 7r' 6r 9r' 8r 3l' 4l 3l 4l' 4l2' 5l 6l 5l' 6l U' U 5r' U' x U x' 10r U' 7l' U x' 7r' 6r x U' 7r 6r' U' U2' x' U' U U3' 2r' U' U2' x 8r' 7r U' 8r 7r' 6r U' x' U' 8r 7r' U' 8r' 7r 3l2' 5l2 U' U 5r 4r' 9r 8r' U' 9r' 8r x' 5r' 4r U' U x U U' x x' 2l' 3l 5l' U' 2l 3l' 5l x x' x U2' x' 3r' 2r U' x U' x' 3l 4l' U 3l' 4l U' x U' x' 6l 7l' U' 6l' 7l 5l 6l' U 5l' 6l U2' 3r 2r' x' U3' U x 8r' 7r U 8r 7r' x U' x' 3l2' 4l2 U' x' U' U U' U 5r U2' 5r' x U' x' 7r 6r' U' 7r' 6r U' x U2' x' 5r 3r' U' U x U' x' 2l 3l' U' 2l' 3l 5r' 4r U x U' x' 8r 7r' U' 8r' 7r U' x U' U' U' x U' U' x2' 9r2' 8r2 U' 9r2' 8r2 U' x U2' x2' x' 5r 4r' U' 5r' 4r x2 3r2' 2r2 U 5r 4r' U2' U2' 7l 9l' U' 10r' 8r U2' 2l 3l' U 2l' 3l 3l 4l' U' 3l' 4l U2' U 4l 5l' U2' 4l' 5l x x U' U' x2' 5l2' 6l2 U 5l2' 6l2 4r 3r' U' 4r' 3r 2l' U' x' 2l x U' x' x U' 6r' 5r U' x U' 6r' 4r U' 5r 4r' 4r 3r' U' x x' 6l 7l' U' 6l' 7l U' x x2' U' x 6r' 5r U 6r2' 5r2 x' U' U' x2 U2' U 4r U' x' U' 2l 3l' 5l 6l' U' 5l' 6l 2l' 3l U' x' U3' U' x 2l' 3l 9r' 8r U' 9r 8r' x' 2l 3l' x U 7l' 8l U' 7l 8l' U' x U2' x' 5r 4r' U' 4r' 3r 4r 3r' 5r' 4r U' U2' x U x2' 4r 3r' U' x3' x 4r U' 4r' x' 2r2' U2' x U x' 5l 6l' 9r 8r' U' 9r' 8r 5l' 6l 4l 5l' U' 4l' 5l U' 3l2' 4l2 U' x U' x' U U2' 4r2' 3r2 U 2l 3l' U' 2l' 3l 4l 6l' U' 4l' 6l 6l 7l' 3l 4l' U' 3l' 4l 6l' 7l U' 8r 7r' U2' x' 8r' 7r 2l x U' 2l' U2' U x U' 2r U' x' 2l' x' U' x 6l' 7l U 6l 7l' U' x' 2r x U' 3r' 2r U 3r 2r' U' 2l2' x' U' x2' 3r U' x' U2' x 3l' 4l U' 3l 4l' 5l' 6l 6r' 5r 2r' U 2r 6r 5r' 5l 6l' U2' x' 3r 2r' x 6l' 8l U' 6l 8l' U' x2' x2 4r2' 3r2 U' 4r2' 3r2 U2' 3r U' x' U' 2l' 6l 7l' U' 6l' 7l 2l U' x' U' x' x2 2l' 3l U' 2l 3l' x 3r2' 2r2 U' x' U' x U' U2' x' 3r U' 3r' x U' 5l' 6l U' 5l 6l' 4r' 3r U' 4r 3r' U2' x' U' x 7r' 6r 2r' U' 7r 6r' U2' x2 U 2r x U2' 4l 5l' 6r 5r' U 6r' 5r 4l' 5l x' U2' x 5r' 3r 3r' 2r U' x' 5r 2r' x 4r' 3r U x' 4r 3r' U' x 7l' 8l U' 7l 8l' U2' x 2r2' // \n // \n // red\nU' x' U' U x 7r' 6r U 7r 6r' U2' U x' U' x 6l' 7l U' 6l 7l' x' U2' U2' x U2' U2' x2' x 7l U 7l' x 4r' U2' x' 3r 4r 3r' U' x' U2' U x 7r' U' 7r U2' 10r 9r' U2' 10r' 9r U' x' 7l' U' 7l x U' x' 9r 8r' U' 9r' 8r x 2r' U' 2r U2' U2 U' 7r 6r' U' 7r' 6r 2l' U 2l U' 7r 6r' U' 7r' 6r U' x' U2' x 8r' 7r 8r 7r' x' U' x 8r' 7r U' 8r 7r' U' 5l 6l' U 5l' 6l x' U' 8r 7r' U 8r' 7r x U2' U2' x' 7r U' 7r' x U' x' U2' x U U2' 8r' U' 8r U' 7r U 7r' U 9r 8r' U 9r' 8r 6l 7l' U2' 6l' 7l U' 6l 7l' 2l 3l' U' 2l' 3l 6l' 7l 6l 7l' U' 6l' 7l U2' U2' 6l 7l' U2' 6l' 7l x' U' U 8l2' U2' 8l2' x' z2 x' U' x U' x' 7r U' 7r' U' x x' x 8r 7r' U x' 8r 7r' U' 8r2' 7r2 U x 7r' U' x' 6r 7r 6r' U x 9r' U' 9r 7r 6r' U2' 7r' 6r U' x' U2' U x 9r' 8r U' 9r 8r' U' 2r U 2r' U2' x' U2' 10r U' 7l' 8r' 7r U' 8r 7r' 6r 5r' U 6r' 5r U' x' U' 8r U' 8r' U' 7r U 7r' U' x x' 9r 8r' U' 9r' 8r U' 5r2' 4r2 U 5r2' 4r2 U' U 7r 6r' U' 7r' 6r x U3' x' x 4r 3r' U' 4r' 3r x' 7l 8l' U' 7l' 8l 4r2' 3r2 U2' 4r2' 3r2 x 10r' U' 7l x 3r 2r' U2' x 3r' 2r U' x' U' x' x 6r' 4r x' x 2r' U x' 6r 5r' 5r 4r' 2r x U' x' U2' x 5r' 4r U 5r 4r' 2l' 4l U' 2l 4l' x' U' x 4l' 5l U' 4l 5l' 6l' 7l U 6l 7l' x' U' x 4r' 3r U 4r 3r' 7l' 8l U' 7l 8l' U U2' 5l' U2' 5l U' x' x U 2l U' 2l' x' U' U' U x x' U' x 3l' 4l 7l' 8l U' 7l 8l' 3l 4l' x' U' x U2' U' U x' 2l 3l' U' 2l' 3l U' x U3' x' x 4l' U 4l x' 5l 6l' U 5l' 6l 4l2' U2' 4l' 5l' 4l' 5l U' x U2' x' 5l' U' 5l U U2' 10r 7r' U' 10r' 7r 6r 5r' U' x 6r' 5r x' x U' x' 4r 3r' U' 4r' 3r U' x U3' x' 2l2' 3l2 U' 2l2' 3l2 U' 6l 7l' 8r 7r' U 6l' 7l 8r' 7r U 5r 4r' U' 5r' 4r 2r U' 2r' U' x x' 2l 3l' U' 2l' 3l U x U3' U x' 2r U' 2r' U2' 12r' 11r x U 5l 6l' x' U' 3r U 3r' x x' U' 8r 7r' U' 8r' 7r U' x U2' x' 9r 8r' U 8l' 9l U' 9r 8r' U2' 9r' 8r U' x2 5l2' 6l2 U2' 5l2' 6l2 x' 2r U' U' 2r' U 5l U' 5l' x' 7l' U 7l 10r 9r' U' 10r' 9r x U2' x' 7r 5r' U' 7r' 5r U' x U' x' 4r 3r' U 4r' 3r 2r2' U2' x 2r2' x U2' x' U' U 9r' 8r U2' 9r 8r' x' U' U x 6r' 5r U' 6r 5r' 6r 5r' U' 6r' 5r x' U' x 5l' 7l x' 9r' 8r 7r' 6r x U' 5l 7l' 9r 8r' 7r 6r' U' x' U 6r 5r' 6l 7l' U' 6l' 7l x 6r' 5r x' U' x U3' x' x U' x' U' 3r 2r' U 3r' 2r U2 x U2' U x' 5r 4r' U' 5r' 4r 6r2' 5r2 U2' 6r2' 5r2 U2' 5l 6l' U' 5l' 6l 6r 5r' U 6r' 5r x x' 4r U' 4r' x 5r' U' x' 5r U 2l' 5l 6l' U' 5l' 6l 2l 6l 7l' U' 6l' 7l U x 5r' U' x' 5r 3r 2r' U 3r' 2r x U' x' 2l 3l' 7l 8l' 8r 7r' U' 2l' 3l 7l' 8l 8r' 7r 5r 4r' U' 5r' 4r x U' 5r U' 5r' U' x' 4l 5l' U' 4l' 5l U' x U' 5r U' 5r' x' 3l 4l' U' 3l' 4l 5r2' 4r2 U2' 5r2' 4r2 U2' 5l 6l' U 5l' 6l 7r U 7r' U' 2r U' 2r' U' x 2u' 2u U' x' 4l 6l' 2l 3l' U' 2l' 3l 4l' 6l U' 11r 8r' U' 10r' 7r 6l' 7l 8r 7r' U2' x 4r' U' x' 4r U 5r 4r' 8r 7r' U' 8r' 7r 5r' 4r U x U' 4r 3r' U' x' 4r 3r' U 4r2' 3r2 U' U x 6r' 5r U' 6r 5r' 6l' 7l 4r' 3r U 4r 3r' 6l 7l' 3r U' 3r' 8r' 6r U 8r 6r' U' 5r' 4r 2r' U' 2r x' 5r 4r' 4r' 3r x U' 4r 3r' U' x' U' U2' x 5l' 6l U' 5l 6l' U' x' 2l x U' 2l' 3r U' 3r' 7l' 8l U' 7l 8l' U' 3r 2r' U2' 3r' 2r U' x' U2' x 5r' U2' 5r 3r' 2r U' 3r 2r2' 6r' 5r U 6r 5r' 2r U' 2r' 7r' 6r U' 7r 6r' x' 2r x 3l' 4l U' 3l 4l' U' x' U3' x 5l' 6l U 5l 6l' 8r' 7r U' 8r 7r' U' x' 2r U' 2r' x U x' 3l' 4l x 7r' 6r U' 3l 4l' 7r 6r' 2r U2' 2r' // \n // \n // orange/white\nU' x' U2' 6r 5r' 3r U' 3r' 6r' 5r 2r U' 2r' U' 3r 2r' U 4r' 3r 4r 3r2' 2r U' x U' U2 6r' U' 11l x U 2r' U' x' 2r x U' x' x U 7r' 6r U' 7r 6r' x' 8r 7r' U' 8r' 7r U2' x' z2 U2' U2' 6l 8l' U' 6l' 8l U2' U U2' 3l 4l' U 3l' 4l U' U2' 8r U2' 8r' x' z2 U' U2' 3r 2r' U 3r' 2r U' U2' 7r U2' x 8r' 8r 7r' U2' x' U' U 3r 2r' U 3r' 2r U2' 5r U2' 5r' U' 2r U' 2r' U 9r 8r' U2' 9r' 8r U' 4l 5l' U2' 4l' 5l U' 6r 5r' U' 6r' 5r 8r 7r' U' 8r' 7r 2r U' 2r' U2' 2r U 2r' U 5l 6l' U2' 5l' 6l U2' 8r 6r' U 8r' 6r U2' 7r 6r' U 7r' 6r U3' 3l 4l' U 3l' 4l U2' 3r 2r' U' 3r' 2r U3' U2' 2r U' 2r' U 4r U 4r' U' 9r 8r' U2' 9r' 8r U' 3l 4l' U2' 3l' 4l U' 2l' U' 2l U2' 6r 5r' U' 6r' 5r U2' 5r 4r' U' 5r' 4r U2' 8r 7r' U' 8r' 7r U2' U U' 8r 7r' U 8r' 7r U2' 2r U 2r' U2' 2l' U2' 2l 7r 6r' 4r U 4r' 7r' 6r U' U U' 3r 2r' U' 3r' 2r 6r 5r' U 6r' 5r U2' 7r 6r' 3r 2r' U' 3r' 2r 7r' 6r U2' 6l 7l' U2' 6l' 7l U2' U' 8l 9l' U 7l 8l' U' 8l' 9l U 7l' 8l U' U' U' U 8r U2' 8r' U2' 7r U' 7r' U' 5r 4r' U 5r' 4r 6r 5r' U' 6r' 5r U2' 2r U' 3r' 3r 2r' U 4r 3r' 4r' 3r U' U2' 3r 2r' U' 3r' 2r U 8r U' 8r' U' 2r U' 2r' U' 8r 7r' 8r' 7r U 8r 7r' U2' 8r' 7r U2' 8r 7r' U' 10r 8r' U 8r' 7r U' 10r' 8r U2' 7r 6r' U' 7r' 6r U 7r 6r' U' 7r' 6r U2' 2r U 2r' 5r 4r' 5r' 4r 6r 5r' U 6r' 5r 4r 2r' U' 4r' 3r 3r' 2r U 4r 3r' U' 4r' 3r U2' U U2 U2' 7r U' 7r' U3' 5r 4r' U 5r' 4r U 6r 5r' U' 6r' 5r 2r U 2r' U 3r 2r' U' 3r' 2r 7l 8l' 8r 7r' U2' 7l' 8l 8r' 7r U 7r 6r' U2' 7r' 6r U 7r 6r' U' 8r 7r' U 7r' 6r U' 8r' 7r U2' U2' 6r U' 6r' U2' 6r U' 6r' U2' 4r 3r' U' 4r' 3r 5r 4r' 2r U' 2r' 5r' 4r U2' 6r 5r' U2' 6r' 5r U 6r 5r' U' 6l 7l' U 6r' 5r U' 6l' 7l U' 6r 5r' U' 7l 9l' U 6r' 5r U' 7l' 9l U3' 5r U' 5r' U' 5r U 5r' U' 2r U' 2r' U2' 3r U' 3r' U' 10r 9r' 8r 7r' U2' 10r' 9r 8r' 7r U' 5r 4r' U2' 5r' 4r U' 5r 4r' U' 7r 6r' U 5r' 4r U' 7r' 6r U' 5r 4r' U' 9r 8r' U 5r' 4r U' 9r' 8r U2' 5r 4r' U' 8r 7r' 6r 5r' U 5r' 4r U' 8r' 7r 6r' 5r U' 4r U' 4r' U2' 3r 2r' U 3r' 2r U2' 4r 3r' U 4r' 3r U' 4r 3r' 5r 4r' U' 4r' 3r U 5r' 4r 4r 3r' U' 5l 6l' U 4r' 3r U' 5l' 6l U' U U3' 5l 6l' U' 3l 4l' U 5l' 6l U' 3l' 4l U' 4r 3r' U' 8r 7r' 6r 5r' U 4r' 3r U' 8r' 7r 6r' 5r 4r 3r' U' 5r 4r' U 4r' 3r U' 5r' 4r 4r 3r' U' 6l 7l' U 4r' 3r U' 6l' 7l 6r 5r' 5r 4r' 3l 5l' 3l' 4l 3l 4l' 5l 6l' 4r 3r' U2' 3l' 6l 6r' 3r 3r 2r' U 3r' 2r U2' 2r U 2r' U' U2' 3r 2r' U' 5l 6l' U' 3r' 2r U 5l' 6l U2' U2' 3r 2r' U' 6l 8l' U 3r' 2r U' 6l' 8l U' 3r 2r' U' 4l 5l' 9r 8r' U 3r' 2r U' 4l' 5l 9r' 8r 3r 2r' U 4r 3r' U' 3r' 2r U 4r' 3r U3' 2r 2r' 3r 2r' 2l 3l' U2' 2l' 3l 3r' 2r U2' 2r U' R' 2r' U 2r 10r 8r' 4r 3r' U 2r' U' 10r' 8r 4r' 3r 2r U' 8r 7r' 6r 6r' 6r 5r' U 2r' U' 8r' 7r 6r' 5r U' 2r U' 4l 5l' 7r 6r' U 2r' U' // \n // \n // edges\nz' U' U y L' U' L R U' R' U' y R U' R' z' 5l 6l' x 6r 5r' 5r2' 3r2 11r2' 10r2 x 4l' 5l z U' U y' R' U' R U' y z' 2l' 3l z R U' R' 2u U' z2' U' U' L' U' L U' L U' L' y R U' R' z' 2l' 3l x' 2l2' x' z U' U' x' y z' U' y L' L y L' U2' L x y' x 3l2' 4l2 10r' 9r // YG\n // \nz U' y' R U2' R' y U' z' 5r' 4r z R U' R2' U R z' x 8r2' 7r2 5l' 6l 7l' 8l 6r' 6r 5r' 4r 7r' 6r x2' 6l 7l' x' z y 3u' 3u 2u' L' U' L x U' L U L' x' z' 2l' 5r' 4r x2' 2l2' x' z y U2' y z2' U y' R' U' R2 U R' U' y' R R' U y' R' U' R z' x' 9r' 8r z U' R U' R' z' 6r' 5r x2' 4r 3r' x2' z' U2' y L' U' L x U' L U L' x' z x' 2l' 3l x' x z U' U y' R' U' R x' y 2r' // WB\n // \nz' U2' R U R' z' x' z' U' U' z' x' z' U' y' R U' R' z' x' 9r 8r' z U' R U' R' z' 5l' 6l 5r' 4r z U' R U' R' z' 2l' 3l x' 7r' 6r x2' z' U' x y' 8r 7r' x' z L' U' L x U' L U L' x' U' y U' R U' R' z' 4r2' 3r2 10r2' 9r2 x 8r' 7r 6r' 5r z R U' R' U' z' 6l' 7l x2' x' z y U' L' U' L x U' L U L' x' z' x' 2r' x 9r' 8r z U' U' z2' U' y L' U' L x U' L U L' y' x2' 4r' 3r x' z U2' R U R' z' x' 5r 4r' // RG\n // \nz R U' R' z' x' 5r' 4r 2l' 3l x3' z U' y L' U' L x U' L U L' x' z' 7r' 6r z U' U' y' R' U' R x' y 8r' 7r z' y z' 6r2' 5r2 z U y L' U' L y L' U L R U' R' z' 3l 4l' x' z U' L' U' L z 6l' 7l x' 6r2' 5r2 3l2' 4l2 x' 2l 3l' x' 5r 4r' z' L' U' L x U' L U L' x' z' 9r' 8r // RB\n // \nz' U' y' R' U' R z' x' 7r 6r' x' x2' y' x' U' L' U' L x U' L U L' x' R U' R' z' 7l 8l' x 7r2' 6r2 x 2r2' 3l 5l' 6l z R U' R' R' U' R U' y U' y R R' z' 5r 4r' z R U' R' z' 9r 8r' x2 4r2' 3r2 8r' 7r z L' U' L x U' L U L' x' U2' y U L' U' L z x' 6r 5r' x' 3r' 2r 4l' 5l z' U y' R' U' R z' 4l 5l' x 9r2' 8r2 3l2' 4l2 x z U' L' U' L x U' L U L' x' z' R' R 2r' 4l' 5l x' z L' U' L y L' U L U' z' 2l 3l' x 4l 5l' 2l2' 6l2' 7l2 x 6r2' 5r2 8r' 7r 5l' 6l z L' U' L x U' L U L' z' y' x' 4r' 3r x2' 2l 3l' x' z U' L' U' L x U' L U L' x' z' 4l' 5l 4l2' 5l2 x 4l2' 6l2 // OB\n // \nx' z U' U' y' R U' R' U' y' R U R' z' x' 5r' 4r 5r 4r2' 3r // WR\n // \nz y' R U' R' z' 2r x' 6r' 5r 4r' 3r x' 8r2' 8r 7r 8r' 7r x' 2l2' 3l2 z R U' R' U L' U' L2' U L' x' y x' 3l' 4l x' 4l2' 5l2 x' 7r 6r' x2' z U' U y L' U' L R U' R2' U' R 2u' z' 6l2' 7l2 x 5r' 4r // YR\n // \nz U' y' U' R U' R' z' 9r' 8r z U2' z' 3r 2r' z L' U' L y2' z' 8r' 7r z R U R' z' 9r' 8r 5r' 3r 7r2' 6r2 2l2' x' z y L' U L2' U' L' z 2l2' 5l2' 6l2 x 2l' 3l 7r' 6r x' 5r' 3r x2' 6r 4r' x' 3r' 2r // YB\n // \nz' y L' U' L z 2l 6l' 7l x' 3r' 2r 2r2 5l2' 6l2 x' 3l 5l' x' 4l' 5l 5r 4r' x' z L' U' L x U' L U L' x' z' 3l' 4l x' 5r' 4r 3r2' 2r2 4l2' 6l2 // OG\n // \nx2' 10r' 10r 9r' x' z L' U' L x U' L U L' x' z' x' 2l' 3l x' 3l2' 4l2 z L' U' L x U' L U L' y' 2l x 11r' 9r x' z L' U' L x U' L U L' x' z' 5l' 7l x' z L' U' L x U' L U L' y' 2l' 3l x' 2l2' x' 4l2' 5l2 3l 4l' x' 9r' x' z L' U' L x U' L U L' x' z' 4l' 2l' 6l2' 7l' 8l x' z L' R U2' D2' L R' z' 8r 6r 5r' 5r2' 4r2 2r2' 8r2' x z L' R U2' L R' z' 8r' 7r' x 8r' 7r U4' 9r 8r' x' z L' U' L x U' L U L' y' 9r' 8r // WO\n // \nx' 4l' x' z L' U' L x U' L U L' y' x 4l x' 4l' 7l z L' U' L x U' L U L' y' 4l 7l' x' 4r' 2r z L' U' L x U' L U L' x' z' 4r 3r' 3r 2r' U2' 4r2' 3r2 z L' U' L x U' L U L' x' z' 4r2' 3r2 // WG/YO\n // \n8r2' 7r2 5r2' U2' x U2' 5l 7l' 8l U2' 8r' 7r 5r' U2' 8r 7r' 5r U2' x U2' 8r 7r' 5r U2' 5l' 7l 9r' x' U2' 8r2' 7r2 5r2' // parity\n // \n // 3x3x3\nU' y' U2' R U y' z U' R x2' y U' y L x U' L' x' y' D' // cross\nU2' R U R' U' y' R U' R' // 1st pair\nU' y' U' L' U L // 2nd pair\nU' y L' U2' L R' U R // 3rd pair\nU y' R U2' R' U2' R U' R' // 4th pair\nU2' L F' L' U' L U x U x' U' L' // OLL\nU' x U' L U R' U' L' U x' R2 x' U L' U' R' U L U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5780",
+        "solver": "Phillip Lewicki",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.36",
+        "scramble": "B D2 F' L2 D2 R2 D2 F2 R2 F' U2 L B U R2 F' R' D2 R2 U",
+        "solution": "x y2 // inspection\nU' r R2' F' D R' y' R // cross\nR U R' U' R U R' // 1st pair\nL' U L U2' L' U L // 2nd pair\ny U' R U R' // 3rd pair\ny U' R U' R' // 4th pair\nU' R' R U' R' U' F' U F R // OLL(CP)"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5789",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.34",
+        "scramble": "F' U2 F L2 F2 D2 U2 B' U2 L2 F2 U' F' D2 F2 L' B' D' L' B2",
+        "solution": "y // inspection\nD2 L U R' U' R F2 D // Xcross\nL' U L U' L' U L U' L U L' // 2nd pair\nd U L U' L' U L U2' L' U L U L' // 3rd pair\nF' R U R' U' R' F R // 4th pair\nU' R U R' U R U2' R' // OLL\nx R' U R' D2 R U' R' D2 (R l) U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5816",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.55",
+        "scramble": "L B2 U2 B' R' D2 R' B L B F' U2 L D R2 B R",
+        "solution": "x z' // inspection\nU' R' F D2 R' U R' D' // cross\nL U L' // 1st pair\nU' R U' R' U' R' U' R // 2nd pair\nU' R U' R' U L' U' L // 3rd pair\nU R U R' U' R U R' // 4th pair\nU' l' U' L U' L' U L U' L' U U l // OLL\nR2 U R' U R' U' R U' R2 (D U') R' U R D' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5819",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.32",
+        "scramble": "L R2 F U' B D2 L2 R D' L' U2 L2 B U2 B2 R2 B'",
+        "solution": "z2 // inspection\nD' R' D R D R' F R // cross\nU L' U L2 U' L2' // 1st pair\nU L U R' U R // 2nd pair\ny' U' R' U' R // 3rd pair\ny' R' U' R // 4th pair\nU' U' r U R' U' r' R U R // OLL (cancelled)\nR' F' R U R' U' R' F R2 U' R' U2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5771",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.53",
+        "scramble": "D F2 U' B2 L2 R2 D R2 F2 U' B2 R2 U L' U F' D2 L' F D B' D2",
+        "solution": "R' U R' F // partial cross\nU' R U R' L' U L // 1st pair\nU' R' U' R U R' U2' // 2nd pair\nR2 U' R' U R U' R' // 3rd pair\nd U R' F R // finish cross\ny' R U' R' // EO\nU R' F R F' R U' R' U R U' R' // 4th pair\nU2 R U' R2' D' r U2 r' D R2 U R' U' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5798",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.65",
+        "scramble": "D' L B2 R2 D' R2 D' U2 L2 B2 F2 D2 L2 B' F' L' U' F' L' D B",
+        "solution": "y x2 // inspection\nU R U' B' U' R' F R // cross\nU' L' U L U' L' U' L // 1st pair\ny U R' U' R U2' R' U R // 2nd pair\nU2 y' R' U // 3rd pair\nR2 U2' R' U2 R U' R' // 4th pair\nU' R U R' U R U2' R' F R U R' U' F' // OLL\nU R U R' U' R' F R2 U' R' U' R R' R U R' F' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5815",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.67",
+        "scramble": "U' R2 B U' L' F' R D2 U L' F2 D2 R' F' D B' D' U' ",
+        "solution": "z' x' // inspection\nL' U' r' l U' l' R' U' R D // Xcross\ny' U' U L F' L' F // 2nd pair\nU' R' U R // 3rd pair\nU R' F R F' U' R' F R F' // 4th pair / OLS(CP)\nR U' R U R U R U' R' U' R2 // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5824",
+        "solver": "Feliks Zemdegs",
+        "event": "4x4",
+        "puzzle": 4,
+        "result": "18.39",
+        "scramble": "B2 D2 F2 B' R2 B2 D2 R2 U2 B' U B2 L D F' U' B' L U B2 r2 F' u2 R' F u2 U2 f2 r2 B' D2 L u L F' B R' L2 F' f' u' B2 u2 f2 u",
+        "solution": " // 1st 2 centres / 3 cross dedges\nU' D r' F r' // white\nR2 // WG\ny U' D' U' r U' r' U y r U2' r' // yellow\nz x U' r2' U' r L' U // WR\n3l R U' r2 U' // WB\n // last 4 centres / finish cross\nx' 3r U' r U 2L' r' // green\nr U' r' U 3r2 U' r2' U2' r2 // orange\n3r' U2 r U2' r' // red/blue\nx' y' x' U' R' u U' R U' R' u' D' F // WO\n // finish edges\nu' // BR/YR\nU y' R' U R // YO\nU R U' R' // YG\ny' U' R U' R' // GR\nu U' R U' R' u' // GO\nU2 R U' R' u // BO/YB\n // 3x3x3\nU' R U R' U' R U R' // 1st pair\nU2' R' U2 R U2' R' U R // 2nd pair\ny' U2' L' U' L R U R' // 3rd pair\nU y' R U R' U' R U' R' // 4th pair WVLS\nU' U l2 3l2' U2 2R2 u2 2R2 // Pparity\nR' U L' U2 R U' R' U2 R L u2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5801",
+        "solver": "Viljo Elo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.53",
+        "scramble": "B U2 R2 B R2 U2 F R2 B2 R2 D2 L' U L D' R' F' D' L' F R",
+        "solution": "y2 x // inspection\nU' R U r B // 1st square\nR' U' R' U' r' F' // 1st block\nM2' U2 R U' R' // 2nd square\nU R' U' R U' R' U' r // 2nd block\nU' F R U' R' U' R U R' F' // CMLL\nM' U2 M' U2 M U M' // EO\nU' M2' U // EP"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5797",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.65",
+        "scramble": "D2 U2 L' D2 L2 U2 R D2 L F2 D' L2 B' D L' F U F' L2",
+        "solution": "x' y' // inspection\nL2 F' R' D L D' // cross\nU' L' U L // 1st pair\nR' U R U' R' U' R // 2nd pair\nU U2 L U2 L' U' L U L' // 3rd pair\ny U' r' F' r U2' r' F r // 4th pair\nR U2' R' R R' U' R U' R' // OLL\nF R U' R' U' R U R' F' R U R' U' R' F R F' U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5777",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.79",
+        "scramble": "L R' B D R F2 D' U B D F L D' L2 F2 U' L B'",
+        "solution": "z // inspection\nr U' r' U2' R U R u // cross\nU' R U' R' // 1st pair\nU R' U' R // 2nd pair\ny' R U' R' U R U' R' // 3rd pair\nU' L' U L d R U' R' U' R U R' U' R U' R' // 4th pair  / OLS(CP)\nU' R2 U R U R' U' R' U' R' U R' U2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5763",
+        "solver": "Laura Ting",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "16.66",
+        "scramble": "L D F2 U2 B U' B D' L B D' R U2 L' F2 U2 L U2 R2",
+        "solution": "x2 y // inspection\nU' R' l' D' x' L F' L' D // cross\nU y' U L' U L y' R' U2 R // 1st pair\nU' L U L' U' L U2 L' // 2nd pair\nU' U2 L' U L U2' R U R' // 3rd pair\nU L' U' L U' L' U L // 4th pair\nr U R' U R U2' r' // OLL(CP)\nU M2' U' M2' U' M' U2' M2' U2' M' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5765",
+        "solver": "Platon Dranchuk",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.36",
+        "scramble": "F L2 U R' D R' B L' F U' L2 F2 R2 U2 F2 U' R2 U' B2 U L2 U2",
+        "solution": "x2 y' // inspection\nD L F R D' // cross\nU' y' R U' R' U R U' R' // 1st pair\ny' R U' R' U y' R' U R // 2nd pair\ny' U' R U' R' U2 y L' U' L // 3rd pair\nU2 R U2 R' U2 R U' R' // 4th pair\nU' R U R' U R U2 R' // OLL\nU' R U R' F' R U R' U' R' F R2 U' R' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5787",
+        "solver": "Phillip Lewicki",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.51",
+        "scramble": "B2 F2 L' B2 R F2 U2 R2 F2 D2 F2 U' L D' L D' L2 B U' L",
+        "solution": "y' // inspection\nD R' D' R U L U' L2' // Xcross\nU' R U2' R' d' R' U' R // 2nd pair\ny' U R U' R2' U' R // 3rd pair\nd R' U R U2 R' U' R // 4th pair\nU' l' U' L U' L' U2 l // \nU' U' l' R' D2 R U R' D2 R U' l U' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5774",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.90",
+        "scramble": "D2 F D2 B' U2 F2 L2 B L2 B U' R2 B' D L F' U2 B2",
+        "solution": "z y2 // inspection\nU R' F R2 (U' D) L2' D2' // Xcross\nU R U2' R'  L U2 L' // 2nd pair\nU' R' U2 R d' L' U L // 3rd pair\nU' R U R' U2 R U2' R' // 4th pair\nU r U' r' U' r U r' y' R' U R // OLL(CP)\nR U' R U R U R U' R' U' R2 U' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5779",
+        "solver": "Phillip Lewicki",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "4.86",
+        "scramble": "B' D' R F' R' U B' R2 D2 B2 R L2 B2 R2 B2 L' D2 F2 B2",
+        "solution": "z2 // inspection\nL' U F L2 U' R' // cross\nU y' R' U R // 1st pair\nU' R U2' R' L U' L' // 2nd pair\ny' U R' U R F R' F' R // 3rd pair\nU' y R U' R' U2 R U R' // 4th pair\nU R' U' F' U F R // OLL(CP)"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5778",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.63",
+        "scramble": "D2 B F L2 R U' L2 U' B U2 L2 B2 L D B' L2 F'",
+        "solution": "x2 y // inspection\nr R' F D F' // cross\nU L U' L' // 1st pair\nd R U2' R' U L U L' // 2nd pair\nR U R' U' R U R' // 3rd pair\nU' y U' R U' R' U R U' R2' F R F' U2' R' F R F' // 4th pair / OLS(CP)\nM2' U M2' U2 M2' U M2' // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5764",
+        "solver": "Stanley Chapel",
+        "event": "3x3BLD",
+        "puzzle": 3,
+        "result": "15.68",
+        "scramble": "F' L2 B2 U2 F' R2 B2 L2 D2 F' U' R U' L2 D' F L U2 B D' Rw Uw",
+        "solution": "z' y' // memo\n // edges\nU2 L U' M' U L' U' M U' // \nL' Lw U' Lw F M' F' Lw' U // \nS' U' R' E R U R' E' R S // \nD L F' L' S L F L' S' D' // \n // corners\nR' D' U' R' D R U' R' D' R U2 D R // \nU' D' R D R' U R D' D D' R' D // \nU D R D' U' R' D R U R' D' R D R' U' D' // \n // parity\nR U D R' F' R U R' U' R' F R2 U' R' U' R D' R' // "
+    },
+    {
+        "link": "http://cubesolv.es/solve/5768",
+        "solver": "Feliks Zemdegs",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.92",
+        "scramble": "F2 L B2 L B2 R U2 B2 L2 R' B2 R D L2 U2 B' U' B' L B' L2 R'",
+        "solution": "D R' U D' // cross\nR' U' R2 U2' R' // 1st pair\nU R' U R U' R' U R // 2nd pair\ny' R U' R' U' L' U' L // 3rd pair\nU y' U R' U2' R U' U' R' U2 R // 4th pair / WVLS\ny' x' R U' R' D R U R' D' R U R' D R U' R' D' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5858",
+        "solver": "Bhargav Narasimhan",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "12.45",
+        "scramble": "B' D2 F U2 F R2 B2 F' D2 R' B F R' D' B2 F R' B2 U L'",
+        "solution": "x' y' // inspection\nR2 U' U' R U' R2 // cross\nz U R U' U' R' U' y' R U' R' // 1st pair\nU R' U R U' U' R' U R // 2nd pair\ny' U R U R' U' R U R' U R U' R' // 3rd pair\ny' U R U' R' U R U' R' // 4th pair\nU' U' F U R U' U' R' U' R U' R' U' U R U' R' U' y' R' // OLL\nU' U' R2 U' R' U R U' x' U' z' U' R U' R' U' z U R F' // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5829",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "6.08",
+        "scramble": "U D2 F2 L B' R' L' U B2 L' D' L2 F2 U L2 F2 D' F2 U' F2 R2",
+        "solution": "x2 y // inspection\nD B R F F D // cross\nR U' R' U2 R U' U' R' d L U L' // 1st pair\ny' U' R' U R U' R' U R // 2nd pair\nR R' R U R' L U' L' // 3rd pair\nU U R U R' // 4th pair\nU F U R U2' R' U R U R' F' U' // ZBLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5851",
+        "solver": "Tymon Kolasiński",
+        "event": "4x4",
+        "puzzle": 4,
+        "result": "20.84",
+        "scramble": "F' R2 U2 L2 R2 F R2 B' L2 R U' L2 D2 B2 R' D B' U2 L' U r2 U' F' r2 B2 U2 L2 B u2 U f2 F2 D r' R2 B' r' L u2 f' r F2 L F' u R'",
+        "solution": " // 1st 2 centres / 3 cross dedges\n3r' U' r2 U r2' // yellow\nU' l U' l' 3u' F F' F' r U2' r' // white\nL' z' x2 U' // WB\nx' U' R2 3r' U r 3r2' D // WR\nR U' x' U 2L' U // WG\n // last 4 centres / finish cross\nL' r' // red\n3r2' r U r U2' r2' // blue\nU r U2' r' // green/orange\nU' r2 U' R' U x R' U R U' r2' L U' // WO\n // finish edges\nz' u L' U L // YR\nU' 3d' L' U L // YG\ny u2' R U' R' // YB\nu R U' R' // BR\nu' R U' R' u // GR\nU' R U' R' U u' // GO\nU R U' R' u // BO/YO\n // 3x3x3\nR U' R' U R U' R' U R' U' R // 1st pair\nU F' U' F U' R U R' // 2nd pair\nU' U U L U' L' // 3rd pair\nU2 L' U' L U L' U' L // 4th pair\nU R U2' R2' F R F' U2' R' F R F' // OLL\nU U' x R' U R' D2 R U' R' D2 R 3l U2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5830",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.85",
+        "scramble": "F2 R2 B' R2 F' R2 D2 B2 L2 D2 B R U' L F' L2 F' R' U' F' D",
+        "solution": "D' R' D R D R' U R2 // Xcross\nU L' U' L U' L' U L // 2nd pair\ny2 R U' R' U' L' U' L // 3rd pair\nd R' U' R // 4th pair\nU' R U R' U' R U' R' F' U' F R U R' // OLL\nU' U' y' R' U L' U2 R U' R' U2 R L // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5792",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.94",
+        "scramble": "B2 L B2 U2 B' R2 B' L2 B' R2 F R2 F2 R F2 D' B' D L2 R'",
+        "solution": "y x2 // inspection\nD' L D' U' R // pseudo cross\ny' U' R' F R // Xcross\ny U2' R' U R U' R' U' R // 2nd pair\nU2 y' R U' R2' U R U R' U' R // \nU U2 R U B' U' R' U l U l' // OLL\nR' R2 U R' (U' D) R2 U' R U' R' U R' U R2 (U D') // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5833",
+        "solver": "Bill Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "7.25",
+        "scramble": "B' U2 B2 L2 F R2 D2 F' L2 U2 L2 R D' B' L R2 D R F U2 F2",
+        "solution": "x2 z // inspection\nR U' l' D R' U' R' F // cross\nL' R U' R' // 1st pair\nL U' U U' R' U R L' U L // 2nd pair\ny U R' U' R // 3rd pair\nU R U' R' F R' F' R // 4th pair\nU' U r U' r2' U r2 U r2' U' r // OLL\nU y U' R' U L' U2 R U' R' U2 R r // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5782",
+        "solver": "Phillip Lewicki",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.84",
+        "scramble": "B D F L2 D2 R2 F2 D2 R2 U' L2 B2 U' R2 L F' U' F U L2",
+        "solution": "F U' L2 F R' R U' R2' U R U D2 // Xcross\ny' U' R U' R' U' L' U' L // 2nd pair\nU R' U' R2 U R' // 3rd pair\nU' R' U' R // 4th pair\nR U R' U' M' U R U' r' // OLL(CP)\nR U' R U R U R U' R' U' R2 // EPLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5788",
+        "solver": "Tymon Kolasiński",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.51",
+        "scramble": "D B R' F2 R D F R2 F2 L B2 D2 F2 D2 R' U2 R2 F2 D' L",
+        "solution": "y' // inspection\nD (x' D') r R' d' R2 U' u // Xcross\nU' R' U R U' R' U R // 2nd pair\nU' R U R' // 3rd pair\ny' U2 L' U L U' U U' L' U L // 4th pair\nU2 r' r2 U' r2' U r2 U r2' U' r // OLL\nU' R' U L' U2 R U' R' U2 L R U // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5766",
+        "solver": "Dylan Wang",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "5.31",
+        "scramble": "D2 R U2 L' B2 F2 R F2 D2 R F2 R2 F' R' B D2 F' U L2 U' B R'",
+        "solution": "y x' // inspection\nD R D // cross\nL' U L U' L U L2' U' L // 1st/2nd pairs\nU' R U' U' R2' U' R // 3rd pair\nU' y U2' L' U L U L' U L U' U' L' U2 L // 4th pair WVLS\nU // AUF"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5841",
+        "solver": "Arisandra Soo",
+        "event": "3x3",
+        "puzzle": 3,
+        "result": "8.95",
+        "scramble": "R F D R' U B R2 D' L U B2 D B2 U F2 D' B2 U2 L2",
+        "solution": "x' z' // inspection\nl F L R D L D // cross\nU y' R U R' y' U R' U' R // 1st pair\ny' U' R U R' y' U R' U' R // 2nd pair\nU2 R U' R' U R U' R' U R U' R' // 3rd pair\ny' U2 L' U' L // 4th pair\nF R U R' U' F' U2 R U R' U R U' R' U' R' F R F' // OLL\nF R U' R' U' R U R' F' R U R' U' R' F R F' U2 // PLL"
+    },
+    {
+        "link": "http://cubesolv.es/solve/5859",
+        "solver": "Bhargav Narasimhan",
+        "event": "3x3OH",
+        "puzzle": 3,
+        "result": "10.29",
+        "scramble": "B2 R2 B2 D' U2 L2 U2 L' R U B2 F D U R2 D' B' U",
+        "solution": "x2 y // inspection\nD' r U x' D' R D' // cross\nU' R U R' U' z U R' U' // 1st pair\nU' R U x' U R U' // 2nd pair\nz' U' R U' R' U R' U' R // 3rd pair\nU R U' R' U R U' R' // 4th pair\nU' U' R U R' y' r' U r U' r' U' r // OLL\nU z' y' R U' R z' R2 U' z U R z' R2 U' U' F // PLL"
+    }
+]

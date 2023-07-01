@@ -4,6 +4,13 @@ import { Opening } from "./opening.js";
 import { writePgnToObject } from "./parse-pgn.js";
 import { OpeningPlayer } from "./opening-player.js";
 
+// Importing the PgnParser (hack, as it doesn't use ES modules)
+// @ts-ignore
+window.module = {};
+window.exports = {};
+await import("../dependencies/pgn-parser/pgn-parser.js");
+const pgnParser = module.exports as PgnParser;
+
 const chessboard = document.querySelector("chess-board") as Chessboard;
 const moveTable = document.querySelector("move-table") as MoveTable;
 
@@ -83,7 +90,7 @@ createOpeningButton.addEventListener("click", async () => {
 });
 
 const loadPgnButton = document.getElementById("load-pgn-button") as HTMLButtonElement;
-loadPgnButton.addEventListener("click", () => {
+loadPgnButton.addEventListener("click", async () => {
     if (openingList.currentOpening === null) {
         alert("No opening selected.");
         return;
@@ -94,10 +101,13 @@ loadPgnButton.addEventListener("click", () => {
         return;
     }
 
-    const pgnObject = {};
-    writePgnToObject(pgn, pgnObject);
+    const [ result ] = pgnParser.parse(pgn);
+    openingList.currentOpening.writePgnParserObject(result);
 
-    openingList.currentOpening.writeObject(pgnObject);
+    // const pgnObject = {};
+    // writePgnToObject(pgn, pgnObject);
+
+    // openingList.currentOpening.writeObject(pgnObject);
 });
 
 const saveButton = document.getElementById("save-button") as HTMLButtonElement;

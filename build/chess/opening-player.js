@@ -1,3 +1,4 @@
+import { Chessboard } from "./chess-templates.js";
 export class OpeningPlayer {
     constructor(chessboard, openingList) {
         this.chessboard = chessboard;
@@ -18,15 +19,20 @@ export class OpeningPlayer {
             let possibleMoves = opening.getMoves(this.chessboard.fen());
             this.chessboard.redo();
             let lastMove = this.chessboard.moves[this.chessboard.lastMoveIndex];
-            if (possibleMoves.indexOf(lastMove) === -1) {
+            if (!possibleMoves.some(value => Chessboard.strippedSan(value) === Chessboard.strippedSan(lastMove))) {
                 this.chessboard.undo();
-                alert(`Incorrect move: ${lastMove}`);
+                window.requestAnimationFrame(() => {
+                    alert(`Incorrect move: ${lastMove}`);
+                    console.log(possibleMoves);
+                });
                 return;
             }
         }
+        let comments = opening.getComments(this.chessboard.fen());
+        console.log(comments);
         let possibleMoves = opening.getMoves(this.chessboard.fen());
         if (possibleMoves.length === 0) {
-            alert("End of line");
+            window.requestAnimationFrame(() => alert("End of line"));
             return;
         }
         let randomMove = possibleMoves[Math.floor(Math.random() * possibleMoves.length)];

@@ -30,11 +30,12 @@ export class Opening {
         for (const move in object) {
             const newPosition = new Chess(chess.fen());
             newPosition.move(move);
-            let position = this.positionMap.get(fen) ?? [];
-            if (position.indexOf(move) === -1) {
-                position.push(move);
+            let positionData = this.positionMap.get(fen) ?? { moves: [] };
+            let moves = positionData.moves;
+            if (moves.indexOf(move) === -1) {
+                moves.push(move);
             }
-            this.positionMap.set(fen, position);
+            this.positionMap.set(fen, positionData);
             this.writeObjectWithPosition(object[move], newPosition);
         }
     }
@@ -46,6 +47,44 @@ export class Opening {
         await this.openingDB.delete();
     }
     getMoves(fen) {
-        return this.positionMap.get(this.openingFen(fen)) ?? [];
+        return this.positionMap.get(this.openingFen(fen))?.moves ?? [];
+    }
+    getComments(fen) {
+        return this.positionMap.get(this.openingFen(fen))?.comments ?? [];
+    }
+    writePgnParserMovesWithPosition(moveObjects, chess) {
+        const currentPosition = new Chess(chess.fen());
+        for (const moveObject of moveObjects) {
+            const fen = this.openingFen(currentPosition.fen());
+            if (moveObject.ravs) {
+                for (const rav of moveObject.ravs) {
+                    this.writePgnParserMovesWithPosition(rav.moves, currentPosition);
+                }
+            }
+            const move = moveObject.move;
+            currentPosition.move(moveObject.move);
+            const positionData = this.positionMap.get(fen) ?? { moves: [] };
+            const moves = positionData.moves;
+            if (moves.indexOf(move) === -1) {
+                moves.push(move);
+            }
+            const nextFen = this.openingFen(currentPosition.fen());
+            const nextPositionData = this.positionMap.get(nextFen) ?? { moves: [] };
+            const comments = nextPositionData.comments ?? [];
+            const newComments = moveObject.comments.map(value => value.text.trim());
+            const allComments = Array.from(new Set(comments.concat(newComments)));
+            if (allComments.length > 0) {
+                nextPositionData.comments = allComments;
+            }
+            this.positionMap.set(fen, positionData);
+            if (newComments.length > 0) {
+                this.positionMap.set(nextFen, nextPositionData);
+            }
+        }
+    }
+    writePgnParserObject(object) {
+        const startingPosition = new Chess();
+        this.writePgnParserMovesWithPosition(object.moves, startingPosition);
+        console.log(this.positionMap);
     }
 }

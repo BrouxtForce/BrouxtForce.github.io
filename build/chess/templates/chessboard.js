@@ -209,5 +209,8 @@ export class Chessboard extends HTMLElement {
     getPieceOnSquare(square) {
         return this.chess.get(square);
     }
+    static strippedSan(move) {
+        return move.replace(/=/, '').replace(/[+#]?[?!]*$/, '');
+    }
 }
 customElements.define("chess-board", Chessboard);

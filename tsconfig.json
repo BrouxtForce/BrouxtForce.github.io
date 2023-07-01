@@ -27,5 +27,10 @@
 
     /* Completeness */
     "skipLibCheck": true
-  }
+  },
+  "exclude": [
+    "test",
+    "jest.config.js",
+    "build"
+  ]
 }

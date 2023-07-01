@@ -35,17 +35,23 @@ export class OpeningPlayer {
 
             let lastMove = this.chessboard.moves[this.chessboard.lastMoveIndex];
 
-            if (possibleMoves.indexOf(lastMove) === -1) {
+            if (!possibleMoves.some(value => Chessboard.strippedSan(value) === Chessboard.strippedSan(lastMove))) {
                 this.chessboard.undo();
-                alert(`Incorrect move: ${lastMove}`);
+                window.requestAnimationFrame(() => {
+                    alert(`Incorrect move: ${lastMove}`);
+                    console.log(possibleMoves);
+                });
                 return;
             }
         }
 
+        let comments = opening.getComments(this.chessboard.fen());
+        console.log(comments);
+
         // Select a move
         let possibleMoves = opening.getMoves(this.chessboard.fen());
         if (possibleMoves.length === 0) {
-            alert("End of line");
+            window.requestAnimationFrame(() => alert("End of line"));
             return;
         }
 
