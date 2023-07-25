@@ -7,19 +7,49 @@
         <link rel="stylesheet" href="/style.css">
         <link rel="stylesheet" href="cube-timer.css">
         <link rel="stylesheet" href="modal.css">
-        <script defer type="module" src="/build/cubing/timer/index.js"></script>
-        <script defer type="module" src="/build/templates.js"></script>
+        <!-- <script defer type="module" src="/build/cubing/timer/index.js"></script> -->
+        <!-- <script defer type="module" src="/build/templates.js"></script> -->
+
+        <script>
+            // Hide the address bar on mobile
+            window.addEventListener("load",() => {
+                setTimeout(() => {
+                    window.scrollTo(0, 1);
+                }, 0);
+            });
+        </script>
     </head>
     <body>
-        <nav-bar></nav-bar>
+        <!-- <nav-bar></nav-bar> -->
 
-        <div id="cube-timer">
+        <div class="app-container flex-col">
+            <div class="scramble-type-container">
+                <div class="scramble-type">WCA 3×3</div>
+            </div>
+            <div class="scramble-container">
+                <div class="scramble">F2 U' B2 F2 D B2 D2 L2 F2 L2 D L' B R D2 U B' L' F U2</div>
+            </div>
+            <div class="interactive-container flex-row">
+                <div class="times-container">
 
-            <table class="time-table"></table>
-            
-            <div id="timer">0.00</div>
-            <input id="timer-input" type="text">
-
+                </div>
+                <div class="timer-tools-container flex-col">
+                    <div class="timer-container">
+                        <div class="center">
+                            <div class="time">0.00</div>
+                            <div class="quick-stat-container">
+                                <div class="quick-stat">ao5: -</div>
+                                <div class="quick-stat">ao12: -</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tools-container">
+                        <div class="draw-scramble-container">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </body>

@@ -89,6 +89,7 @@ export class OpeningPlayer {
     deactivate(): void {
         if (!this.active) {
             console.error("Cannot deactivate OpeningPlayer() when not active.");
+            return;
         }
 
         this.active = false;

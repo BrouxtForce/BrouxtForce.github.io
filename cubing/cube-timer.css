@@ -1,72 +1,84 @@
-@import "/style.css";
-
-body {
-    overflow: hidden;
+.flex-row {
+    display: flex;
+    flex-direction: row;
 }
-#cube-timer {
-    position: absolute;
-    top: var(--navbar-height);
-    left: 0px;
-    height: calc(100% - var(--navbar-height));
-    width: 100%;
+.flex-col {
+    display: flex;
+    flex-direction: column;
 }
-#timer {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 10em;
-}
-#timer.down {
-    color: red;
-}
-#timer-active {
-    background-color: pink;
-}
-#timer.inspection {
-    color: orange;
-}
-#timer.stop {
-    color: green;
-}
-
-#timer-input {
-    position: absolute;
-    width: 10em;
-    padding: 0.25em;
-    font-size: 5em;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #666;
-    color: #ccc;
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.time-table {
+.center {
     position: relative;
-    height: 100%;
-    overflow: scroll;
-    background-color: #222;
-    border-collapse: collapse;
-    display: inline-block;
-    overscroll-behavior: none;
-    user-select: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
 
-    -ms-overflow-style: none; /* IE 10+ */
-    scrollbar-width: none; /* Firefox */
+.app-container {
+    width: 100dvw;
+    height: 100dvh;
 }
-.time-table::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+
+.scramble-container {
+    background-color: #1e1e1e;
 }
-.time-table-row td {
-    border: 1px solid #ccc;
-    padding: 5px 10px;
+.scramble {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 2rem;
+    padding: 1em;
+}
+
+.scramble-type-container {
+    background-color: #2e2e2e;
+}
+.scramble-type {
+    font-size: 1.125rem;
+    padding: 0.25em;
     text-align: center;
 }
-.time-table-row td:hover {
-    background-color: #666;
-    cursor: pointer;
+
+.interactive-container {
+    flex: 1;
+}
+
+.times-container {
+    width: 30ch;
+    background-color: #999;
+}
+
+.timer-tools-container {
+    flex: 1;
+    background-color: #d9d9d9;
+}
+
+.timer-container {
+    flex: 2;
+    user-select: none;
+}
+.time {
+    color: #000;
+    font-size: 8rem;
+    text-align: center;
+}
+.quick-stat-container .quick-stat {
+    text-align: center;
+    font-size: 3rem;
+    color: #000;
+}
+
+.tools-container {
+    flex: 1;
+    background-color: #b9b9b9
+}
+
+@media only screen and (max-width: 40rem) {
+    .interactive-container {
+        flex-direction: column-reverse;
+    }
+    .times-container {
+        height: 10rem;
+        width: auto;
+    }
 }
