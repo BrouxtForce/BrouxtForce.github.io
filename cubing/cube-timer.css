@@ -62,6 +62,19 @@
     font-size: 8rem;
     text-align: center;
 }
+.time.down {
+    color: green;
+}
+.time.finished {
+    color: red;
+}
+.time.inspection {
+    color: red;
+}
+.time.inspection.down {
+    color: green;
+}
+
 .quick-stat-container .quick-stat {
     text-align: center;
     font-size: 3rem;
