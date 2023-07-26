@@ -1,4 +1,4 @@
-function forceDigitCount (num: number, numDigits: number): string {
+export function forceDigitCount(num: number, numDigits: number): string {
     let str = num.toString();
 
     if (str.length >= numDigits) {
@@ -8,7 +8,7 @@ function forceDigitCount (num: number, numDigits: number): string {
     return Array(numDigits - str.length).fill("0").join("") + str;
 };
 
-function timeToString(millis: number, numDecimalPoints: number = 2): string {
+export function timeToString(millis: number, numDecimalPoints: number = 3): string {
     const signString = (millis < 0) ? "-" : "";
     millis = Math.abs(millis);
 

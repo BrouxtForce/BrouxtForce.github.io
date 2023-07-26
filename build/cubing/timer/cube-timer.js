@@ -1,4 +1,4 @@
-function forceDigitCount(num, numDigits) {
+export function forceDigitCount(num, numDigits) {
     let str = num.toString();
     if (str.length >= numDigits) {
         return str;
@@ -6,7 +6,7 @@ function forceDigitCount(num, numDigits) {
     return Array(numDigits - str.length).fill("0").join("") + str;
 }
 ;
-function timeToString(millis, numDecimalPoints = 2) {
+export function timeToString(millis, numDecimalPoints = 3) {
     const signString = (millis < 0) ? "-" : "";
     millis = Math.abs(millis);
     const MILLIS_PER_HOUR = 3600000;
