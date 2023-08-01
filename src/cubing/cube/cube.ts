@@ -1,13 +1,14 @@
 import { Alg } from "./alg.js";
 
-enum Face {
+export enum Face {
     U = 0,
-    F = 1,
-    R = 2,
-    B = 3,
-    L = 4,
+    L = 1,
+    F = 2,
+    R = 3,
+    B = 4,
     D = 5
 };
+
 function oppositeFace(face: Face): Face {
     switch (face) {
         case Face.U: return Face.D;
@@ -40,6 +41,26 @@ function stringToFace(string: string): Face {
         case "D": return Face.D;
         default:  return -1 as Face;
     }
+}
+function rotateIndexCw(index: number, size: number): number {
+    let x = index % size;
+    let y = Math.floor(index / size);
+
+    // [x][layerCount - y - 1]
+    let newX = size - y - 1;
+    let newY = x;
+
+    return newY * size + newX;
+}
+function rotateIndexCcw(index: number, size: number): number {
+    let x = index % size;
+    let y = Math.floor(index / size);
+
+    // [layerCount - x - 1][y]
+    let newX = y;
+    let newY = size - x - 1;
+
+    return newY * size + newX;
 }
 
 export class Cube {
@@ -104,6 +125,85 @@ export class Cube {
         return true;
     }
 
+    private getCenters(index: number): Face[] {
+        const centers: Face[] = [];
+
+        for (let face = 0; face < 6; face++) {
+            for (let i = 0; i < 4; i++) {
+                centers.push(this.stickers[face][index]);
+
+                index = rotateIndexCw(index, this.layerCount);
+            }
+        }
+
+        return centers;
+    }
+
+    private getEdges(index: number): Face[][] {
+        const wings: Face[] = [];
+
+        const faces = [Face.U, Face.L, Face.F, Face.R, Face.B, Face.D];
+        for (const face of faces) {
+            for (let i = 0; i < 4; i++) {
+                wings.push(this.stickers[face][index]);
+                index = rotateIndexCw(index, this.layerCount);
+            }
+        }
+
+        const U = wings.slice( 0,  4);
+        const L = wings.slice( 4,  8);
+        const F = wings.slice( 8, 12);
+        const R = wings.slice(12, 16);
+        const B = wings.slice(16, 20);
+        const D = wings.slice(20, 24);
+
+        return [
+            [U[0], B[0]], [U[1], R[0]], [U[2], F[0]], [U[3], L[0]],
+            [F[1], R[3]], [F[3], L[1]], [B[1], L[3]], [B[3], R[1]],
+            [D[0], F[2]], [D[1], R[2]], [D[2], B[2]], [D[3], L[2]]
+        ];
+    }
+
+    private getWings(index: number): Face[][] {
+        const groupA = this.getEdges(index);
+        const groupB = this.getEdges(this.layerCount - index - 1);
+
+        console.assert(groupA.length === 12 && groupB.length === 12);
+
+        const wings = Array(24);
+        for (let i = 0; i < 12; i++) {
+            wings[i * 2] = groupA[i];
+            wings[i * 2 + 1] = groupB[i];
+        }
+
+        return wings;
+    }
+
+    private getCorners(): Face[][] {
+        const corners: Face[] = [];
+        
+        const faces = [Face.U, Face.L, Face.F, Face.R, Face.B, Face.D];
+        let index = 0;
+        for (const face of faces) {
+            for (let i = 0; i < 4; i++) {
+                corners.push(this.stickers[face][index]);
+                index = rotateIndexCw(index, this.layerCount);
+            }
+        }
+
+        const U = corners.slice( 0,  4);
+        const L = corners.slice( 4,  8);
+        const F = corners.slice( 8, 12);
+        const R = corners.slice(12, 16);
+        const B = corners.slice(16, 20);
+        const D = corners.slice(20, 24);
+
+        return [
+            [U[0], B[1], L[0]], [U[1], B[0], R[1]], [U[2], F[1], R[0]], [U[3], F[0], L[1]],
+            [D[0], F[3], L[2]], [D[1], F[2], R[3]], [D[2], B[3], R[2]], [D[3], B[2], L[3]]
+        ];
+    }
+
     private faceHtml(face: Face): HTMLElement {
         const nodes: HTMLElement[] = [];
         for (const faceColor of this.stickers[face]) {
@@ -126,6 +226,7 @@ export class Cube {
     }
     html(node: HTMLElement): void {
         node.classList.add("cube");
+        node.style.setProperty("--layer-count", this.layerCount.toString());
         node.replaceChildren(
             this.emptyFace(),
             this.faceHtml(Face.U),
@@ -142,30 +243,36 @@ export class Cube {
 
     /**
      * Returns the four adjacent faces (cw) to the inputted face as well as
-     * the side of the face where pieces should be cycled.
+     * the side of the face where pieces should be cycled. The faces returned
+     * are in the order of top, right, bottom, left relative to the inputted
+     * face. For example, for U, adjacentFaces will return B, R, F, L.
      * 
      * Direction numerical values are one to one with Face
      */
-    private adjacentFaces(face: Face): [Face, number][] {
+    private static getAdjacentFaces(face: Face): { face: Face, direction: number }[] {
         enum Dir {
             U = Face.U,
             R = Face.R,
             L = Face.L,
             D = Face.D
         }
+
+        // Shorthand function for creating this object: { face: Face, direction: number }
+        const $ = (face: Face, direction: number) => ({ face, direction });
+
         switch (face) {
             case Face.U:
-                return [[Face.F, Dir.U], [Face.L, Dir.U], [Face.B, Dir.U], [Face.R, Dir.U]];
+                return [$(Face.B, Dir.U), $(Face.R, Dir.U), $(Face.F, Dir.U), $(Face.L, Dir.U)];
             case Face.L:
-                return [[Face.U, Dir.L], [Face.F, Dir.L], [Face.D, Dir.L], [Face.B, Dir.R]];
+                return [$(Face.U, Dir.L), $(Face.F, Dir.L), $(Face.D, Dir.L), $(Face.B, Dir.R)];
             case Face.F:
-                return [[Face.U, Dir.D], [Face.R, Dir.L], [Face.D, Dir.U], [Face.L, Dir.R]];
+                return [$(Face.U, Dir.D), $(Face.R, Dir.L), $(Face.D, Dir.U), $(Face.L, Dir.R)];
             case Face.R:
-                return [[Face.U, Dir.R], [Face.B, Dir.L], [Face.D, Dir.R], [Face.F, Dir.R]];
+                return [$(Face.U, Dir.R), $(Face.B, Dir.L), $(Face.D, Dir.R), $(Face.F, Dir.R)];
             case Face.B:
-                return [[Face.U, Dir.U], [Face.L, Dir.L], [Face.D, Dir.D], [Face.R, Dir.R]];
+                return [$(Face.U, Dir.U), $(Face.L, Dir.L), $(Face.D, Dir.D), $(Face.R, Dir.R)];
             case Face.D:
-                return [[Face.F, Dir.D], [Face.R, Dir.D], [Face.B, Dir.D], [Face.L, Dir.D]];
+                return [$(Face.F, Dir.D), $(Face.R, Dir.D), $(Face.B, Dir.D), $(Face.L, Dir.D)];
             default:
                 console.error(`Invalid face: ${face}`);
                 return [];
@@ -176,15 +283,7 @@ export class Cube {
         let copyArray = faceArray.slice();
 
         for (let i = 0; i < faceArray.length; i++) {
-            let x = i % this.layerCount;
-            let y = Math.floor(i / this.layerCount);
-
-            // [layerCount - x - 1][y]
-            let newX = y;
-            let newY = this.layerCount - x - 1;
-            let newI = newY * this.layerCount + newX;
-
-            faceArray[i] = copyArray[newI];
+            faceArray[i] = copyArray[rotateIndexCcw(i, this.layerCount)];
         }
     }
     private cycleFaceCcw(face: Face): void {
@@ -192,15 +291,7 @@ export class Cube {
         let copyArray = faceArray.slice();
 
         for (let i = 0; i < faceArray.length; i++) {
-            let x = i % this.layerCount;
-            let y = Math.floor(i / this.layerCount);
-
-            // [x][layerCount - y - 1]
-            let newX = this.layerCount - y - 1;
-            let newY = x;
-            let newI = newY * this.layerCount + newX;
-
-            faceArray[i] = copyArray[newI];
+            faceArray[i] = copyArray[rotateIndexCw(i, this.layerCount)];
         }
     }
     private cycleFace(face: Face, counterclockwise: boolean): void {
@@ -250,20 +341,20 @@ export class Cube {
         }
     }
     private cycleThreadCcw(face: Face, depth: number): void {
-        const adjFaces = this.adjacentFaces(face);
+        const adjFaces = Cube.getAdjacentFaces(face);
         const faceIndices = [];
 
         for (const adjFace of adjFaces) {
-            faceIndices.push(this.faceThread(adjFace[1], depth));
+            faceIndices.push(this.faceThread(adjFace.direction, depth));
         }
 
         let firstCopy = [];
         for (const index of faceIndices[0]) {
-            firstCopy[index] = this.stickers[adjFaces[0][0]][index];
+            firstCopy[index] = this.stickers[adjFaces[0].face][index];
         }
 
         for (let i = 0; i < faceIndices.length; i++) {
-            const arr = this.stickers?.[adjFaces[i + 1]?.[0]] ?? firstCopy;
+            const arr = this.stickers?.[adjFaces[i + 1]?.face] ?? firstCopy;
 
             for (let j = 0; j < faceIndices[0].length; j++) {
                 const currIndex = faceIndices[i][j];
@@ -273,7 +364,7 @@ export class Cube {
                     console.error(`Invalid index: ${nextIndex}`);
                     continue;
                 }
-                this.stickers[adjFaces[i][0]][currIndex] = arr[nextIndex];
+                this.stickers[adjFaces[i].face][currIndex] = arr[nextIndex];
             }
         }
     }

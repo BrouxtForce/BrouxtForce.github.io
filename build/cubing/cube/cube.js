@@ -1,10 +1,10 @@
-var Face;
+export var Face;
 (function (Face) {
     Face[Face["U"] = 0] = "U";
-    Face[Face["F"] = 1] = "F";
-    Face[Face["R"] = 2] = "R";
-    Face[Face["B"] = 3] = "B";
-    Face[Face["L"] = 4] = "L";
+    Face[Face["L"] = 1] = "L";
+    Face[Face["F"] = 2] = "F";
+    Face[Face["R"] = 3] = "R";
+    Face[Face["B"] = 4] = "B";
     Face[Face["D"] = 5] = "D";
 })(Face || (Face = {}));
 ;
@@ -40,6 +40,20 @@ function stringToFace(string) {
         case "D": return Face.D;
         default: return -1;
     }
+}
+function rotateIndexCw(index, size) {
+    let x = index % size;
+    let y = Math.floor(index / size);
+    let newX = size - y - 1;
+    let newY = x;
+    return newY * size + newX;
+}
+function rotateIndexCcw(index, size) {
+    let x = index % size;
+    let y = Math.floor(index / size);
+    let newX = y;
+    let newY = size - x - 1;
+    return newY * size + newX;
 }
 export class Cube {
     constructor(layerCount) {
@@ -98,6 +112,69 @@ export class Cube {
         }
         return true;
     }
+    getCenters(index) {
+        const centers = [];
+        for (let face = 0; face < 6; face++) {
+            for (let i = 0; i < 4; i++) {
+                centers.push(this.stickers[face][index]);
+                index = rotateIndexCw(index, this.layerCount);
+            }
+        }
+        return centers;
+    }
+    getEdges(index) {
+        const wings = [];
+        const faces = [Face.U, Face.L, Face.F, Face.R, Face.B, Face.D];
+        for (const face of faces) {
+            for (let i = 0; i < 4; i++) {
+                wings.push(this.stickers[face][index]);
+                index = rotateIndexCw(index, this.layerCount);
+            }
+        }
+        const U = wings.slice(0, 4);
+        const L = wings.slice(4, 8);
+        const F = wings.slice(8, 12);
+        const R = wings.slice(12, 16);
+        const B = wings.slice(16, 20);
+        const D = wings.slice(20, 24);
+        return [
+            [U[0], B[0]], [U[1], R[0]], [U[2], F[0]], [U[3], L[0]],
+            [F[1], R[3]], [F[3], L[1]], [B[1], L[3]], [B[3], R[1]],
+            [D[0], F[2]], [D[1], R[2]], [D[2], B[2]], [D[3], L[2]]
+        ];
+    }
+    getWings(index) {
+        const groupA = this.getEdges(index);
+        const groupB = this.getEdges(this.layerCount - index - 1);
+        console.assert(groupA.length === 12 && groupB.length === 12);
+        const wings = Array(24);
+        for (let i = 0; i < 12; i++) {
+            wings[i * 2] = groupA[i];
+            wings[i * 2 + 1] = groupB[i];
+        }
+        return wings;
+    }
+    getCorners() {
+        const corners = [];
+        const faces = [Face.U, Face.L, Face.F, Face.R, Face.B, Face.D];
+        let index = 0;
+        for (const face of faces) {
+            for (let i = 0; i < 4; i++) {
+                corners.push(this.stickers[face][index]);
+                index = rotateIndexCw(index, this.layerCount);
+            }
+        }
+        const U = corners.slice(0, 4);
+        const L = corners.slice(4, 8);
+        const F = corners.slice(8, 12);
+        const R = corners.slice(12, 16);
+        const B = corners.slice(16, 20);
+        const D = corners.slice(20, 24);
+        return [
+            [U[0], B[1], L[0]], [U[1], B[0], R[1]], [U[2], F[1], R[0]], [U[3], F[0], L[1]],
+            [D[0], F[3], L[2]], [D[1], F[2], R[3]], [D[2], B[3], R[2]], [D[3], B[2], L[3]]
+        ];
+    }
     faceHtml(face) {
         const nodes = [];
         for (const faceColor of this.stickers[face]) {
@@ -118,29 +195,31 @@ export class Cube {
     }
     html(node) {
         node.classList.add("cube");
+        node.style.setProperty("--layer-count", this.layerCount.toString());
         node.replaceChildren(this.emptyFace(), this.faceHtml(Face.U), this.emptyFace(), this.emptyFace(), this.faceHtml(Face.L), this.faceHtml(Face.F), this.faceHtml(Face.R), this.faceHtml(Face.B), this.emptyFace(), this.faceHtml(Face.D));
     }
-    adjacentFaces(face) {
+    static getAdjacentFaces(face) {
         let Dir;
         (function (Dir) {
             Dir[Dir["U"] = 0] = "U";
-            Dir[Dir["R"] = 2] = "R";
-            Dir[Dir["L"] = 4] = "L";
+            Dir[Dir["R"] = 3] = "R";
+            Dir[Dir["L"] = 1] = "L";
             Dir[Dir["D"] = 5] = "D";
         })(Dir || (Dir = {}));
+        const $ = (face, direction) => ({ face, direction });
         switch (face) {
             case Face.U:
-                return [[Face.F, Dir.U], [Face.L, Dir.U], [Face.B, Dir.U], [Face.R, Dir.U]];
+                return [$(Face.B, Dir.U), $(Face.R, Dir.U), $(Face.F, Dir.U), $(Face.L, Dir.U)];
             case Face.L:
-                return [[Face.U, Dir.L], [Face.F, Dir.L], [Face.D, Dir.L], [Face.B, Dir.R]];
+                return [$(Face.U, Dir.L), $(Face.F, Dir.L), $(Face.D, Dir.L), $(Face.B, Dir.R)];
             case Face.F:
-                return [[Face.U, Dir.D], [Face.R, Dir.L], [Face.D, Dir.U], [Face.L, Dir.R]];
+                return [$(Face.U, Dir.D), $(Face.R, Dir.L), $(Face.D, Dir.U), $(Face.L, Dir.R)];
             case Face.R:
-                return [[Face.U, Dir.R], [Face.B, Dir.L], [Face.D, Dir.R], [Face.F, Dir.R]];
+                return [$(Face.U, Dir.R), $(Face.B, Dir.L), $(Face.D, Dir.R), $(Face.F, Dir.R)];
             case Face.B:
-                return [[Face.U, Dir.U], [Face.L, Dir.L], [Face.D, Dir.D], [Face.R, Dir.R]];
+                return [$(Face.U, Dir.U), $(Face.L, Dir.L), $(Face.D, Dir.D), $(Face.R, Dir.R)];
             case Face.D:
-                return [[Face.F, Dir.D], [Face.R, Dir.D], [Face.B, Dir.D], [Face.L, Dir.D]];
+                return [$(Face.F, Dir.D), $(Face.R, Dir.D), $(Face.B, Dir.D), $(Face.L, Dir.D)];
             default:
                 console.error(`Invalid face: ${face}`);
                 return [];
@@ -150,24 +229,14 @@ export class Cube {
         let faceArray = this.stickers[face];
         let copyArray = faceArray.slice();
         for (let i = 0; i < faceArray.length; i++) {
-            let x = i % this.layerCount;
-            let y = Math.floor(i / this.layerCount);
-            let newX = y;
-            let newY = this.layerCount - x - 1;
-            let newI = newY * this.layerCount + newX;
-            faceArray[i] = copyArray[newI];
+            faceArray[i] = copyArray[rotateIndexCcw(i, this.layerCount)];
         }
     }
     cycleFaceCcw(face) {
         let faceArray = this.stickers[face];
         let copyArray = faceArray.slice();
         for (let i = 0; i < faceArray.length; i++) {
-            let x = i % this.layerCount;
-            let y = Math.floor(i / this.layerCount);
-            let newX = this.layerCount - y - 1;
-            let newY = x;
-            let newI = newY * this.layerCount + newX;
-            faceArray[i] = copyArray[newI];
+            faceArray[i] = copyArray[rotateIndexCw(i, this.layerCount)];
         }
     }
     cycleFace(face, counterclockwise) {
@@ -215,17 +284,17 @@ export class Cube {
         }
     }
     cycleThreadCcw(face, depth) {
-        const adjFaces = this.adjacentFaces(face);
+        const adjFaces = Cube.getAdjacentFaces(face);
         const faceIndices = [];
         for (const adjFace of adjFaces) {
-            faceIndices.push(this.faceThread(adjFace[1], depth));
+            faceIndices.push(this.faceThread(adjFace.direction, depth));
         }
         let firstCopy = [];
         for (const index of faceIndices[0]) {
-            firstCopy[index] = this.stickers[adjFaces[0][0]][index];
+            firstCopy[index] = this.stickers[adjFaces[0].face][index];
         }
         for (let i = 0; i < faceIndices.length; i++) {
-            const arr = this.stickers?.[adjFaces[i + 1]?.[0]] ?? firstCopy;
+            const arr = this.stickers?.[adjFaces[i + 1]?.face] ?? firstCopy;
             for (let j = 0; j < faceIndices[0].length; j++) {
                 const currIndex = faceIndices[i][j];
                 const nextIndex = faceIndices[(i + 1) % faceIndices.length][j];
@@ -233,7 +302,7 @@ export class Cube {
                     console.error(`Invalid index: ${nextIndex}`);
                     continue;
                 }
-                this.stickers[adjFaces[i][0]][currIndex] = arr[nextIndex];
+                this.stickers[adjFaces[i].face][currIndex] = arr[nextIndex];
             }
         }
     }

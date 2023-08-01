@@ -1,44 +1,62 @@
-import { Alg } from "./alg.js";
 export var Scramble;
 (function (Scramble) {
-    let Cube444;
-    (function (Cube444) {
-        Cube444.randomMove = function (length) {
-            let moves = [];
-            let prevMove = [NaN, NaN, NaN];
-            let parallel = false;
-            let moveSet = [
-                [["U", "U'", "U2"], ["D", "D'", "D2"]],
-                [["L", "L'", "L2"], ["R", "R'", "R2"]],
-                [["F", "F'", "F2"], ["B", "B'", "B2"]]
-            ];
-            for (let i = 0; i < length; i++) {
-                while (true) {
-                    let index_0 = Math.floor(Math.random() * 3);
-                    let index_1 = Math.floor(Math.random() * 2);
-                    if (index_0 === prevMove[0] && (index_1 === prevMove[1] || parallel))
-                        continue;
-                    let index_2 = Math.floor(Math.random() * 3);
-                    moves.push(moveSet[index_0][index_1][index_2]);
-                    prevMove[0] = index_0;
-                    prevMove[1] = index_1;
-                    prevMove[2] = index_2;
-                    parallel = index_0 === prevMove[0];
-                    break;
+    function getNumberOfRandomMoves(puzzleSize) {
+        switch (puzzleSize) {
+            case 2: return 15;
+            case 3: return 25;
+            case 4: return 40;
+            case 5: return 60;
+            case 6: return 80;
+            case 7: return 100;
+            default: return 0;
+        }
+    }
+    function getRandomInt(minInclusive, maxExclusive) {
+        return minInclusive + Math.floor(Math.random() * (maxExclusive - minInclusive));
+    }
+    function randomMove(puzzleSize, moveCount) {
+        const widestMove = Math.floor(puzzleSize / 2);
+        const evenCube = (puzzleSize % 2 === 0);
+        if (moveCount === undefined) {
+            moveCount = getNumberOfRandomMoves(puzzleSize);
+        }
+        const possibleMoves = [
+            ["D", "U"],
+            ["B", "F"],
+            ["L", "R"]
+        ];
+        const scramble = [];
+        scrambleGenLoop: for (let i = 0; i < moveCount; i++) {
+            const index0 = getRandomInt(0, 3);
+            const index1 = getRandomInt(0, 2);
+            const width = getRandomInt(1, widestMove + (evenCube ? index1 : 1));
+            for (let j = i - 1; j >= 0; j--) {
+                if (scramble[j].index0 === index0) {
+                    if (scramble[j].index1 === index1 && scramble[j].width === width) {
+                        i--;
+                        continue scrambleGenLoop;
+                    }
+                    continue;
+                }
+                break;
+            }
+            scramble.push({ index0, index1, width });
+        }
+        const scrambleStrings = scramble.map(entry => {
+            let moveString = possibleMoves[entry.index0][entry.index1];
+            if (entry.width > 1) {
+                if (entry.width === 2) {
+                    moveString += "w";
+                }
+                else {
+                    moveString = `${entry.width}${moveString}w`;
                 }
             }
-            for (let i = 0; i < moves.length; i++) {
-                if (Math.random() < 0.5) {
-                    moves[i] = moves[i].toLowerCase();
-                }
-            }
-            return new Alg(moves.join(" "));
-        };
-        Cube444.centersOnly = function (length) {
-            let scramble = Cube444.randomMove(length);
-            let supercubeAlg = new Alg("L2 D U B F D' U' R2 B F D U B' F'");
-            let reversedScramble = scramble.copy().reverse();
-            return Alg.fromAlgs(scramble, supercubeAlg, reversedScramble);
-        };
-    })(Cube444 = Scramble.Cube444 || (Scramble.Cube444 = {}));
+            const possibleModifiers = ["", "'", "2"];
+            moveString += possibleModifiers[getRandomInt(0, 3)];
+            return moveString;
+        });
+        return scrambleStrings.join(" ");
+    }
+    Scramble.randomMove = randomMove;
 })(Scramble || (Scramble = {}));

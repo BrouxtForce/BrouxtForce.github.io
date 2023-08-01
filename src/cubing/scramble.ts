@@ -1,49 +1,76 @@
-import { Alg } from "./alg.js"
-
 export namespace Scramble {
-    export namespace Cube444 {
-        export const randomMove = function(length: number): Alg {
-            // 3x3 scramble code
-            let moves = [];
-            let prevMove = [NaN, NaN, NaN];
-            let parallel = false;
-            let moveSet = [
-                [["U", "U'", "U2"], ["D", "D'", "D2"]],
-                [["L", "L'", "L2"], ["R", "R'", "R2"]],
-                [["F", "F'", "F2"], ["B", "B'", "B2"]]
-            ];
-            for (let i = 0; i < length; i++) {
-                while (true) {
-                    let index_0 = Math.floor(Math.random() * 3);
-                    let index_1 = Math.floor(Math.random() * 2);
-                    if (index_0 === prevMove[0] && (index_1 === prevMove[1] || parallel)) continue;
-                    let index_2 = Math.floor(Math.random() * 3);
-                    moves.push(moveSet[index_0][index_1][index_2]);
-                    prevMove[0] = index_0;
-                    prevMove[1] = index_1;
-                    prevMove[2] = index_2;
-                    parallel = index_0 === prevMove[0];
-                    break;
+    function getNumberOfRandomMoves(puzzleSize: number): number {
+        switch (puzzleSize) {
+            case 2: return 15;
+            case 3: return 25;
+            case 4: return 40;
+            case 5: return 60;
+            case 6: return 80;
+            case 7: return 100;
+            default: return 0;
+        }
+    }
+
+    function getRandomInt(minInclusive: number, maxExclusive: number): number {
+        return minInclusive + Math.floor(Math.random() * (maxExclusive - minInclusive));
+    }
+
+    export function randomMove(puzzleSize: number, moveCount?: number): string {
+        const widestMove = Math.floor(puzzleSize / 2);
+        const evenCube = (puzzleSize % 2 === 0);
+
+        if (moveCount === undefined) {
+            moveCount = getNumberOfRandomMoves(puzzleSize);
+        }
+
+        const possibleMoves = [
+            ["D", "U"],
+            ["B", "F"],
+            ["L", "R"]
+        ];
+        const scramble: { index0: number, index1: number, width: number }[] = [];
+
+        scrambleGenLoop:
+        for (let i = 0; i < moveCount; i++) {
+            // Generate indices for possibleMoves
+            const index0 = getRandomInt(0, 3);
+            const index1 = getRandomInt(0, 2);
+
+            // For even cubes, only allow half of all moves to turn the half the cube
+            const width = getRandomInt(1, widestMove + (evenCube ? index1 : 1));
+
+            // Check against instances such as L R L (second L is redundant)
+            for (let j = i - 1; j >= 0; j--) {
+                if (scramble[j].index0 === index0) {
+                    if (scramble[j].index1 === index1 && scramble[j].width === width) {
+                        i--;
+                        continue scrambleGenLoop;
+                    }
+                    continue;
+                }
+                break;
+            }
+
+            scramble.push({ index0, index1, width });
+        }
+
+        // Convert moves to string and randomly make each turn cw, ccw, or 180 degrees
+        const scrambleStrings = scramble.map(entry => {
+            let moveString = possibleMoves[entry.index0][entry.index1];
+            if (entry.width > 1) {
+                if (entry.width === 2) {
+                    moveString += "w";
+                } else {
+                    moveString = `${entry.width}${moveString}w`
                 }
             }
 
-            // Hack to turn 3x3 scramble to 4x4 scramble
-            for (let i = 0; i < moves.length; i++) {
-                if (Math.random() < 0.5) {
-                    moves[i] = moves[i].toLowerCase();
-                }
-            }
+            const possibleModifiers = ["", "'", "2"];
+            moveString += possibleModifiers[getRandomInt(0, 3)];
 
-            return new Alg(moves.join(" "));
-        }
-        export const centersOnly = function(length: number): Alg {
-            let scramble = randomMove(length);
+            return moveString;
+        });
 
-            let supercubeAlg = new Alg("L2 D U B F D' U' R2 B F D U B' F'");
-
-            let reversedScramble = scramble.copy().reverse();
-
-            return Alg.fromAlgs(scramble, supercubeAlg, reversedScramble);
-        }
+        return scrambleStrings.join(" ");
     }
 }
