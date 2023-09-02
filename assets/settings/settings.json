@@ -1,0 +1,43 @@
+[
+    [
+        ["Application", "Color Scheme"],
+        {
+            "name": "Color scheme",
+            "description": "The color scheme of the application. Set to custom to choose your own colors.",
+            "type": "select",
+            "options": ["default", "dark", "light", "custom"],
+            "default": "default"
+        }
+    ],
+    [
+        ["Application", "Color Scheme", "Accessibility"],
+        {
+            "name": "Some random setting",
+            "description": "This is some random setting so idk.",
+            "type": "boolean",
+            "default": "false"
+        }
+    ],
+    [
+        ["Cubing", "Timer"],
+        {
+            "name": "Use inspection",
+            "description": "Limits the amount of time you have to look at the cube before starting the solve.",
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "Inspection time",
+            "description": "The amount of time, in seconds, that you get to spend in inspection.",
+            "type": "number",
+            "default": "15"
+        },
+        {
+            "name": "Decimal places",
+            "description": "The number of digits displayed after the decimal point for any time value displayed.",
+            "type": "select",
+            "options": ["0", "1", "2", "3"],
+            "default": "2"
+        }
+    ]
+]

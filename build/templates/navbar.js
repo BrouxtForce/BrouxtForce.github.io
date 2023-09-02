@@ -5,7 +5,7 @@ export class NavBar extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div id="nav-bar">
-                <a href="/index.html" class="nav-item">Home</a>
+                <a href="/" class="nav-item">Home</a>
                 <div class="dropdown">
                     <button class="dropdown-name nav-item">Cubing</button>
                     <div class="dropdown-content">
@@ -20,6 +20,7 @@ export class NavBar extends HTMLElement {
                         <a href="/chess/opening-trainer.html" class="dropdown-item">Opening Trainer</a>
                     </div>
                 </div>
+                <a href="/settings" class="nav-item">Settings</a>
                 ${""}
             </div>
         `;
