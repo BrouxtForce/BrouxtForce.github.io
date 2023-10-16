@@ -18,9 +18,6 @@ export class TableOfContents {
                 tocListTitle.textContent = name;
                 tocListTitle.className = "toc-list-title";
                 node.append(tocListTitle);
-                tocListTitle.addEventListener("click", () => {
-                    tocListTitle.classList.toggle("collapsed");
-                });
                 this._listNodeMap.set(currentPath, node);
                 currentNode.append(node);
             }
