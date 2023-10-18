@@ -31,6 +31,7 @@
   "exclude": [
     "test",
     "jest.config.js",
-    "build"
+    "build",
+    "build.ts"
   ]
 }
