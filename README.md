@@ -34,4 +34,4 @@ python3 -m http.server
 
 depending on the operating system.
 
-Once you have a local web server set up, you can simply navigate to `localhost:8000` in your web browser of choise.
+Once you have a local web server set up, you can simply navigate to `localhost:8000` in your web browser of choice.
