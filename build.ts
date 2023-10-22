@@ -10,14 +10,14 @@ const result = await Bun.build({
         "src/cubing/lse-trainer.ts",
         "src/cubing/solution-editor.ts",
         "src/cubing/timer/index.ts",
-        "src/cubing/bld-exec-trainer.js",
+        "src/cubing/bld-exec-trainer.ts",
         "src/chess/chess-templates.ts",
         "src/chess/opening-trainer.ts"
     ],
     root: "src",
     outdir: "build",
     splitting: true,
-    minify: true
+    minify: false
 });
 
 if (!result.success) {

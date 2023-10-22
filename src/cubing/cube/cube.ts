@@ -125,6 +125,176 @@ export class Cube {
         return true;
     }
 
+    private static memo(numPieces: number, buffer: number, cycleBreakOrder: number[], getBaseIndex: (piece: number) => number, getPiece: (piece: number) => number): number[] {
+        // Remove solved pieces from the cycle break order without modifying the array passed in
+        cycleBreakOrder = cycleBreakOrder.filter(piece => piece !== getPiece(piece));
+
+        const isSamePiece = (a: number, b: number): boolean => {
+            return getBaseIndex(a) === getBaseIndex(b);
+        };
+
+        const solvedPieces = Array<boolean>(numPieces);
+        const memo: number[] = [];
+
+        let target = getPiece(buffer);
+        let cycleStart = buffer;
+
+        solvedPieces[getBaseIndex(buffer)] = true;
+        
+        let loopProtector = 0;
+        memoLoop:
+        while (true) {
+            if (loopProtector++ > 100) {
+                throw new Error("Infinite loop error");
+            }
+
+            if (isSamePiece(target, cycleStart) || isSamePiece(target, buffer)) {
+                if (isSamePiece(target, cycleStart) && !isSamePiece(target, buffer)) {
+                    solvedPieces[getBaseIndex(cycleStart)] = true;
+                    memo.push(target);
+                }
+
+                // start new cycle
+                while (true) {
+                    const cycleBreak = cycleBreakOrder.shift();
+                    if (cycleBreak === undefined) {
+                        break memoLoop;
+                    }
+                    if (!solvedPieces[getBaseIndex(cycleBreak)]) {
+                        cycleStart = cycleBreak;
+                        break;
+                    }
+                }
+
+                target = cycleStart;
+                memo.push(target);
+                target = getPiece(target);
+
+                // no more
+                continue;
+            }
+
+            memo.push(target);
+            solvedPieces[getBaseIndex(target)] = true;
+            target = getPiece(target);
+        }
+
+        return memo;
+    }
+
+    memoEdges(buffer: number, cycleBreakOrder: number[]): number[] {
+        const edges = this.getEdgeIndices();
+
+        const getBaseIndex = (index: number): number => {
+            return Math.floor(index / 2);
+        };
+        const getPiece = (target: number): number => {
+            const targetEdge = edges[getBaseIndex(target)];
+            return (targetEdge - targetEdge % 2) + (targetEdge + target) % 2;
+        };
+
+        return Cube.memo(edges.length, buffer, cycleBreakOrder, getBaseIndex, getPiece);
+    }
+    
+    private static getEdgeBaseIndex(edge: number[]): number {
+        const edgeHash = edge.reduce((acc, val) => acc | (1 << val), 0);
+        switch (edgeHash) {
+            case 0b010001: return 0;
+            case 0b001001: return 1;
+            case 0b000101: return 2;
+            case 0b000011: return 3;
+            case 0b001100: return 4;
+            case 0b000110: return 5;
+            case 0b010010: return 6;
+            case 0b011000: return 7;
+            case 0b100100: return 8;
+            case 0b101000: return 9;
+            case 0b110000: return 10;
+            case 0b100010: return 11;
+            default: throw new Error(`Invalid hash: ${edgeHash.toString(2)}`);
+        }
+    }
+
+    private getEdgeIndices(): number[] {
+        const edges = this.getEdges(Math.floor(this.layerCount / 2));
+        const indices = Array<number>(edges.length);
+
+        for (let i = 0; i < edges.length; i++) {
+            const edge = edges[i];
+
+            let flipped: boolean;
+            if (edge.some(val => (val === Face.U || val === Face.D))) {
+                // The edge's orientation is defined by its U/D sticker
+                flipped = !(edge[0] === Face.U || edge[0] === Face.D);
+            } else {
+                // The edge's orientation is defined by its F/R sticker
+                flipped = !(edge[0] === Face.F || edge[0] === Face.B);
+            }
+
+            const baseIndex = Cube.getEdgeBaseIndex(edge);
+            indices[i] = baseIndex * 2 + Number(flipped);
+        }
+
+        return indices;
+    }
+
+    memoCorners(buffer: number, cycleBreakOrder: number[]): number[] {
+        const corners = this.getCornerIndices();
+
+        const getBaseIndex = (index: number): number => {
+            return Math.floor(index / 3);
+        };
+        const getPiece = (target: number): number => {
+            const targetCorner = corners[getBaseIndex(target)];
+            return (targetCorner - targetCorner % 3) + (targetCorner + target) % 3;
+        };
+
+        return Cube.memo(corners.length, buffer, cycleBreakOrder, getBaseIndex, getPiece);
+    }
+
+    private static getCornerBaseIndex(triplet: number[]): number {
+        const tripletHash = triplet.reduce((acc, val) => acc | (1 << val), 0);
+        switch (tripletHash) {
+            case 0b010011: return 0;
+            case 0b011001: return 1;
+            case 0b001101: return 2;
+            case 0b000111: return 3;
+            case 0b100110: return 4;
+            case 0b101100: return 5;
+            case 0b111000: return 6;
+            case 0b110010: return 7;
+            default: throw `Invalid hash: '${tripletHash.toString(2)}'`;
+        }
+    }
+
+    private getCornerIndices(): number[] {
+        const corners = this.getCorners();
+        const indices = Array<number>(corners.length);
+        
+        for (let i = 0; i < corners.length; i++) {
+            const corner = corners[i];
+
+            // Wind corner stickers in a consistent order
+            if (i % 2 === 1) {
+                const swap = corner[1];
+                corner[1] = corner[2];
+                corner[2] = swap;
+            }
+
+            let topColorIndex = corner.findIndex(val => (val === Face.U || val === Face.D));
+            if (topColorIndex === -1) {
+                throw new Error(`Invalid corner triplet: [${corner.join(", ")}]`);
+            }
+            
+            const baseIndex = Cube.getCornerBaseIndex(corner);
+            let index = baseIndex * 3 + topColorIndex;
+
+            indices[i] = index;
+        }
+
+        return indices;
+    }
+
     private getCenters(index: number): Face[] {
         const centers: Face[] = [];
 

@@ -112,6 +112,138 @@ export class Cube {
         }
         return true;
     }
+    static memo(numPieces, buffer, cycleBreakOrder, getBaseIndex, getPiece) {
+        cycleBreakOrder = cycleBreakOrder.filter(piece => piece !== getPiece(piece));
+        const isSamePiece = (a, b) => {
+            return getBaseIndex(a) === getBaseIndex(b);
+        };
+        const solvedPieces = Array(numPieces);
+        const memo = [];
+        let target = getPiece(buffer);
+        let cycleStart = buffer;
+        solvedPieces[getBaseIndex(buffer)] = true;
+        let loopProtector = 0;
+        memoLoop: while (true) {
+            if (loopProtector++ > 100) {
+                throw new Error("Infinite loop error");
+            }
+            if (isSamePiece(target, cycleStart) || isSamePiece(target, buffer)) {
+                if (isSamePiece(target, cycleStart) && !isSamePiece(target, buffer)) {
+                    solvedPieces[getBaseIndex(cycleStart)] = true;
+                    memo.push(target);
+                }
+                while (true) {
+                    const cycleBreak = cycleBreakOrder.shift();
+                    if (cycleBreak === undefined) {
+                        break memoLoop;
+                    }
+                    if (!solvedPieces[getBaseIndex(cycleBreak)]) {
+                        cycleStart = cycleBreak;
+                        break;
+                    }
+                }
+                target = cycleStart;
+                memo.push(target);
+                target = getPiece(target);
+                continue;
+            }
+            memo.push(target);
+            solvedPieces[getBaseIndex(target)] = true;
+            target = getPiece(target);
+        }
+        return memo;
+    }
+    memoEdges(buffer, cycleBreakOrder) {
+        const edges = this.getEdgeIndices();
+        const getBaseIndex = (index) => {
+            return Math.floor(index / 2);
+        };
+        const getPiece = (target) => {
+            const targetEdge = edges[getBaseIndex(target)];
+            return (targetEdge - targetEdge % 2) + (targetEdge + target) % 2;
+        };
+        return Cube.memo(edges.length, buffer, cycleBreakOrder, getBaseIndex, getPiece);
+    }
+    static getEdgeBaseIndex(edge) {
+        const edgeHash = edge.reduce((acc, val) => acc | (1 << val), 0);
+        switch (edgeHash) {
+            case 0b010001: return 0;
+            case 0b001001: return 1;
+            case 0b000101: return 2;
+            case 0b000011: return 3;
+            case 0b001100: return 4;
+            case 0b000110: return 5;
+            case 0b010010: return 6;
+            case 0b011000: return 7;
+            case 0b100100: return 8;
+            case 0b101000: return 9;
+            case 0b110000: return 10;
+            case 0b100010: return 11;
+            default: throw new Error(`Invalid hash: ${edgeHash.toString(2)}`);
+        }
+    }
+    getEdgeIndices() {
+        const edges = this.getEdges(Math.floor(this.layerCount / 2));
+        const indices = Array(edges.length);
+        for (let i = 0; i < edges.length; i++) {
+            const edge = edges[i];
+            let flipped;
+            if (edge.some(val => (val === Face.U || val === Face.D))) {
+                flipped = !(edge[0] === Face.U || edge[0] === Face.D);
+            }
+            else {
+                flipped = !(edge[0] === Face.F || edge[0] === Face.B);
+            }
+            const baseIndex = Cube.getEdgeBaseIndex(edge);
+            indices[i] = baseIndex * 2 + Number(flipped);
+        }
+        return indices;
+    }
+    memoCorners(buffer, cycleBreakOrder) {
+        const corners = this.getCornerIndices();
+        const getBaseIndex = (index) => {
+            return Math.floor(index / 3);
+        };
+        const getPiece = (target) => {
+            const targetCorner = corners[getBaseIndex(target)];
+            return (targetCorner - targetCorner % 3) + (targetCorner + target) % 3;
+        };
+        return Cube.memo(corners.length, buffer, cycleBreakOrder, getBaseIndex, getPiece);
+    }
+    static getCornerBaseIndex(triplet) {
+        const tripletHash = triplet.reduce((acc, val) => acc | (1 << val), 0);
+        switch (tripletHash) {
+            case 0b010011: return 0;
+            case 0b011001: return 1;
+            case 0b001101: return 2;
+            case 0b000111: return 3;
+            case 0b100110: return 4;
+            case 0b101100: return 5;
+            case 0b111000: return 6;
+            case 0b110010: return 7;
+            default: throw `Invalid hash: '${tripletHash.toString(2)}'`;
+        }
+    }
+    getCornerIndices() {
+        const corners = this.getCorners();
+        const indices = Array(corners.length);
+        for (let i = 0; i < corners.length; i++) {
+            const corner = corners[i];
+            if (i % 2 === 1) {
+                const swap = corner[1];
+                corner[1] = corner[2];
+                corner[2] = swap;
+            }
+            let topColorIndex = corner.findIndex(val => (val === Face.U || val === Face.D));
+            if (topColorIndex === -1) {
+                throw new Error(`Invalid corner triplet: [${corner.join(", ")}]`);
+            }
+            const baseIndex = Cube.getCornerBaseIndex(corner);
+            let index = baseIndex * 3 + topColorIndex;
+            indices[i] = index;
+        }
+        return indices;
+    }
     getCenters(index) {
         const centers = [];
         for (let face = 0; face < 6; face++) {
