@@ -1,6 +1,6 @@
 # BrouxtForce.github.io
 
-A website to containing primarily tooling for speedcubing improvement.
+A website containing primarily tooling for speedcubing improvement.
 
 ## Building
 To build, download the zip, `cd` into the project's root directory, and run:
