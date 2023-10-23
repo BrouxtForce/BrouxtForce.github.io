@@ -113,7 +113,7 @@ export class Cube {
         return true;
     }
     static memo(numPieces, buffer, cycleBreakOrder, getBaseIndex, getPiece) {
-        cycleBreakOrder = cycleBreakOrder.filter(piece => piece !== getPiece(piece));
+        cycleBreakOrder = cycleBreakOrder.filter(piece => piece !== getPiece(piece) && getBaseIndex(piece) !== getBaseIndex(buffer));
         const isSamePiece = (a, b) => {
             return getBaseIndex(a) === getBaseIndex(b);
         };
@@ -179,7 +179,7 @@ export class Cube {
             case 0b101000: return 9;
             case 0b110000: return 10;
             case 0b100010: return 11;
-            default: throw new Error(`Invalid hash: ${edgeHash.toString(2)}`);
+            default: throw new Error(`Invalid edge: [${edge.join(", ")}]`);
         }
     }
     getEdgeIndices() {
@@ -196,6 +196,56 @@ export class Cube {
             }
             const baseIndex = Cube.getEdgeBaseIndex(edge);
             indices[i] = baseIndex * 2 + Number(flipped);
+        }
+        return indices;
+    }
+    memoWings(wingIndex, buffer, cycleBreakOrder) {
+        const wings = this.getWingIndices(wingIndex);
+        const getBaseIndex = (index) => index;
+        const getPiece = (target) => wings[target];
+        return Cube.memo(wings.length, buffer, cycleBreakOrder, getBaseIndex, getPiece);
+    }
+    static getWingBaseIndex(wing) {
+        const wingHash = (1 << wing[0]) | (1 << (wing[1] + 6));
+        switch (wingHash) {
+            case 0b010000000001: return 0;
+            case 0b000001010000: return 1;
+            case 0b001000000001: return 2;
+            case 0b000001001000: return 3;
+            case 0b000100000001: return 4;
+            case 0b000001000100: return 5;
+            case 0b000010000001: return 6;
+            case 0b000001000010: return 7;
+            case 0b001000000100: return 8;
+            case 0b000100001000: return 9;
+            case 0b000010000100: return 10;
+            case 0b000100000010: return 11;
+            case 0b000010010000: return 12;
+            case 0b010000000010: return 13;
+            case 0b001000010000: return 14;
+            case 0b010000001000: return 15;
+            case 0b000100100000: return 16;
+            case 0b100000000100: return 17;
+            case 0b001000100000: return 18;
+            case 0b100000001000: return 19;
+            case 0b010000100000: return 20;
+            case 0b100000010000: return 21;
+            case 0b000010100000: return 22;
+            case 0b100000000010: return 23;
+            default: throw new Error(`Invalid wing: [${wing.join(", ")}]`);
+        }
+    }
+    getWingIndices(wingIndex) {
+        const wings = this.getWings(wingIndex);
+        const indices = Array(wings.length);
+        for (let i = 0; i < wings.length; i++) {
+            const wing = wings[i];
+            if (i % 2 === 1) {
+                const swap = wing[0];
+                wing[0] = wing[1];
+                wing[1] = swap;
+            }
+            indices[i] = Cube.getWingBaseIndex(wing);
         }
         return indices;
     }
@@ -221,7 +271,7 @@ export class Cube {
             case 0b101100: return 5;
             case 0b111000: return 6;
             case 0b110010: return 7;
-            default: throw `Invalid hash: '${tripletHash.toString(2)}'`;
+            default: throw `Invalid corner: [${triplet.join(", ")}]`;
         }
     }
     getCornerIndices() {
@@ -255,36 +305,49 @@ export class Cube {
         return centers;
     }
     getEdges(index) {
-        const wings = [];
+        const edges = [];
         const faces = [Face.U, Face.L, Face.F, Face.R, Face.B, Face.D];
         for (const face of faces) {
             for (let i = 0; i < 4; i++) {
-                wings.push(this.stickers[face][index]);
+                edges.push(this.stickers[face][index]);
                 index = rotateIndexCw(index, this.layerCount);
             }
         }
-        const U = wings.slice(0, 4);
-        const L = wings.slice(4, 8);
-        const F = wings.slice(8, 12);
-        const R = wings.slice(12, 16);
-        const B = wings.slice(16, 20);
-        const D = wings.slice(20, 24);
+        const U = edges.slice(0, 4);
+        const L = edges.slice(4, 8);
+        const F = edges.slice(8, 12);
+        const R = edges.slice(12, 16);
+        const B = edges.slice(16, 20);
+        const D = edges.slice(20, 24);
         return [
             [U[0], B[0]], [U[1], R[0]], [U[2], F[0]], [U[3], L[0]],
             [F[1], R[3]], [F[3], L[1]], [B[1], L[3]], [B[3], R[1]],
             [D[0], F[2]], [D[1], R[2]], [D[2], B[2]], [D[3], L[2]]
         ];
     }
-    getWings(index) {
-        const groupA = this.getEdges(index);
-        const groupB = this.getEdges(this.layerCount - index - 1);
-        console.assert(groupA.length === 12 && groupB.length === 12);
-        const wings = Array(24);
-        for (let i = 0; i < 12; i++) {
-            wings[i * 2] = groupA[i];
-            wings[i * 2 + 1] = groupB[i];
+    getWings(indexA) {
+        const wings = [];
+        let indexB = this.layerCount - indexA - 1;
+        const faces = [Face.U, Face.L, Face.F, Face.R, Face.B, Face.D];
+        for (const face of faces) {
+            for (let i = 0; i < 4; i++) {
+                wings.push(this.stickers[face][indexA]);
+                wings.push(this.stickers[face][indexB]);
+                indexA = rotateIndexCw(indexA, this.layerCount);
+                indexB = rotateIndexCw(indexB, this.layerCount);
+            }
         }
-        return wings;
+        const U = wings.slice(0, 8);
+        const L = wings.slice(8, 16);
+        const F = wings.slice(16, 24);
+        const R = wings.slice(24, 32);
+        const B = wings.slice(32, 40);
+        const D = wings.slice(40, 48);
+        return [
+            [U[0], B[1]], [U[1], B[0]], [U[2], R[1]], [U[3], R[0]], [U[4], F[1]], [U[5], F[0]], [U[6], L[1]], [U[7], L[0]],
+            [F[2], R[7]], [F[3], R[6]], [F[6], L[3]], [F[7], L[2]], [B[2], L[7]], [B[3], L[6]], [B[6], R[3]], [B[7], R[2]],
+            [D[0], F[5]], [D[1], F[4]], [D[2], R[5]], [D[3], R[4]], [D[4], B[5]], [D[5], B[4]], [D[6], L[5]], [D[7], L[4]],
+        ];
     }
     getCorners() {
         const corners = [];

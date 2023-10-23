@@ -2,13 +2,13 @@
     --cube-width: 40vw;
     --face-margin: 3px;
     --layer-count: 3;
-    --sticker-size: calc((var(--cube-width) - var(--face-margin) * 6) / (var(--layer-count) * 4));
 }
 
 .cube {
     position: relative;
     width: calc(var(--sticker-size) * 4 * var(--layer-count) + var(--face-margin) * 8);
     height: calc(var(--sticker-size) * 3 * var(--layer-count) + var(--face-margin) * 6);
+    --sticker-size: calc((var(--cube-width) - var(--face-margin) * 6) / (var(--layer-count) * 4));
 }
 .face {
     float: left;
